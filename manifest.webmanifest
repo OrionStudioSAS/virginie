@@ -1,0 +1,15 @@
+{
+  "name": "Virginie Lelong - Diététicienne",
+  "short_name": "Virginie Mazaud",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Diététicienne nutritionniste - bilans, impédancemétrie et suivi personnalisé.",
+  "icons": [
+    {
+      "src": "/assets/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}
