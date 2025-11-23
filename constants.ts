@@ -87,21 +87,27 @@ export const WORKPLACES: Workplace[] = [
     name: "Cabinet Melun - Quai Foch",
     address: "13 Quai Maréchal Foch, 77000 Melun",
     description: "Cabinet principal situé en bord de Seine.",
-    imageUrl: new URL('./assets/foch.jpeg', import.meta.url).href
+    imageUrl: new URL('./assets/foch.jpeg', import.meta.url).href,
+    mapUrl: "https://www.google.com/maps?hl=fr&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x47e5fbf99bb9b5b1:0x74e189db56de381e",
+    reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20Nutritionniste%20Quai%20Foch%20Melun%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2MDEyMjQzMTY1NjYwN7cwNTIx28DI-IrRyyc1Jz8vXdc3sSqxNEUhLLMoPTMvM1XBJfPwyhIgykzOTM3LS1XwKy0pyizJzM_LyywuSVUILE3MVHDLT85Q8E3NKc1TcCzLLF7ESkXDAHturB60AAAA&rldimm=8422164353307785246&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCIQ9fQKKABqFwoTCKjfs5aaiZEDFQAAAAAdAAAAABAQ&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5fbf99bb9b5b1:0x74e189db56de381e,3,,,,"
   },
   {
     id: 2,
     name: "Cabinet Melun - Marc Jacquet",
     address: "274 Avenue Marc Jacquet, 77000 Melun",
     description: "Consultations au sein du pôle santé.",
-    imageUrl: new URL('./assets/hermitage.jpeg', import.meta.url).href
+    imageUrl: new URL('./assets/hermitage.jpeg', import.meta.url).href,
+    mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+clinique+St+Jean+l'Ermitage+Melun/@48.556294,2.640313,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5fb5fb350d58b:0xded221dd99c1dddd!8m2!3d48.556294!4d2.640313!16s%2Fg%2F11lv7pv_2h?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+    reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20clinique%20St%20Jean%20l'Ermitage%20Melun%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDMwNbU0NrIwNTe0MDA2Mbcws9zAyPiK0dcnNSc_L13XN7EqsTRFISyzKD0zLzNVwSXz8MoSIMpMzkzNy0tVSM4BCheWpioElyh4pSbmKeSouxblZpYkpqcq-KbmlOYpOJZlFi9ipa55AAExHDC7AAAA&rldimm=16055932857180347869&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCMQ9fQKKABqFwoTCICuxJGZiZEDFQAAAAAdAAAAABAH&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5fb5fb350d58b:0xded221dd99c1dddd,3,,,,"
   },
   {
     id: 3,
     name: "Cabinet Corbeil-Essonnes",
     address: "25 Allée Aristide Briand, 91100 Corbeil-Essonnes",
     description: "Cabinet pluridisciplinaire facile d'accès.",
-    imageUrl: new URL('./assets/mds.jpeg', import.meta.url).href
+    imageUrl: new URL('./assets/mds.jpeg', import.meta.url).href,
+    mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+Maison+de+sant%C3%A9+Corbeil-Essonnes/@48.6103233,2.4760804,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5e7896398e091:0x6ac222d9478515ce!8m2!3d48.6103233!4d2.4760804!16s%2Fg%2F11k47msyfn?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+    reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20Maison%20de%20sant%C3%A9%20Corbeil-Essonnes%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2N7M0MjexNDE2MDQwNbYwMDYw2sDI-IrR1yc1Jz8vXdc3sSqxNEUhLLMoPTMvM1XBJfPwyhIgykzOTM3LS1XwTcwszs9TSElVKE7MA0ooOOcXJaVm5ui6FgPF81KLFRzLMosXsVLXPADM9te_ugAAAA&rldimm=7692749430105380302&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCMQ9fQKKABqFwoTCIDPy4iaiZEDFQAAAAAdAAAAABAQ&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5e7896398e091:0x6ac222d9478515ce,3,,,,"
   }
 ];
 
@@ -173,18 +179,18 @@ Vendredi : 09h30 - 19h00`
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
-    name: "Emilie D.",
-    text: "Une professionnelle très à l'écoute. Grâce à elle, j'ai pu rééquilibrer mon alimentation sans sensation de privation. Je recommande vivement !",
+    name: "Sandrine Munoz",
+    text: "Mme Mazaud a su être à l'écoute de mes attentes. Nous avons pu revoir mes habitudes alimentaires alors que la ménopause s'est invitée chez-moi! Avec bienveillance, elle a suivi l'évolution de ma prise de conscience et les petits changements appliqués. Je recommande vivement praticienne.",
     rating: 5
   },
   {
-    name: "Julien M.",
-    text: "Excellent suivi pour ma préparation sportive. Virginie a su adapter mon alimentation à mes entrainements. Résultats au rendez-vous.",
+    name: "Leslie Rados",
+    text: "Si vous êtes à la recherche d’une professionnelle consciencieuse, Virginie est la personne qu’il vous faut. Un immense merci pour votre accompagnement qui porte ses fruits.",
     rating: 5
   },
   {
-    name: "Chantal B.",
-    text: "J'ai consulté pour des problèmes digestifs récurrents. Ses conseils ont été précieux et m'ont permis de retrouver un confort de vie au quotidien.",
+    name: "Maxence PECQUENARD — Entraîneur d’aviron",
+    text: "Merci beaucoup ! Je recommande, même pour les sportifs ! Donne de bons conseils, à l’écoute,… Top satisfait à 100%",
     rating: 5
   }
 ];
@@ -207,7 +213,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 // External Links & Contact
-export const DOCTOLIB_URL = "https://www.doctolib.fr";
+export const DOCTOLIB_URL = "https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud";
 export const GOOGLE_REVIEW_URL = "https://www.google.com/maps";
 export const PHONE_NUMBER = "06 99 50 51 57";
 export const EMAIL_ADDRESS = "vlelongdiet@orange.fr";

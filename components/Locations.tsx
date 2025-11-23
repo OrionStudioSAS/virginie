@@ -37,7 +37,7 @@ export const Locations: React.FC = () => {
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-100">
                   <a 
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`}
+                    href={place.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm font-semibold text-secondary hover:text-green-600 inline-flex items-center gap-1"

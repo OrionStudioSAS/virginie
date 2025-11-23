@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NAV_ITEMS, SQUARE_LOGO } from '../constants';
+import { NAV_ITEMS, SQUARE_LOGO, DOCTOLIB_URL } from '../constants';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
             </button>
           ))}
           <a 
-            href="https://www.doctolib.fr" 
+            href={DOCTOLIB_URL} 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-rose-600 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold"
@@ -88,7 +88,7 @@ export const Navbar: React.FC = () => {
             </button>
           ))}
           <a 
-            href="https://www.doctolib.fr" 
+            href={DOCTOLIB_URL} 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-primary text-white px-4 py-3 rounded-lg text-center font-semibold mt-4 shadow-md"

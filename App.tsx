@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -9,8 +9,11 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Testimonials } from './components/Testimonials';
 import { Impedance } from './components/Impedance';
+import ReviewModal from './components/ReviewModal';
 
 const App: React.FC = () => {
+  const [openReviewModal, setOpenReviewModal] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <Navbar />
@@ -19,11 +22,13 @@ const App: React.FC = () => {
         <About />
         <Impedance />
         <Locations />
-        <Testimonials />
-        <Contact />
+        <Testimonials onOpenReview={() => setOpenReviewModal(true)} />
+        <Contact onOpenReview={() => setOpenReviewModal(true)} />
         <FAQ />
       </main>
       <Footer />
+
+      <ReviewModal open={openReviewModal} onClose={() => setOpenReviewModal(false)} />
     </div>
   );
 };

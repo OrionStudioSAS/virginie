@@ -3,7 +3,11 @@ import { TESTIMONIALS, GOOGLE_REVIEW_URL } from '../constants';
 import { Star, Quote } from 'lucide-react';
 import { Button } from './Button';
 
-export const Testimonials: React.FC = () => {
+type Props = {
+  onOpenReview?: () => void;
+};
+
+export const Testimonials: React.FC<Props> = ({ onOpenReview }) => {
   return (
     <section id="testimonials" className="py-24 bg-rose-50/30">
       <div className="container mx-auto px-6">
@@ -42,9 +46,11 @@ export const Testimonials: React.FC = () => {
         </div>
 
         <div className="text-center reveal reveal-delay-300">
-             <Button href={GOOGLE_REVIEW_URL} variant="secondary" target="_blank" className="bg-white text-slate-700 hover:bg-slate-50 border border-slate-200">
-                 Lire d'autres avis sur Google
-             </Button>
+             <div className="flex justify-center">
+               <Button onClick={() => (onOpenReview ? onOpenReview() : window.open(GOOGLE_REVIEW_URL, '_blank'))} variant="primary">
+                 Poster un avis
+               </Button>
+             </div>
         </div>
       </div>
     </section>

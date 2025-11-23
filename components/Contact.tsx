@@ -3,7 +3,11 @@ import { DOCTOLIB_URL, PHONE_NUMBER, EMAIL_ADDRESS, SCHEDULE, GOOGLE_REVIEW_URL 
 import { Button } from './Button';
 import { ExternalLink, Phone, Mail, Clock, MapPin, MessageSquare } from 'lucide-react';
 
-export const Contact: React.FC = () => {
+type Props = {
+  onOpenReview?: () => void;
+};
+
+export const Contact: React.FC<Props> = ({ onOpenReview }) => {
   return (
     <section id="contact" className="py-24 bg-white relative overflow-hidden">
       {/* Decorative Circles */}
@@ -83,10 +87,10 @@ export const Contact: React.FC = () => {
                     Prendre RDV <ExternalLink size={20} />
                     </span>
                 </Button>
-                <Button href={GOOGLE_REVIEW_URL} target="_blank" variant="outline" className="flex-1 py-4 text-lg justify-center">
-                    <span className="flex items-center gap-2">
+                <Button onClick={() => (onOpenReview ? onOpenReview() : window.open(GOOGLE_REVIEW_URL, '_blank'))} variant="secondary" className="flex-1 shadow-lg shadow-green-500/20 py-4 text-lg justify-center">
+                  <span className="flex items-center gap-2">
                     Laisser un avis <MessageSquare size={20} />
-                    </span>
+                  </span>
                 </Button>
               </div>
             </div>
