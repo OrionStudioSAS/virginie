@@ -6,7 +6,7 @@ import { Scale, Activity, Stethoscope, Baby, Dumbbell, Heart } from 'lucide-reac
 // NOTE: using local images placed in `assets/` (assumed filenames: mds.jpeg, hermitage.jpeg, foh.jpeg)
 export const DOCTOR_IMAGE = new URL('./assets/mds.jpeg', import.meta.url).href;
 export const SQUARE_LOGO = new URL('./assets/logo.jpeg', import.meta.url).href;
-export const IMPEDANCE_IMAGE = "https://images.unsplash.com/photo-1576091160399-112da8d60f02?auto=format&fit=crop&q=80&w=800"; // Medical/Health Tech image
+export const IMPEDANCE_IMAGE = new URL('./assets/imdependancemetre.png', import.meta.url).href; // local impédancemètre image
 
 export const LOGO_COLORS = {
   pink: '#F43F5E',
