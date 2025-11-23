@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
           <div className="reveal active">
             <h2 className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Diététicienne Nutritionniste</h2>
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 leading-tight">
-              Retrouvez le plaisir <br/>
+               le plaisir <br/>
               de <span className="text-primary underline decoration-primary/20 decoration-4 underline-offset-4">manger sainement</span>
             </h1>
           </div>
