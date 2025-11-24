@@ -16,15 +16,17 @@ export const Hero: React.FC = () => {
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 relative z-10">
         <div className="flex-1 space-y-8 text-center md:text-left">
           <div className="reveal reveal-slide-left">
-            <h2 className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Diététicienne Nutritionniste</h2>
+            <h2 className="inline-block bg-rose-50/80 text-primary font-semibold uppercase tracking-widest text-xs md:text-sm mb-3 px-4 py-1.5 rounded-full shadow-sm">
+              Diététicienne Nutritionniste
+            </h2>
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 leading-tight">
-              Retrouvez le plaisir <br/>
-              de <span className="text-primary underline decoration-primary/20 decoration-4 underline-offset-4">manger sainement</span>
+              Retrouvez votre équilibre <br/>
+              avec un accompagnement <span className="text-[#8bc242] underline decoration-[#8bc242]/20 decoration-4 underline-offset-4">personnalisé</span>
             </h1>
           </div>
           
           <p className="reveal reveal-slide-left reveal-delay-100 text-lg text-slate-600 leading-relaxed max-w-lg mx-auto md:mx-0">
-            J'accompagne mes patients vers un équilibre alimentaire durable, sans frustration, adapté à votre mode de vie et à vos besoins.
+            Je vous propose des programmes sur-mesure, un suivi bienveillant et des conseils fondés sur la science de la nutrition.
           </p>
           
           <div className="reveal reveal-scale-up reveal-delay-200 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -38,18 +40,13 @@ export const Hero: React.FC = () => {
         </div>
 
         <div className="flex-1 relative reveal reveal-slide-right reveal-delay-300">
-          <div className="relative w-full max-w-md mx-auto aspect-[3/4]">
-             <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 translate-x-2 translate-y-2"></div>
+          <div className="relative w-full max-w-xl md:max-w-2xl mx-auto aspect-square">
+             <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 translate-x-3 translate-y-3"></div>
             <img 
               src={DOCTOR_IMAGE} 
-              alt="Virginie Mazaud" 
-              className="w-full h-full object-cover object-left rounded-[2rem] shadow-2xl relative z-10 border-4 border-white transition-transform duration-500 hover:scale-[1.01]"
+              alt="Analyse nutritionnelle et impédancemétrie" 
+              className="w-full h-full object-cover object-center rounded-[2rem] shadow-2xl relative z-10 border-4 border-white transition-transform duration-500 hover:scale-[1.01]"
             />
-            {/* Decorative badge */}
-            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg z-20 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
-               <div className="h-3 w-3 rounded-full bg-green-500"></div>
-               <span className="font-semibold text-slate-700 text-sm">Disponibilités cette semaine</span>
-            </div>
           </div>
         </div>
       </div>

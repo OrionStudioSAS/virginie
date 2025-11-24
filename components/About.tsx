@@ -3,6 +3,35 @@ import { BIO_TEXT, SPECIALTIES, DIPLOMAS, ASSOCIATIONS, FULL_NAME } from '../con
 import { Award, Users } from 'lucide-react';
 
 export const About: React.FC = () => {
+  const highlightKeywords = (text: string) => {
+    const keywords = [
+      "alimentation équilibrée",
+      "perte de poids",
+      "obésité",
+      "diabète",
+      "hypertension",
+      "ménopause",
+      "grossesse",
+      "sport",
+      "maladies cardiovasculaires",
+      "chirurgie bariatrique",
+      "bilan complet",
+      "suivi régulier",
+      "conseils pratiques",
+      "impédancemètre",
+      "composition corporelle",
+      "équilibre alimentaire",
+      "santé"
+    ];
+
+    const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    return keywords.reduce((acc, keyword) => {
+      const regex = new RegExp(escapeRegExp(keyword), 'gi');
+      return acc.replace(regex, (match) => `<span class="text-slate-900 font-semibold">${match}</span>`);
+    }, text);
+  };
+
   return (
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -14,12 +43,16 @@ export const About: React.FC = () => {
               {FULL_NAME}
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full"></span>
             </h2>
-            <h3 className="text-xl text-primary font-medium">Diététicienne-Nutritionniste diplômée</h3>
+            <h3 className="text-xl text-primary font-medium">Diététicienne-Nutritionniste diplômée d'État</h3>
           </div>
           
-          <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-4">
+          <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
             {BIO_TEXT.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p 
+                key={index}
+                className="text-slate-600"
+                dangerouslySetInnerHTML={{ __html: highlightKeywords(paragraph) }}
+              />
             ))}
           </div>
         </div>
@@ -71,7 +104,7 @@ export const About: React.FC = () => {
           <div className="reveal reveal-delay-200">
             <div className="flex items-center gap-3 mb-6">
               <Users className="text-secondary w-8 h-8" />
-              <h3 className="text-2xl font-serif font-bold text-slate-800">Associations</h3>
+              <h3 className="text-2xl font-serif font-bold text-slate-800">Membre des associations</h3>
             </div>
             <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
               <ul className="space-y-3">

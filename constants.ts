@@ -4,7 +4,7 @@ import { Scale, Activity, Stethoscope, Baby, Dumbbell, Heart } from 'lucide-reac
 
 // Images
 // NOTE: using local images placed in `assets/` (assumed filenames: mds.jpeg, hermitage.jpeg, foh.jpeg)
-export const DOCTOR_IMAGE = new URL('./assets/mds.jpeg', import.meta.url).href;
+export const DOCTOR_IMAGE = new URL('./assets/image banner.jpg', import.meta.url).href;
 export const SQUARE_LOGO = new URL('./assets/logo.jpeg', import.meta.url).href;
 export const IMPEDANCE_IMAGE = new URL('./assets/imdependancemetre.png', import.meta.url).href; // local impédancemètre image
 
@@ -93,16 +93,16 @@ export const WORKPLACES: Workplace[] = [
   },
   {
     id: 2,
-    name: "Cabinet Melun - Marc Jacquet",
+    name: "Cabinet Melun - Clinique St Jean l'Ermitage",
     address: "274 Avenue Marc Jacquet, 77000 Melun",
-    description: "Consultations au sein du pôle santé.",
+    description: "Maison des consultations.",
     imageUrl: new URL('./assets/hermitage.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+clinique+St+Jean+l'Ermitage+Melun/@48.556294,2.640313,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5fb5fb350d58b:0xded221dd99c1dddd!8m2!3d48.556294!4d2.640313!16s%2Fg%2F11lv7pv_2h?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
     reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20clinique%20St%20Jean%20l'Ermitage%20Melun%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDMwNbU0NrIwNTe0MDA2Mbcws9zAyPiK0dcnNSc_L13XN7EqsTRFISyzKD0zLzNVwSXz8MoSIMpMzkzNy0tVSM4BCheWpioElyh4pSbmKeSouxblZpYkpqcq-KbmlOYpOJZlFi9ipa55AAExHDC7AAAA&rldimm=16055932857180347869&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCMQ9fQKKABqFwoTCICuxJGZiZEDFQAAAAAdAAAAABAH&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5fb5fb350d58b:0xded221dd99c1dddd,3,,,,"
   },
   {
     id: 3,
-    name: "Cabinet Corbeil-Essonnes",
+    name: "Cabinet Corbeil-Essonnes - Maison de santé \"les Allées\"",
     address: "25 Allée Aristide Briand, 91100 Corbeil-Essonnes",
     description: "Cabinet pluridisciplinaire facile d'accès.",
     imageUrl: new URL('./assets/mds.jpeg', import.meta.url).href,

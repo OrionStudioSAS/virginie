@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
             </div>
             <div className="flex flex-col text-left">
               <span className="text-xl font-serif font-bold text-slate-900 leading-none">
-                Virginie Mazaud
+                Virginie Lelong Mazaud
               </span>
               <span className="text-primary text-sm font-medium tracking-wide">
                 Diététicienne Nutritionniste

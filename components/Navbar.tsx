@@ -37,7 +37,7 @@ export const Navbar: React.FC = () => {
           
           <div className="flex flex-col">
             <span className="text-xl md:text-2xl font-serif font-bold text-slate-900 leading-none">
-              Virginie Mazaud
+              Virginie Lelong Mazaud
             </span>
             <span className="text-primary text-sm font-medium tracking-wide">
               Diététicienne Nutritionniste
