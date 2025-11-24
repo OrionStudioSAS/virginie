@@ -5,7 +5,10 @@ import { ChevronDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 md:pt-20 bg-gradient-to-br from-rose-50/50 via-white to-slate-50 overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-32 md:pt-36 pb-24 md:pb-28 bg-gradient-to-br from-rose-50/50 via-white to-slate-50 overflow-hidden"
+    >
       {/* Decorative Blobs - Removed green, kept soft pinks/neutrals */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-slate-200/40 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
