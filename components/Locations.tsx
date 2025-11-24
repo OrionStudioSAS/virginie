@@ -8,7 +8,7 @@ export const Locations: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            Lieux de consultation
+            Lieux de consultation à Melun & Corbeil-Essonnes
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto">Je vous accueille dans mes trois cabinets situés en Seine-et-Marne et en Essonne.</p>
         </div>
