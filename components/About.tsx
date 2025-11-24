@@ -35,7 +35,7 @@ export const About: React.FC = () => {
             {SPECIALTIES.map((service, index) => (
               <div 
                 key={index} 
-                className={`reveal reveal-delay-${(index % 3) * 100} bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-rose-100`}
+                className={`reveal reveal-scale-up reveal-delay-${(index % 3) * 100} bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-rose-100`}
               >
                 <div className="w-14 h-14 bg-rose-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                   <service.icon size={28} />

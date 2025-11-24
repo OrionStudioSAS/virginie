@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 relative z-10">
         <div className="flex-1 space-y-8 text-center md:text-left">
-          <div className="reveal active">
+          <div className="reveal reveal-slide-left">
             <h2 className="text-primary font-semibold uppercase tracking-widest text-sm mb-2">Diététicienne Nutritionniste</h2>
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 leading-tight">
               Retrouvez le plaisir <br/>
@@ -23,11 +23,11 @@ export const Hero: React.FC = () => {
             </h1>
           </div>
           
-          <p className="reveal active reveal-delay-100 text-lg text-slate-600 leading-relaxed max-w-lg mx-auto md:mx-0">
+          <p className="reveal reveal-slide-left reveal-delay-100 text-lg text-slate-600 leading-relaxed max-w-lg mx-auto md:mx-0">
             J'accompagne mes patients vers un équilibre alimentaire durable, sans frustration, adapté à votre mode de vie et à vos besoins.
           </p>
           
-          <div className="reveal active reveal-delay-200 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div className="reveal reveal-scale-up reveal-delay-200 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button href={DOCTOLIB_URL} target="_blank">
               Prendre rendez-vous
             </Button>
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex-1 relative reveal active reveal-delay-300">
+        <div className="flex-1 relative reveal reveal-slide-right reveal-delay-300">
           <div className="relative w-full max-w-md mx-auto aspect-[3/4]">
              <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 translate-x-2 translate-y-2"></div>
             <img 

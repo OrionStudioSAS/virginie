@@ -207,7 +207,7 @@ export const IMPEDANCE_BENEFITS = [
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Accueil", targetId: "home" },
-  { label: "À propos", targetId: "about" },
+  { label: "En savoir plus", targetId: "about" },
   { label: "Lieux", targetId: "locations" },
   { label: "Contact", targetId: "contact" },
 ];

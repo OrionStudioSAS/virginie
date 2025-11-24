@@ -25,7 +25,7 @@ export const Testimonials: React.FC<Props> = ({ onOpenReview }) => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {TESTIMONIALS.map((item, idx) => (
-            <div key={idx} className={`bg-white p-8 rounded-2xl shadow-sm border border-rose-50 reveal reveal-delay-${idx * 100} hover:shadow-md transition-shadow`}>
+            <div key={idx} className={`bg-white p-8 rounded-2xl shadow-sm border border-rose-50 reveal reveal-scale-up reveal-delay-${idx * 100} hover:shadow-md transition-shadow`}>
               <div className="flex gap-1 text-yellow-400 mb-6">
                 {[...Array(item.rating)].map((_, i) => (
                   <Star key={i} size={16} fill="currentColor" />
@@ -45,9 +45,13 @@ export const Testimonials: React.FC<Props> = ({ onOpenReview }) => {
           ))}
         </div>
 
-        <div className="text-center reveal reveal-delay-300">
+        <div className="text-center reveal reveal-pop reveal-delay-300">
              <div className="flex justify-center">
-               <Button onClick={() => (onOpenReview ? onOpenReview() : window.open(GOOGLE_REVIEW_URL, '_blank'))} variant="primary">
+               <Button
+                 onClick={() => (onOpenReview ? onOpenReview() : window.open(GOOGLE_REVIEW_URL, '_blank'))}
+                 variant="primary"
+                 className="px-8 py-4 text-lg"
+               >
                  Poster un avis
                </Button>
              </div>

@@ -18,7 +18,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           {/* Schedule Column */}
-          <div className="reveal bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100 relative overflow-hidden">
+          <div className="reveal reveal-slide-left bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100 relative overflow-hidden">
              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
             <div className="flex items-center gap-4 mb-8 relative z-10">
               <div className="p-3 bg-primary/10 rounded-full text-primary">
@@ -46,10 +46,10 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
           </div>
 
           {/* Contact & Actions Column */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 justify-center h-full reveal reveal-slide-right">
              
              {/* Contact Info Cards */}
-            <div className="reveal reveal-delay-100">
+            <div className="reveal reveal-scale-up reveal-delay-100">
                <h2 className="text-3xl font-serif font-bold text-slate-800 mb-6">Me contacter</h2>
                <div className="flex flex-col gap-4">
                   <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
@@ -74,7 +74,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
             </div>
 
             {/* Appointment & Review CTA */}
-            <div className="text-center md:text-left reveal reveal-delay-200 pt-6 border-t border-slate-100">
+            <div className="text-center md:text-left reveal reveal-pop reveal-delay-200 pt-6 border-t border-slate-100">
               <h3 className="text-xl font-bold text-slate-800 mb-2">
                 Rendez-vous & Avis
               </h3>
@@ -87,7 +87,11 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                     Prendre RDV <ExternalLink size={20} />
                     </span>
                 </Button>
-                <Button onClick={() => (onOpenReview ? onOpenReview() : window.open(GOOGLE_REVIEW_URL, '_blank'))} variant="secondary" className="flex-1 shadow-lg shadow-green-500/20 py-4 text-lg justify-center">
+                <Button
+                  onClick={() => (onOpenReview ? onOpenReview() : window.open(GOOGLE_REVIEW_URL, '_blank'))}
+                  variant="outline"
+                  className="flex-1 py-4 text-lg justify-center"
+                >
                   <span className="flex items-center gap-2">
                     Laisser un avis <MessageSquare size={20} />
                   </span>

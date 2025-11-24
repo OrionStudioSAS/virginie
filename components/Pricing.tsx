@@ -12,7 +12,7 @@ export const Pricing: React.FC = () => {
           <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-rose-100 reveal active">
+        <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-rose-100 reveal reveal-scale-up">
           <div className="p-1 bg-gradient-to-r from-rose-200 via-primary to-rose-200"></div>
           <div className="divide-y divide-slate-100">
             {PRICES.map((item, idx) => (

@@ -10,7 +10,7 @@ export const Impedance: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* Text Content */}
-          <div className="flex-1 reveal">
+          <div className="flex-1 reveal reveal-slide-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-6">
                <Activity size={16} />
                <span>Technologie Professionnelle</span>
@@ -40,7 +40,7 @@ export const Impedance: React.FC = () => {
           </div>
 
           {/* Image Side */}
-          <div className="flex-1 w-full reveal reveal-delay-200">
+          <div className="flex-1 w-full reveal reveal-slide-right reveal-delay-200">
              <div className="relative group">
                 <div className="absolute inset-0 bg-secondary/20 rounded-[2rem] rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-[3/4]">
