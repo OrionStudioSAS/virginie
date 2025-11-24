@@ -190,21 +190,46 @@
           threshold: 0.1
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-            }
+        // If IntersectionObserver is supported, observe existing .reveal elements
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, observerOptions);
+
+          // Observe existing .reveal elements immediately (fixes Firefox where mutations may not fire)
+          const observeAll = () => {
+            const elements = document.querySelectorAll('.reveal');
+            elements.forEach(el => observer.observe(el));
+          };
+
+          observeAll();
+
+          // Also watch for elements added later by React and observe them
+          const bodyObserver = new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+              mutation.addedNodes.forEach(node => {
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                  const el = node;
+                  try {
+                    if (el.matches && el.matches('.reveal')) observer.observe(el);
+                    el.querySelectorAll && el.querySelectorAll('.reveal').forEach((child) => observer.observe(child));
+                  } catch (e) {
+                    // ignore elements that don't support matches/querySelectorAll
+                  }
+                }
+              });
+            });
           });
-        }, observerOptions);
 
-        // We use a MutationObserver to watch for React rendering elements
-        const bodyObserver = new MutationObserver(() => {
-          const elements = document.querySelectorAll('.reveal');
-          elements.forEach(el => observer.observe(el));
-        });
-
-        bodyObserver.observe(document.body, { childList: true, subtree: true });
+          bodyObserver.observe(document.body, { childList: true, subtree: true });
+        } else {
+          // Fallback: simply reveal everything
+          document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+        }
       });
     </script>
   <script type="module" src="/index.tsx"></script>
