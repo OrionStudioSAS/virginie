@@ -135,57 +135,126 @@
 }
 </script>
 <link rel="stylesheet" href="/index.css">
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Dietitian",
       "name": "Virginie Lelong - Mazaud",
-      "telephone": "06 99 50 51 57",
+      "alternateName": "Virginie Lelong",
+      "jobTitle": "Diététicienne Nutritionniste",
+      "telephone": "+33699505157",
       "email": "vlelongdiet@orange.fr",
-      "image": "/assets/image%20banner.jpg",
+      "image": "https://www.virginie-lelong-nutrition.fr/assets/image%20banner.jpg",
+      "url": "https://www.virginie-lelong-nutrition.fr",
       "priceRange": "€€",
-      "areaServed": [
-        "Melun",
-        "Corbeil-Essonnes",
-        "Seine-et-Marne",
-        "Essonne"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "13 Quai Maréchal Foch",
-        "addressLocality": "Melun",
-        "postalCode": "77000",
-        "addressCountry": "FR"
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "30"
       },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Melun"
+        },
+        {
+          "@type": "City",
+          "name": "Corbeil-Essonnes"
+        },
+        {
+          "@type": "City",
+          "name": "Fontainebleau"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Seine-et-Marne"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Essonne"
+        }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "13 Quai Maréchal Foch",
+          "addressLocality": "Melun",
+          "postalCode": "77000",
+          "addressCountry": "FR",
+          "addressRegion": "Île-de-France"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "18 rue Feray",
+          "addressLocality": "Corbeil-Essonnes",
+          "postalCode": "91100",
+          "addressCountry": "FR",
+          "addressRegion": "Île-de-France"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "52 rue Grande",
+          "addressLocality": "Fontainebleau",
+          "postalCode": "77300",
+          "addressCountry": "FR",
+          "addressRegion": "Île-de-France"
+        }
+      ],
       "hasMap": "https://www.google.com/maps?hl=fr&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x47e5fbf99bb9b5b1:0x74e189db56de381e",
       "sameAs": [
         "https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud"
       ],
-      "department": [
+      "openingHoursSpecification": [
         {
-          "@type": "MedicalClinic",
-          "name": "Clinique St Jean l'Ermitage",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "274 Avenue Marc Jacquet",
-            "addressLocality": "Melun",
-            "postalCode": "77000",
-            "addressCountry": "FR"
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consultation diététique",
+            "description": "Bilan nutritionnel personnalisé et suivi"
           }
         },
         {
-          "@type": "MedicalClinic",
-          "name": "Maison de santé \"les Allées\"",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "25 Allée Aristide Briand",
-            "addressLocality": "Corbeil-Essonnes",
-            "postalCode": "91100",
-            "addressCountry": "FR"
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Impédancemétrie",
+            "description": "Analyse de composition corporelle"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Suivi post-chirurgie bariatrique",
+            "description": "Accompagnement nutritionnel après chirurgie"
           }
         }
       ],
-      "description": "Diététicienne nutritionniste à Melun (Quai Foch, Clinique St Jean l'Ermitage) et Corbeil-Essonnes. Bilan personnalisé, impédancemétrie et suivi nutritionnel bienveillant."
+      "memberOf": [
+        {
+          "@type": "Organization",
+          "name": "AFDN",
+          "description": "Association Française des Diététiciens Nutritionnistes"
+        }
+      ],
+      "knowsAbout": [
+        "Perte de poids",
+        "Diabète",
+        "Nutrition sportive",
+        "Chirurgie bariatrique",
+        "Troubles du comportement alimentaire",
+        "Impédancemétrie"
+      ],
+      "description": "Diététicienne nutritionniste diplômée à Melun, Corbeil-Essonnes et Fontainebleau. Bilan personnalisé avec impédancemétrie, suivi nutritionnel bienveillant et programmes sur-mesure."
     }
     </script>
 </head>
