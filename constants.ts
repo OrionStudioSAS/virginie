@@ -89,7 +89,7 @@ export const WORKPLACES: Workplace[] = [
     description: "Cabinet principal situé en bord de Seine.",
     imageUrl: new URL('./assets/foch.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps?hl=fr&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x47e5fbf99bb9b5b1:0x74e189db56de381e",
-    reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20Nutritionniste%20Quai%20Foch%20Melun%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxK2MDEyMjQzMTY1NjYwN7cwNTIx28DI-IrRyyc1Jz8vXdc3sSqxNEUhLLMoPTMvM1XBJfPwyhIgykzOTM3LS1XwKy0pyizJzM_LyywuSVUILE3MVHDLT85Q8E3NKc1TcCzLLF7ESkXDAHturB60AAAA&rldimm=8422164353307785246&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCIQ9fQKKABqFwoTCKjfs5aaiZEDFQAAAAAdAAAAABAQ&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5fbf99bb9b5b1:0x74e189db56de381e,3,,,,"
+    reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJsbW5m_n75UcRHjjeVtuJ4XQ"
   },
   {
     id: 2,
@@ -98,7 +98,7 @@ export const WORKPLACES: Workplace[] = [
     description: "Maison des consultations.",
     imageUrl: new URL('./assets/hermitage.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+clinique+St+Jean+l'Ermitage+Melun/@48.556294,2.640313,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5fb5fb350d58b:0xded221dd99c1dddd!8m2!3d48.556294!4d2.640313!16s%2Fg%2F11lv7pv_2h?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
-    reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20clinique%20St%20Jean%20l'Ermitage%20Melun%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDMwNbU0NrIwNTe0MDA2Mbcws9zAyPiK0dcnNSc_L13XN7EqsTRFISyzKD0zLzNVwSXz8MoSIMpMzkzNy0tVSM4BCheWpioElyh4pSbmKeSouxblZpYkpqcq-KbmlOYpOJZlFi9ipa55AAExHDC7AAAA&rldimm=16055932857180347869&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCMQ9fQKKABqFwoTCICuxJGZiZEDFQAAAAAdAAAAABAH&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5fb5fb350d58b:0xded221dd99c1dddd,3,,,,"
+    reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJi9VQs1_75UcR3d3Bmd0h0t4"
   },
   {
     id: 3,
@@ -107,7 +107,7 @@ export const WORKPLACES: Workplace[] = [
     description: "Cabinet pluridisciplinaire facile d'accès.",
     imageUrl: new URL('./assets/mds.jpeg', import.meta.url).href,
     mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+Maison+de+sant%C3%A9+Corbeil-Essonnes/@48.6103233,2.4760804,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5e7896398e091:0x6ac222d9478515ce!8m2!3d48.6103233!4d2.4760804!16s%2Fg%2F11k47msyfn?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
-    reviewUrl: "https://www.google.com/search?q=Lelong-Mazaud%20Virginie%20Di%C3%A9t%C3%A9ticienne%20Maison%20de%20sant%C3%A9%20Corbeil-Essonnes%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2N7M0MjexNDE2MDQwNbYwMDYw2sDI-IrR1yc1Jz8vXdc3sSqxNEUhLLMoPTMvM1XBJfPwyhIgykzOTM3LS1XwTcwszs9TSElVKE7MA0ooOOcXJaVm5ui6FgPF81KLFRzLMosXsVLXPADM9te_ugAAAA&rldimm=7692749430105380302&tbm=lcl&cs=1&hl=fr&sa=X&ved=0CCMQ9fQKKABqFwoTCIDPy4iaiZEDFQAAAAAdAAAAABAQ&biw=1470&bih=887&dpr=2#lkt=LocalPoiReviews&lrd=0x47e5e7896398e091:0x6ac222d9478515ce,3,,,,"
+    reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJkeCYY4nn5UcRzhWFR9kiwmo"
   }
 ];
 
