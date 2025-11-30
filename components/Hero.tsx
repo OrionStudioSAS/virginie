@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
         <div className="flex-1 space-y-8 text-center md:text-left">
           <div className="reveal reveal-slide-left">
             <h2 className="inline-block bg-rose-50/80 text-primary font-semibold uppercase tracking-widest text-xs md:text-sm mb-3 px-4 py-1.5 rounded-full shadow-sm">
-              Diététicienne Nutritionniste d
+              Diététicienne Nutritionniste
             </h2>
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 leading-tight">
               Retrouvez votre e ddéquilibree <br/>
