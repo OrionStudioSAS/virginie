@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
               Diététicienne Nutritionniste
             </h2>
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 leading-tight">
-              Retrouvez votre e équilibree <br/>
+              Retrouvez votre e ddéquilibree <br/>
               avec un accompagnement <span className="text-[#8bc242] underline decoration-[#8bc242]/20 decoration-4 underline-offset-4">personnalisé</span>
             </h1>
           </div>
