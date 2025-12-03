@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BIO_TEXT, SPECIALTIES, DIPLOMAS, ASSOCIATIONS, FULL_NAME } from '../constants';
-import { Award, Users } from 'lucide-react';
+import { Award, Users, ChevronDown } from 'lucide-react';
 
 export const About: React.FC = () => {
+  const [diplomasOpen, setDiplomasOpen] = useState(false);
+  const [associationsOpen, setAssociationsOpen] = useState(false);
   const highlightKeywords = (text: string) => {
     const keywords = [
       "alimentation équilibrée",
@@ -85,36 +87,68 @@ export const About: React.FC = () => {
         {/* Diplomas & Associations */}
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           
+          {/* Diplômes - Accordion on mobile, normal on desktop */}
           <div className="reveal">
-            <div className="flex items-center gap-3 mb-6">
-              <Award className="text-primary w-8 h-8" />
-              <h3 className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations</h3>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
-              <ul className="space-y-3">
-                {DIPLOMAS.map((diploma, idx) => (
-                  <li key={idx} className="text-slate-600 text-sm md:text-base border-b border-slate-50 last:border-0 pb-2 last:pb-0">
-                    • {diploma}
-                  </li>
-                ))}
-              </ul>
+            {/* Mobile: Clickable header */}
+            <button 
+              onClick={() => setDiplomasOpen(!diplomasOpen)}
+              className="md:pointer-events-none w-full flex items-center justify-between gap-3 mb-6 md:cursor-default"
+            >
+              <div className="flex items-center gap-3">
+                <Award className="text-primary w-8 h-8" />
+                <h3 className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations</h3>
+              </div>
+              <ChevronDown 
+                className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${diplomasOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            
+            {/* Content - Collapsible on mobile, always visible on desktop */}
+            <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
+              diplomasOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100'
+            }`}>
+              <div className="p-6 md:p-8">
+                <ul className="space-y-3">
+                  {DIPLOMAS.map((diploma, idx) => (
+                    <li key={idx} className="text-slate-600 text-sm md:text-base border-b border-slate-50 last:border-0 pb-2 last:pb-0">
+                      • {diploma}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
+          {/* Associations - Accordion on mobile, normal on desktop */}
           <div className="reveal reveal-delay-200">
-            <div className="flex items-center gap-3 mb-6">
-              <Users className="text-secondary w-8 h-8" />
-              <h3 className="text-2xl font-serif font-bold text-slate-800">Membre des associations</h3>
-            </div>
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 md:p-8">
-              <ul className="space-y-3">
-                {ASSOCIATIONS.map((asso, idx) => (
-                  <li key={idx} className="text-slate-600 text-sm md:text-base flex items-start gap-2">
-                    <span className="text-secondary mt-1.5 w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-                    {asso}
-                  </li>
-                ))}
-              </ul>
+            {/* Mobile: Clickable header */}
+            <button 
+              onClick={() => setAssociationsOpen(!associationsOpen)}
+              className="md:pointer-events-none w-full flex items-center justify-between gap-3 mb-6 md:cursor-default"
+            >
+              <div className="flex items-center gap-3">
+                <Users className="text-secondary w-8 h-8" />
+                <h3 className="text-2xl font-serif font-bold text-slate-800">Membre des associations</h3>
+              </div>
+              <ChevronDown 
+                className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${associationsOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            
+            {/* Content - Collapsible on mobile, always visible on desktop */}
+            <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
+              associationsOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100'
+            }`}>
+              <div className="p-6 md:p-8">
+                <ul className="space-y-3">
+                  {ASSOCIATIONS.map((asso, idx) => (
+                    <li key={idx} className="text-slate-600 text-sm md:text-base flex items-start gap-2">
+                      <span className="text-secondary mt-1.5 w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
+                      {asso}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 

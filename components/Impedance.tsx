@@ -42,7 +42,6 @@ export const Impedance: React.FC = () => {
           {/* Image Side */}
           <div className="flex-1 w-full reveal reveal-slide-right reveal-delay-200">
              <div className="relative group">
-                <div className="absolute inset-0 bg-secondary/20 rounded-[2rem] rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] lg:aspect-auto lg:max-h-[640px] lg:max-w-[480px]">
                     <img 
                     src={IMPEDANCE_IMAGE} 
