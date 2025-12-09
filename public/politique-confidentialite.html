@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politique de confidentialité - Virginie Lelong Diététicienne</title>
-  <meta name="description" content="Politique de confidentialité et protection des données (RGPD) du cabinet de diététique Virginie Lelong. Gestion des cookies, droits et sécurité des données personnelles.">
+  <meta name="description"
+    content="Politique de confidentialité et protection des données (RGPD) du cabinet de diététique Virginie Lelong. Gestion des cookies, droits et sécurité des données personnelles.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.virginie-lelong-nutrition.fr/politique-confidentialite.html">
   <link rel="alternate" hreflang="fr" href="https://www.virginie-lelong-nutrition.fr/politique-confidentialite.html" />
-  <link rel="alternate" hreflang="fr-FR" href="https://www.virginie-lelong-nutrition.fr/politique-confidentialite.html" />
-  <link rel="alternate" hreflang="x-default" href="https://www.virginie-lelong-nutrition.fr/politique-confidentialite.html" />
+  <link rel="alternate" hreflang="fr-FR"
+    href="https://www.virginie-lelong-nutrition.fr/politique-confidentialite.html" />
+  <link rel="alternate" hreflang="x-default"
+    href="https://www.virginie-lelong-nutrition.fr/politique-confidentialite.html" />
   <link rel="icon" href="/assets/logo.jpeg">
-  
+
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
   {
@@ -33,464 +37,543 @@
     ]
   }
   </script>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600&display=swap"
+    rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             primary: '#F43F5E',
-            secondary: '#8BC242'
+            secondary: '#8BC242',
+            neutral: '#F9FAFB',
+          },
+          fontFamily: {
+            sans: ['Lato', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
           }
         }
       }
     }
   </script>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
-  </style>
 </head>
-<body class="bg-white">
-  <div class="min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm border-b border-slate-200 py-4 sticky top-0 z-50">
-      <div class="container mx-auto px-6 flex justify-between items-center">
-        <!-- Logo Section -->
-        <a href="/" class="flex items-center gap-4 hover:opacity-80 transition-opacity">
-          <div class="w-12 h-12 rounded-lg overflow-hidden shadow-sm border-2 border-white">
-            <img src="/logo.jpeg" alt="Logo Virginie Lelong" class="w-full h-full object-cover" onerror="this.src='/assets/logo.jpeg'">
+
+<body class="bg-rose-50/30 text-slate-700 font-[Lato]">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 text-slate-600">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <!-- Logo Section -->
+      <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='/'">
+        <div class="w-12 h-12 rounded-lg overflow-hidden shadow-sm border-2 border-white">
+          <img src="/assets/logo.jpeg" alt="Logo Virginie Lelong Mazaud" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl md:text-2xl font-serif font-bold text-slate-900 leading-none">Virginie Lelong
+            Mazaud</span>
+          <span class="text-primary text-sm font-medium tracking-wide">Diététicienne Nutritionniste</span>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8 items-center">
+        <a href="/" class="hover:text-primary font-medium transition-colors relative group">
+          Accueil
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/#about" class="hover:text-primary font-medium transition-colors relative group">
+          En savoir plus
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/#locations" class="hover:text-primary font-medium transition-colors relative group">
+          Lieux
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/#contact" class="hover:text-primary font-medium transition-colors relative group">
+          Contact
+          <span
+            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud" target="_blank"
+          rel="noopener noreferrer"
+          class="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-rose-600 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold">
+          Prendre RDV
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="text-slate-600 hover:text-primary transition-colors">
+          <!-- Menu Icon -->
+          <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+          <!-- X Icon -->
+          <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 transition-all duration-300 ease-in-out origin-top scale-y-0 opacity-0 h-0 overflow-hidden">
+      <div class="flex flex-col p-6 space-y-4">
+        <a href="/"
+          class="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50">Accueil</a>
+        <a href="/#about"
+          class="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50">En savoir
+          plus</a>
+        <a href="/#locations"
+          class="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50">Lieux</a>
+        <a href="/#contact"
+          class="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50">Contact</a>
+        <a href="https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud" target="_blank"
+          rel="noopener noreferrer"
+          class="bg-primary text-white px-4 py-3 rounded-lg text-center font-semibold mt-4 shadow-md">
+          Prendre rendez-vous
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="container mx-auto px-6 pt-32 pb-16 max-w-4xl">
+    <h1 class="text-4xl font-serif font-bold text-slate-900 mb-8 text-center">Politique de confidentialité</h1>
+
+    <div class="prose prose-slate max-w-none bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+      <p class="text-sm text-slate-500 mb-8 text-center">Dernière mise à jour : 26 novembre 2025</p>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Introduction</h2>
+        <p>Virginie Lelong, diététicienne nutritionniste exerçant à Melun, Corbeil-Essonnes et Fontainebleau, accorde
+          une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique
+          comment nous collectons, utilisons et protégeons vos informations.</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Responsable du traitement des données</h2>
+        <p class="mb-2"><strong>Virginie Lelong - Mazaud</strong></p>
+        <p class="mb-2">Diététicienne Nutritionniste</p>
+        <p class="mb-2">Adresse : 13 Quai Maréchal Foch, 77000 Melun</p>
+        <p class="mb-2">Téléphone : <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></p>
+        <p>Email : <a href="mailto:vlelongdiet@orange.fr" class="text-primary hover:underline">vlelongdiet@orange.fr</a>
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Données personnelles collectées</h2>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">1. Lors de la prise de rendez-vous</h3>
+        <p class="mb-4">Lorsque vous prenez rendez-vous via Doctolib ou par téléphone, nous collectons :</p>
+        <ul class="list-disc list-inside mb-4 space-y-2">
+          <li>Nom et prénom</li>
+          <li>Coordonnées (téléphone, email, adresse)</li>
+          <li>Date de naissance</li>
+          <li>Informations médicales nécessaires à la consultation</li>
+        </ul>
+        <p class="mb-4"><strong>Base légale :</strong> Exécution du contrat de soins et obligation légale (dossier
+          patient)</p>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">2. Via le site web</h3>
+        <p class="mb-4">Notre site collecte automatiquement :</p>
+        <ul class="list-disc list-inside mb-4 space-y-2">
+          <li>Adresse IP</li>
+          <li>Type de navigateur et appareil</li>
+          <li>Pages visitées et durée de visite</li>
+          <li>Source de provenance (Google, réseaux sociaux, etc.)</li>
+        </ul>
+        <p class="mb-4"><strong>Base légale :</strong> Consentement (via bandeau cookies) et intérêt légitime
+          (statistiques)</p>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">3. Cookies et technologies similaires</h3>
+        <p class="mb-4">Nous utilisons :</p>
+
+        <p class="mb-2"><strong>Cookies essentiels</strong> (pas de consentement requis) :</p>
+        <ul class="list-disc list-inside mb-4 space-y-2 ml-4">
+          <li>Cookies de session pour la navigation</li>
+          <li>Préférences de cookies</li>
+        </ul>
+
+        <p class="mb-2"><strong>Cookies analytiques</strong> (consentement requis) :</p>
+        <ul class="list-disc list-inside mb-4 space-y-2 ml-4">
+          <li>Google Analytics 4 pour analyser le trafic du site</li>
+          <li>Mesure des performances et amélioration de l'expérience utilisateur</li>
+        </ul>
+
+        <p>Vous pouvez accepter ou refuser les cookies non essentiels via le bandeau qui apparaît lors de votre première
+          visite.</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Utilisation des données</h2>
+        <p class="mb-4">Vos données sont utilisées pour :</p>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">1. Gestion des consultations</h3>
+        <ul class="list-disc list-inside mb-4 space-y-2">
+          <li>Prise de rendez-vous</li>
+          <li>Suivi médical et diététique</li>
+          <li>Facturation</li>
+          <li>Communication concernant vos soins</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">2. Amélioration du site web</h3>
+        <ul class="list-disc list-inside mb-4 space-y-2">
+          <li>Analyse du trafic (Google Analytics)</li>
+          <li>Optimisation de l'expérience utilisateur</li>
+          <li>Statistiques de fréquentation</li>
+        </ul>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">3. Communication</h3>
+        <ul class="list-disc list-inside mb-4 space-y-2">
+          <li>Réponse à vos demandes</li>
+          <li>Rappels de rendez-vous (si consentement donné)</li>
+          <li>Informations sur nos services</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Durée de conservation</h2>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Dossiers patients :</strong> 20 ans après la dernière consultation (obligation légale)</li>
+          <li><strong>Données de contact :</strong> Durée de la relation patient + 3 ans</li>
+          <li><strong>Cookies analytiques :</strong> 13 mois maximum</li>
+          <li><strong>Logs du site web :</strong> 12 mois</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Partage des données</h2>
+        <p class="mb-4">Vos données personnelles ne sont <strong>jamais vendues</strong> à des tiers.</p>
+        <p class="mb-4">Nous pouvons les partager uniquement avec :</p>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Doctolib :</strong> Plateforme de prise de rendez-vous (sous-traitant)</li>
+          <li><strong>Google Analytics :</strong> Outil d'analyse web anonymisé</li>
+          <li><strong>Hébergeur web :</strong> Vercel (États-Unis, avec garanties RGPD)</li>
+          <li><strong>Professionnels de santé :</strong> Sur votre demande expresse, pour coordination des soins</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Vos droits (RGPD)</h2>
+        <p class="mb-4">Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits
+          suivants :</p>
+
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit d'accès</h3>
+            <p>Obtenir une copie de vos données personnelles</p>
           </div>
-          <div class="flex flex-col">
-            <span class="text-xl md:text-2xl font-serif font-bold text-slate-900 leading-none">
+
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit de rectification</h3>
+            <p>Corriger des données inexactes ou incomplètes</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit à l'effacement ("droit à l'oubli")</h3>
+            <p>Demander la suppression de vos données<br>
+              ⚠️ <em>Limité pour les dossiers médicaux (obligation légale de conservation)</em></p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit à la limitation du traitement</h3>
+            <p>Restreindre l'utilisation de vos données dans certains cas</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit à la portabilité</h3>
+            <p>Recevoir vos données dans un format structuré</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit d'opposition</h3>
+            <p>Vous opposer au traitement de vos données (sauf obligation légale)</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Droit de retirer votre consentement</h3>
+            <p>Pour les traitements basés sur le consentement (cookies, newsletter)</p>
+          </div>
+        </div>
+
+        <div class="mt-6 p-6 bg-slate-50 rounded-lg border border-slate-200">
+          <p class="mb-4"><strong>Pour exercer vos droits</strong>, contactez-nous :</p>
+          <ul class="space-y-2">
+            <li>📧 Email : <a href="mailto:vlelongdiet@orange.fr"
+                class="text-primary hover:underline">vlelongdiet@orange.fr</a></li>
+            <li>📞 Téléphone : <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></li>
+            <li>📬 Courrier : 13 Quai Maréchal Foch, 77000 Melun</li>
+          </ul>
+          <p class="mt-4 text-sm">Nous répondrons dans un délai maximum d'<strong>1 mois</strong>.</p>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Sécurité des données</h2>
+        <p class="mb-4">Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données :
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Chiffrement HTTPS :</strong> Toutes les communications sont sécurisées</li>
+          <li><strong>Hébergement sécurisé :</strong> Serveurs certifiés et sauvegardes régulières</li>
+          <li><strong>Accès restreint :</strong> Seuls les professionnels autorisés accèdent aux dossiers</li>
+          <li><strong>Mots de passe sécurisés :</strong> Protection des accès</li>
+          <li><strong>Anonymisation :</strong> Données analytiques anonymisées</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Transferts internationaux</h2>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Google Analytics</h3>
+        <p class="mb-2">Les données peuvent être transférées aux États-Unis (Google LLC).</p>
+        <p class="mb-4"><strong>Garanties :</strong> Clauses contractuelles types approuvées par la Commission
+          européenne.</p>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Hébergement (Vercel)</h3>
+        <p class="mb-2">Serveurs potentiellement situés aux États-Unis.</p>
+        <p><strong>Garanties :</strong> Conformité RGPD et certifications ISO 27001.</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Cookies : Gestion et désactivation</h2>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Comment gérer vos cookies</h3>
+
+        <p class="mb-4"><strong>Via le bandeau de consentement :</strong><br>
+          Lors de votre première visite, un bandeau vous permet d'accepter ou refuser les cookies non essentiels.</p>
+
+        <p class="mb-4"><strong>Via votre navigateur :</strong></p>
+
+        <div class="space-y-4 ml-4">
+          <div>
+            <p class="font-bold mb-2">Google Chrome :</p>
+            <ol class="list-decimal list-inside space-y-1 ml-4">
+              <li>Menu → Paramètres → Confidentialité et sécurité → Cookies</li>
+              <li>Bloquez les cookies tiers ou supprimez-les</li>
+            </ol>
+          </div>
+
+          <div>
+            <p class="font-bold mb-2">Firefox :</p>
+            <ol class="list-decimal list-inside space-y-1 ml-4">
+              <li>Menu → Paramètres → Vie privée et sécurité</li>
+              <li>Historique → Utiliser les paramètres personnalisés</li>
+              <li>Gérez les cookies</li>
+            </ol>
+          </div>
+
+          <div>
+            <p class="font-bold mb-2">Safari :</p>
+            <ol class="list-decimal list-inside space-y-1 ml-4">
+              <li>Préférences → Confidentialité</li>
+              <li>Bloquer tous les cookies</li>
+            </ol>
+          </div>
+
+          <div>
+            <p class="font-bold mb-2">Edge :</p>
+            <ol class="list-decimal list-inside space-y-1 ml-4">
+              <li>Paramètres → Cookies et autorisations</li>
+              <li>Gérer et supprimer les cookies</li>
+            </ol>
+          </div>
+        </div>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Désactiver Google Analytics</h3>
+        <p class="mb-4">Installez l'extension <strong>Google Analytics Opt-out</strong> :<br>
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer"
+            class="text-primary hover:underline">https://tools.google.com/dlpage/gaoptout</a>
+        </p>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Conséquence du refus des cookies</h3>
+        <p>Le refus des cookies analytiques n'affecte pas la navigation sur le site, mais nous empêche d'améliorer votre
+          expérience utilisateur.</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Réclamation auprès de la CNIL</h2>
+        <p class="mb-4">Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une réclamation auprès
+          de l'autorité de contrôle française :</p>
+
+        <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+          <p class="font-bold mb-2">CNIL (Commission Nationale de l'Informatique et des Libertés)</p>
+          <p>3 Place de Fontenoy<br>
+            TSA 80715<br>
+            75334 PARIS CEDEX 07</p>
+          <p class="mt-2">Téléphone : 01 53 73 22 22</p>
+          <p>Site web : <a href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer"
+              class="text-primary hover:underline">https://www.cnil.fr/</a></p>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Modifications de la politique</h2>
+        <p class="mb-4">Cette politique peut être modifiée pour refléter :</p>
+        <ul class="list-disc list-inside mb-4 space-y-2">
+          <li>Évolutions légales</li>
+          <li>Nouveaux services</li>
+          <li>Amélioration de nos pratiques</li>
+        </ul>
+        <p class="mb-4"><strong>Date de dernière modification :</strong> 26 novembre 2025</p>
+        <p>En cas de modification substantielle, nous vous en informerons via le site web.</p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Contact</h2>
+        <p class="mb-4">Pour toute question concernant cette politique de confidentialité :</p>
+
+        <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+          <p class="font-bold mb-3">Virginie Lelong - Mazaud</p>
+          <ul class="space-y-2">
+            <li>📧 Email : <a href="mailto:vlelongdiet@orange.fr"
+                class="text-primary hover:underline">vlelongdiet@orange.fr</a></li>
+            <li>📞 Téléphone : <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></li>
+            <li>📬 Adresse : 13 Quai Maréchal Foch, 77000 Melun</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-slate-900 mb-4">Résumé simplifié</h2>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <div class="p-6 bg-green-50 rounded-lg border border-green-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-3">Ce que nous collectons</h3>
+            <ul class="space-y-2 text-sm">
+              <li>✅ Nom, prénom, coordonnées (pour les RDV)</li>
+              <li>✅ Informations médicales (dossier patient)</li>
+              <li>✅ Données de navigation (statistiques anonymes)</li>
+            </ul>
+          </div>
+
+          <div class="p-6 bg-blue-50 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-3">Pourquoi</h3>
+            <ul class="space-y-2 text-sm">
+              <li>✅ Assurer vos consultations</li>
+              <li>✅ Améliorer le site web</li>
+              <li>✅ Respecter nos obligations légales</li>
+            </ul>
+          </div>
+
+          <div class="p-6 bg-purple-50 rounded-lg border border-purple-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-3">Vos garanties</h3>
+            <ul class="space-y-2 text-sm">
+              <li>✅ Données sécurisées et chiffrées</li>
+              <li>✅ Jamais vendues à des tiers</li>
+              <li>✅ Vous pouvez accéder, modifier ou supprimer vos données</li>
+              <li>✅ Conformité RGPD</li>
+            </ul>
+          </div>
+
+          <div class="p-6 bg-orange-50 rounded-lg border border-orange-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-3">Comment exercer vos droits</h3>
+            <ul class="space-y-2 text-sm">
+              <li>📧 <a href="mailto:vlelongdiet@orange.fr"
+                  class="text-primary hover:underline">vlelongdiet@orange.fr</a></li>
+              <li>📞 <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Back to home button -->
+    <div class="mt-8 pt-8">
+      <a href="/"
+        class="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+        Retour à l'accueil
+      </a>
+    </div>
+  </main>
+
+  <footer class="bg-slate-50 text-slate-600 py-12 border-t border-slate-200">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+        <!-- Logo Section Matching Header -->
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-slate-200">
+            <img src="/assets/logo.jpeg" alt="Logo" class="w-full h-full object-cover" />
+          </div>
+          <div class="flex flex-col text-left">
+            <span class="text-xl font-serif font-bold text-slate-900 leading-none">
               Virginie Lelong Mazaud
             </span>
             <span class="text-primary text-sm font-medium tracking-wide">
               Diététicienne Nutritionniste
             </span>
           </div>
-        </a>
+        </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
-          <a href="/#home" class="text-slate-600 hover:text-primary font-medium transition-colors">Accueil</a>
-          <a href="/#about" class="text-slate-600 hover:text-primary font-medium transition-colors">En savoir plus</a>
-          <a href="/#locations" class="text-slate-600 hover:text-primary font-medium transition-colors">Lieux</a>
-          <a href="/#contact" class="text-slate-600 hover:text-primary font-medium transition-colors">Contact</a>
-          <a 
-            href="https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-rose-600 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold"
-          >
-            Prendre RDV
-          </a>
-        </nav>
+        <div class="flex gap-6 text-sm font-medium">
+          <a href="/mentions-legales.html" class="hover:text-primary transition-colors">Mentions légales</a>
+          <a href="/politique-confidentialite.html" class="hover:text-primary transition-colors">Politique de
+            confidentialité</a>
+        </div>
 
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden text-slate-600 hover:text-primary transition-colors" onclick="toggleMobileMenu()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-200 mt-4">
-        <nav class="flex flex-col p-6 space-y-4">
-          <a href="/#home" class="text-slate-600 hover:text-primary font-medium transition-colors py-2">Accueil</a>
-          <a href="/#about" class="text-slate-600 hover:text-primary font-medium transition-colors py-2">En savoir plus</a>
-          <a href="/#locations" class="text-slate-600 hover:text-primary font-medium transition-colors py-2">Lieux</a>
-          <a href="/#contact" class="text-slate-600 hover:text-primary font-medium transition-colors py-2">Contact</a>
-          <a 
-            href="https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="bg-primary text-white px-5 py-3 rounded-full hover:bg-rose-600 transition-all text-center font-semibold"
-          >
-            Prendre RDV
-          </a>
-        </nav>
-      </div>
-    </header>
-    
-    <script>
-      function toggleMobileMenu() {
-        const menu = document.getElementById('mobileMenu');
-        menu.classList.toggle('hidden');
-      }
-    </script>
-
-    <!-- Content -->
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-      <h1 class="text-4xl font-bold text-slate-900 mb-8">Politique de confidentialité</h1>
-
-      <div class="prose prose-slate max-w-none">
-        <p class="text-sm text-slate-500 mb-8">Dernière mise à jour : 26 novembre 2025</p>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Introduction</h2>
-          <p>Virginie Lelong, diététicienne nutritionniste exerçant à Melun, Corbeil-Essonnes et Fontainebleau, accorde une grande importance à la protection de vos données personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations.</p>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Responsable du traitement des données</h2>
-          <p class="mb-2"><strong>Virginie Lelong - Mazaud</strong></p>
-          <p class="mb-2">Diététicienne Nutritionniste</p>
-          <p class="mb-2">Adresse : 13 Quai Maréchal Foch, 77000 Melun</p>
-          <p class="mb-2">Téléphone : <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></p>
-          <p>Email : <a href="mailto:vlelongdiet@orange.fr" class="text-primary hover:underline">vlelongdiet@orange.fr</a></p>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Données personnelles collectées</h2>
-          
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">1. Lors de la prise de rendez-vous</h3>
-          <p class="mb-4">Lorsque vous prenez rendez-vous via Doctolib ou par téléphone, nous collectons :</p>
-          <ul class="list-disc list-inside mb-4 space-y-2">
-            <li>Nom et prénom</li>
-            <li>Coordonnées (téléphone, email, adresse)</li>
-            <li>Date de naissance</li>
-            <li>Informations médicales nécessaires à la consultation</li>
-          </ul>
-          <p class="mb-4"><strong>Base légale :</strong> Exécution du contrat de soins et obligation légale (dossier patient)</p>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">2. Via le site web</h3>
-          <p class="mb-4">Notre site collecte automatiquement :</p>
-          <ul class="list-disc list-inside mb-4 space-y-2">
-            <li>Adresse IP</li>
-            <li>Type de navigateur et appareil</li>
-            <li>Pages visitées et durée de visite</li>
-            <li>Source de provenance (Google, réseaux sociaux, etc.)</li>
-          </ul>
-          <p class="mb-4"><strong>Base légale :</strong> Consentement (via bandeau cookies) et intérêt légitime (statistiques)</p>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">3. Cookies et technologies similaires</h3>
-          <p class="mb-4">Nous utilisons :</p>
-          
-          <p class="mb-2"><strong>Cookies essentiels</strong> (pas de consentement requis) :</p>
-          <ul class="list-disc list-inside mb-4 space-y-2 ml-4">
-            <li>Cookies de session pour la navigation</li>
-            <li>Préférences de cookies</li>
-          </ul>
-
-          <p class="mb-2"><strong>Cookies analytiques</strong> (consentement requis) :</p>
-          <ul class="list-disc list-inside mb-4 space-y-2 ml-4">
-            <li>Google Analytics 4 pour analyser le trafic du site</li>
-            <li>Mesure des performances et amélioration de l'expérience utilisateur</li>
-          </ul>
-
-          <p>Vous pouvez accepter ou refuser les cookies non essentiels via le bandeau qui apparaît lors de votre première visite.</p>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Utilisation des données</h2>
-          <p class="mb-4">Vos données sont utilisées pour :</p>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">1. Gestion des consultations</h3>
-          <ul class="list-disc list-inside mb-4 space-y-2">
-            <li>Prise de rendez-vous</li>
-            <li>Suivi médical et diététique</li>
-            <li>Facturation</li>
-            <li>Communication concernant vos soins</li>
-          </ul>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">2. Amélioration du site web</h3>
-          <ul class="list-disc list-inside mb-4 space-y-2">
-            <li>Analyse du trafic (Google Analytics)</li>
-            <li>Optimisation de l'expérience utilisateur</li>
-            <li>Statistiques de fréquentation</li>
-          </ul>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">3. Communication</h3>
-          <ul class="list-disc list-inside mb-4 space-y-2">
-            <li>Réponse à vos demandes</li>
-            <li>Rappels de rendez-vous (si consentement donné)</li>
-            <li>Informations sur nos services</li>
-          </ul>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Durée de conservation</h2>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Dossiers patients :</strong> 20 ans après la dernière consultation (obligation légale)</li>
-            <li><strong>Données de contact :</strong> Durée de la relation patient + 3 ans</li>
-            <li><strong>Cookies analytiques :</strong> 13 mois maximum</li>
-            <li><strong>Logs du site web :</strong> 12 mois</li>
-          </ul>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Partage des données</h2>
-          <p class="mb-4">Vos données personnelles ne sont <strong>jamais vendues</strong> à des tiers.</p>
-          <p class="mb-4">Nous pouvons les partager uniquement avec :</p>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Doctolib :</strong> Plateforme de prise de rendez-vous (sous-traitant)</li>
-            <li><strong>Google Analytics :</strong> Outil d'analyse web anonymisé</li>
-            <li><strong>Hébergeur web :</strong> Vercel (États-Unis, avec garanties RGPD)</li>
-            <li><strong>Professionnels de santé :</strong> Sur votre demande expresse, pour coordination des soins</li>
-          </ul>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Vos droits (RGPD)</h2>
-          <p class="mb-4">Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-
-          <div class="space-y-4">
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit d'accès</h3>
-              <p>Obtenir une copie de vos données personnelles</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit de rectification</h3>
-              <p>Corriger des données inexactes ou incomplètes</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit à l'effacement ("droit à l'oubli")</h3>
-              <p>Demander la suppression de vos données<br>
-              ⚠️ <em>Limité pour les dossiers médicaux (obligation légale de conservation)</em></p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit à la limitation du traitement</h3>
-              <p>Restreindre l'utilisation de vos données dans certains cas</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit à la portabilité</h3>
-              <p>Recevoir vos données dans un format structuré</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit d'opposition</h3>
-              <p>Vous opposer au traitement de vos données (sauf obligation légale)</p>
-            </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-slate-800 mb-2">Droit de retirer votre consentement</h3>
-              <p>Pour les traitements basés sur le consentement (cookies, newsletter)</p>
-            </div>
-          </div>
-
-          <div class="mt-6 p-6 bg-slate-50 rounded-lg border border-slate-200">
-            <p class="mb-4"><strong>Pour exercer vos droits</strong>, contactez-nous :</p>
-            <ul class="space-y-2">
-              <li>📧 Email : <a href="mailto:vlelongdiet@orange.fr" class="text-primary hover:underline">vlelongdiet@orange.fr</a></li>
-              <li>📞 Téléphone : <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></li>
-              <li>📬 Courrier : 13 Quai Maréchal Foch, 77000 Melun</li>
-            </ul>
-            <p class="mt-4 text-sm">Nous répondrons dans un délai maximum d'<strong>1 mois</strong>.</p>
-          </div>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Sécurité des données</h2>
-          <p class="mb-4">Nous mettons en œuvre des mesures techniques et organisationnelles pour protéger vos données :</p>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Chiffrement HTTPS :</strong> Toutes les communications sont sécurisées</li>
-            <li><strong>Hébergement sécurisé :</strong> Serveurs certifiés et sauvegardes régulières</li>
-            <li><strong>Accès restreint :</strong> Seuls les professionnels autorisés accèdent aux dossiers</li>
-            <li><strong>Mots de passe sécurisés :</strong> Protection des accès</li>
-            <li><strong>Anonymisation :</strong> Données analytiques anonymisées</li>
-          </ul>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Transferts internationaux</h2>
-          
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Google Analytics</h3>
-          <p class="mb-2">Les données peuvent être transférées aux États-Unis (Google LLC).</p>
-          <p class="mb-4"><strong>Garanties :</strong> Clauses contractuelles types approuvées par la Commission européenne.</p>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Hébergement (Vercel)</h3>
-          <p class="mb-2">Serveurs potentiellement situés aux États-Unis.</p>
-          <p><strong>Garanties :</strong> Conformité RGPD et certifications ISO 27001.</p>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Cookies : Gestion et désactivation</h2>
-          
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Comment gérer vos cookies</h3>
-          
-          <p class="mb-4"><strong>Via le bandeau de consentement :</strong><br>
-          Lors de votre première visite, un bandeau vous permet d'accepter ou refuser les cookies non essentiels.</p>
-
-          <p class="mb-4"><strong>Via votre navigateur :</strong></p>
-
-          <div class="space-y-4 ml-4">
-            <div>
-              <p class="font-bold mb-2">Google Chrome :</p>
-              <ol class="list-decimal list-inside space-y-1 ml-4">
-                <li>Menu → Paramètres → Confidentialité et sécurité → Cookies</li>
-                <li>Bloquez les cookies tiers ou supprimez-les</li>
-              </ol>
-            </div>
-
-            <div>
-              <p class="font-bold mb-2">Firefox :</p>
-              <ol class="list-decimal list-inside space-y-1 ml-4">
-                <li>Menu → Paramètres → Vie privée et sécurité</li>
-                <li>Historique → Utiliser les paramètres personnalisés</li>
-                <li>Gérez les cookies</li>
-              </ol>
-            </div>
-
-            <div>
-              <p class="font-bold mb-2">Safari :</p>
-              <ol class="list-decimal list-inside space-y-1 ml-4">
-                <li>Préférences → Confidentialité</li>
-                <li>Bloquer tous les cookies</li>
-              </ol>
-            </div>
-
-            <div>
-              <p class="font-bold mb-2">Edge :</p>
-              <ol class="list-decimal list-inside space-y-1 ml-4">
-                <li>Paramètres → Cookies et autorisations</li>
-                <li>Gérer et supprimer les cookies</li>
-              </ol>
-            </div>
-          </div>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Désactiver Google Analytics</h3>
-          <p class="mb-4">Installez l'extension <strong>Google Analytics Opt-out</strong> :<br>
-          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">https://tools.google.com/dlpage/gaoptout</a></p>
-
-          <h3 class="text-xl font-bold text-slate-800 mb-3 mt-6">Conséquence du refus des cookies</h3>
-          <p>Le refus des cookies analytiques n'affecte pas la navigation sur le site, mais nous empêche d'améliorer votre expérience utilisateur.</p>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Réclamation auprès de la CNIL</h2>
-          <p class="mb-4">Si vous estimez que vos droits ne sont pas respectés, vous pouvez déposer une réclamation auprès de l'autorité de contrôle française :</p>
-          
-          <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
-            <p class="font-bold mb-2">CNIL (Commission Nationale de l'Informatique et des Libertés)</p>
-            <p>3 Place de Fontenoy<br>
-            TSA 80715<br>
-            75334 PARIS CEDEX 07</p>
-            <p class="mt-2">Téléphone : 01 53 73 22 22</p>
-            <p>Site web : <a href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">https://www.cnil.fr/</a></p>
-          </div>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Modifications de la politique</h2>
-          <p class="mb-4">Cette politique peut être modifiée pour refléter :</p>
-          <ul class="list-disc list-inside mb-4 space-y-2">
-            <li>Évolutions légales</li>
-            <li>Nouveaux services</li>
-            <li>Amélioration de nos pratiques</li>
-          </ul>
-          <p class="mb-4"><strong>Date de dernière modification :</strong> 26 novembre 2025</p>
-          <p>En cas de modification substantielle, nous vous en informerons via le site web.</p>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Contact</h2>
-          <p class="mb-4">Pour toute question concernant cette politique de confidentialité :</p>
-          
-          <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
-            <p class="font-bold mb-3">Virginie Lelong - Mazaud</p>
-            <ul class="space-y-2">
-              <li>📧 Email : <a href="mailto:vlelongdiet@orange.fr" class="text-primary hover:underline">vlelongdiet@orange.fr</a></li>
-              <li>📞 Téléphone : <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></li>
-              <li>📬 Adresse : 13 Quai Maréchal Foch, 77000 Melun</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-slate-900 mb-4">Résumé simplifié</h2>
-          
-          <div class="grid md:grid-cols-2 gap-6 mt-6">
-            <div class="p-6 bg-green-50 rounded-lg border border-green-200">
-              <h3 class="text-lg font-bold text-slate-900 mb-3">Ce que nous collectons</h3>
-              <ul class="space-y-2 text-sm">
-                <li>✅ Nom, prénom, coordonnées (pour les RDV)</li>
-                <li>✅ Informations médicales (dossier patient)</li>
-                <li>✅ Données de navigation (statistiques anonymes)</li>
-              </ul>
-            </div>
-
-            <div class="p-6 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 class="text-lg font-bold text-slate-900 mb-3">Pourquoi</h3>
-              <ul class="space-y-2 text-sm">
-                <li>✅ Assurer vos consultations</li>
-                <li>✅ Améliorer le site web</li>
-                <li>✅ Respecter nos obligations légales</li>
-              </ul>
-            </div>
-
-            <div class="p-6 bg-purple-50 rounded-lg border border-purple-200">
-              <h3 class="text-lg font-bold text-slate-900 mb-3">Vos garanties</h3>
-              <ul class="space-y-2 text-sm">
-                <li>✅ Données sécurisées et chiffrées</li>
-                <li>✅ Jamais vendues à des tiers</li>
-                <li>✅ Vous pouvez accéder, modifier ou supprimer vos données</li>
-                <li>✅ Conformité RGPD</li>
-              </ul>
-            </div>
-
-            <div class="p-6 bg-orange-50 rounded-lg border border-orange-200">
-              <h3 class="text-lg font-bold text-slate-900 mb-3">Comment exercer vos droits</h3>
-              <ul class="space-y-2 text-sm">
-                <li>📧 <a href="mailto:vlelongdiet@orange.fr" class="text-primary hover:underline">vlelongdiet@orange.fr</a></li>
-                <li>📞 <a href="tel:0699505157" class="text-primary hover:underline">06 99 50 51 57</a></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Back to home button -->
-      <div class="mt-12 pt-8 border-t border-slate-200">
-        <a href="/" class="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors font-medium">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-          Retour à l'accueil
-        </a>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-50 text-slate-600 py-12 border-t border-slate-200 mt-12">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          
-          <!-- Logo Section -->
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-slate-200">
-              <img src="/logo.jpeg" alt="Logo Virginie Lelong" class="w-full h-full object-cover" onerror="this.src='/assets/logo.jpeg'">
-            </div>
-            <div class="flex flex-col text-left">
-              <span class="text-xl font-serif font-bold text-slate-900 leading-none">
-                Virginie Lelong Mazaud
-              </span>
-              <span class="text-primary text-sm font-medium tracking-wide">
-                Diététicienne Nutritionniste
-              </span>
-            </div>
-          </div>
-
-          <div class="flex gap-6 text-sm font-medium">
-            <a href="/mentions-legales.html" class="hover:text-primary transition-colors">Mentions légales</a>
-            <a href="/politique-confidentialite.html" class="hover:text-primary transition-colors">Politique de confidentialité</a>
-          </div>
-
-          <div class="text-sm text-slate-500">
-            © 2025 Tous droits réservés.
-          </div>
+        <div class="text-sm text-slate-500">
+          © <span id="footer-year"></span> Tous droits réservés.
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
+
+  <script>
+    // Date Logic
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Navbar Logic
+    const navbar = document.getElementById('navbar');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    let isMenuOpen = false;
+
+    // Scroll Effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.remove('bg-transparent', 'py-4');
+        navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
+      } else {
+        navbar.classList.add('bg-transparent', 'py-4');
+        navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
+      }
+    });
+
+    // Mobile Menu Toggle
+    mobileMenuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.classList.remove('scale-y-0', 'opacity-0', 'h-0');
+        mobileMenu.classList.add('scale-y-100', 'opacity-100');
+        iconMenu.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('scale-y-0', 'opacity-0', 'h-0');
+        mobileMenu.classList.remove('scale-y-100', 'opacity-100');
+        iconMenu.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
+
 </html>
