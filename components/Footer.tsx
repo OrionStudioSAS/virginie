@@ -33,6 +33,18 @@ export const Footer: React.FC = () => {
             © {currentYear} Tous droits réservés.
           </div>
         </div>
+        <div className="mt-6 text-sm text-slate-500 text-center">
+          Site réalisé par{' '}
+          <a
+            href="https://orion-studio.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            Orion Studio
+          </a>{' '}
+          ❤️
+        </div>
       </div>
     </footer>
   );
