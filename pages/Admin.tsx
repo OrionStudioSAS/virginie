@@ -33,7 +33,9 @@ async function getFileSha(repo: string, token: string, slug: string): Promise<st
 }
 
 const Admin: React.FC = () => {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(
+    () => sessionStorage.getItem('admin_auth') === 'true'
+  );
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -59,11 +61,17 @@ const Admin: React.FC = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (passwordInput === import.meta.env.VITE_ADMIN_PASSWORD) {
+      sessionStorage.setItem('admin_auth', 'true');
       setAuthenticated(true);
       setPasswordError('');
     } else {
       setPasswordError('Mot de passe incorrect.');
     }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('admin_auth');
+    setAuthenticated(false);
   };
 
   const resetForm = () => {
@@ -268,6 +276,15 @@ ${content}`;
                   <h1 className="text-3xl font-serif font-bold text-slate-800">Articles</h1>
                   <p className="text-slate-500 mt-1">{posts.length} article{posts.length > 1 ? 's' : ''} publié{posts.length > 1 ? 's' : ''}</p>
                 </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={handleLogout}
+                    className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors"
+                    title="Se déconnecter"
+                  >
+                    <Lock size={14} />
+                    Déconnexion
+                  </button>
                 <button
                   onClick={openNew}
                   className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold hover:bg-rose-600 transition-colors shadow-sm"
@@ -275,6 +292,7 @@ ${content}`;
                   <Plus size={18} />
                   Nouvel article
                 </button>
+                </div>
               </div>
 
               {posts.length === 0 ? (
