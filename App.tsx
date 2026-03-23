@@ -15,9 +15,16 @@ import ReviewModal from './components/ReviewModal';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import Admin from './pages/Admin';
+import Seo from './components/Seo';
 
 const HomePage: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => (
   <div className="min-h-screen flex flex-col font-sans">
+    <Seo
+      title="Virginie Lelong | Diététicienne Nutritionniste Melun & Corbeil-Essonnes"
+      description="Diététicienne nutritionniste à Melun et Corbeil-Essonnes, Virginie Lelong Mazaud propose bilans impédancemétriques, suivi personnalisé et programmes sur-mesure."
+      canonical="/"
+      ogType="website"
+    />
     <Navbar />
     <main className="flex-grow">
       <Hero />
