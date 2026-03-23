@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAllPosts } from '../lib/blog';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import Seo from '../components/Seo';
 import { Calendar } from 'lucide-react';
 
 const BlogList: React.FC = () => {
@@ -10,6 +11,12 @@ const BlogList: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
+      <Seo
+        title="Blog & Conseils Nutrition"
+        description="Retrouvez tous les conseils nutrition, astuces bien-être et réponses à vos questions par Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes."
+        canonical="/blog"
+        ogType="website"
+      />
       <Navbar />
       <main className="flex-grow pt-32 pb-24 bg-slate-50">
         <div className="container mx-auto px-6">

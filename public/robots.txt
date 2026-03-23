@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
 # Sitemap
 Sitemap: https://www.virginie-lelong-nutrition.fr/sitemap.xml
+
+# RSS Feed
+# https://www.virginie-lelong-nutrition.fr/rss.xml

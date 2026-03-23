@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import Seo from '../components/Seo';
 import { getAllPosts, Post } from '../lib/blog';
 import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X } from 'lucide-react';
 
@@ -203,6 +204,7 @@ ${content}`;
   if (!authenticated) {
     return (
       <div className="min-h-screen flex flex-col font-sans">
+        <Seo title="Administration" noIndex={true} />
         <Navbar />
         <main className="flex-grow pt-32 pb-24 flex items-center justify-center bg-slate-50">
           <div className="w-full max-w-sm bg-white rounded-2xl shadow-sm border border-slate-100 p-8">

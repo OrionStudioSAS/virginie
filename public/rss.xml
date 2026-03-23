@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Blog – Virginie Lelong, Diététicienne</title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog</link>
+    <description>Conseils nutrition, astuces bien-être et actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
+    <language>fr-FR</language>
+    <atom:link href="https://www.virginie-lelong-nutrition.fr/rss.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Mar 2026 11:21:13 GMT</lastBuildDate>
+    <managingEditor>contact@virginie-lelong-nutrition.fr (Virginie Lelong)</managingEditor>
+    <image>
+      <url>https://www.virginie-lelong-nutrition.fr/assets/logo.jpeg</url>
+      <title>Virginie Lelong Diététicienne</title>
+      <link>https://www.virginie-lelong-nutrition.fr</link>
+    </image>
+  <item>
+    <title><![CDATA[La méthode de l'assiette équilibrée : simple et efficace]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/assiette-equilibree-methode</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/assiette-equilibree-methode</guid>
+    <pubDate>Tue, 25 Mar 2025 00:00:00 GMT</pubDate>
+    <description><![CDATA[Pas besoin de compter les calories pour manger sainement. La méthode de l'assiette équilibrée est un outil visuel simple pour composer des repas nutritionnellement complets.]]></description>
+      <enclosure url="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&amp;q=80" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title><![CDATA[Hydratation : pourquoi et comment bien s'hydrater ?]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/hydratation-conseils-pratiques</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/hydratation-conseils-pratiques</guid>
+    <pubDate>Thu, 20 Mar 2025 00:00:00 GMT</pubDate>
+    <description><![CDATA[L'eau représente 60 % de notre corps et joue un rôle clé dans toutes nos fonctions vitales. Voici pourquoi et surtout comment atteindre vos besoins quotidiens facilement.]]></description>
+      <enclosure url="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&amp;q=80" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title><![CDATA[Bienvenue sur mon blog nutrition !]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/bienvenue-sur-le-blog</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/bienvenue-sur-le-blog</guid>
+    <pubDate>Sat, 15 Mar 2025 00:00:00 GMT</pubDate>
+    <description><![CDATA[Je suis ravie de vous accueillir sur cet espace dédié à la nutrition et au bien-être. Vous trouverez ici des conseils pratiques, des recettes et des réponses à vos questions.]]></description>
+      <enclosure url="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&amp;q=80" type="image/jpeg" length="0" />
+  </item>
+  </channel>
+</rss>

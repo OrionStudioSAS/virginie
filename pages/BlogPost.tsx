@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getPostBySlug, Post } from '../lib/blog';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import Seo from '../components/Seo';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import { marked } from 'marked';
 
@@ -24,6 +25,10 @@ const BlogPost: React.FC = () => {
   if (!post) {
     return (
       <div className="min-h-screen flex flex-col font-sans">
+        <Seo
+          title="Article introuvable"
+          noIndex={true}
+        />
         <Navbar />
         <main className="flex-grow pt-32 pb-24 flex items-center justify-center bg-slate-50">
           <div className="text-center">
@@ -40,6 +45,14 @@ const BlogPost: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
+      <Seo
+        title={post.title}
+        description={post.excerpt}
+        canonical={`/blog/${post.slug}`}
+        ogImage={post.image}
+        ogType="article"
+        publishedDate={post.date}
+      />
       <Navbar />
       <main className="flex-grow pt-32 pb-24 bg-slate-50">
         <article className="container mx-auto px-6 max-w-3xl">
