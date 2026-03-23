@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { NAV_ITEMS, SQUARE_LOGO, DOCTOLIB_URL } from '../constants';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,10 +18,28 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavClick = (targetId: string) => {
+    setIsOpen(false);
+    if (location.pathname === '/') {
+      scrollToSection(targetId);
+    } else {
+      navigate('/');
+      setTimeout(() => scrollToSection(targetId), 150);
+    }
+  };
+
+  const handleLogoClick = () => {
+    setIsOpen(false);
+    if (location.pathname === '/') {
+      scrollToSection('home');
+    } else {
+      navigate('/');
     }
   };
 
@@ -26,15 +47,13 @@ export const Navbar: React.FC = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo Section */}
-        <div 
+        <div
           className="flex items-center gap-4 cursor-pointer"
-          onClick={() => scrollToSection('home')}
+          onClick={handleLogoClick}
         >
-          {/* Square Logo Placeholder */}
           <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm border-2 border-white">
             <img src={SQUARE_LOGO} alt="Logo" className="w-full h-full object-cover" />
           </div>
-          
           <div className="flex flex-col">
             <span className="text-xl md:text-2xl font-serif font-bold text-slate-900 leading-none">
               Virginie Lelong Mazaud
@@ -50,16 +69,23 @@ export const Navbar: React.FC = () => {
           {NAV_ITEMS.map((item) => (
             <button
               key={item.targetId}
-              onClick={() => scrollToSection(item.targetId)}
+              onClick={() => handleNavClick(item.targetId)}
               className="text-slate-600 hover:text-primary font-medium transition-colors relative group"
             >
               {item.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
-          <a 
-            href={DOCTOLIB_URL} 
-            target="_blank" 
+          <Link
+            to="/blog"
+            className="text-slate-600 hover:text-primary font-medium transition-colors relative group"
+          >
+            Blog
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <a
+            href={DOCTOLIB_URL}
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-rose-600 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold"
           >
@@ -81,15 +107,22 @@ export const Navbar: React.FC = () => {
           {NAV_ITEMS.map((item) => (
             <button
               key={item.targetId}
-              onClick={() => scrollToSection(item.targetId)}
+              onClick={() => handleNavClick(item.targetId)}
               className="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50 last:border-0"
             >
               {item.label}
             </button>
           ))}
-          <a 
-            href={DOCTOLIB_URL} 
-            target="_blank" 
+          <Link
+            to="/blog"
+            onClick={() => setIsOpen(false)}
+            className="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50"
+          >
+            Blog
+          </Link>
+          <a
+            href={DOCTOLIB_URL}
+            target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-white px-4 py-3 rounded-lg text-center font-semibold mt-4 shadow-md"
           >
