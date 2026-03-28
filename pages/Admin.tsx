@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import { getAllPosts, Post } from '../lib/blog';
-import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X } from 'lucide-react';
+import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus } from 'lucide-react';
 
 function slugify(str: string): string {
   return str
@@ -15,32 +15,24 @@ function slugify(str: string): string {
     .replace(/\s+/g, '-');
 }
 
-function toBase64(str: string): string {
-  const bytes = new TextEncoder().encode(str);
-  let binary = '';
-  bytes.forEach((b) => (binary += String.fromCharCode(b)));
-  return btoa(binary);
-}
-
-async function getFileSha(repo: string, token: string, slug: string): Promise<string> {
-  const res = await fetch(
-    `https://api.github.com/repos/${repo}/contents/posts/${slug}.md`,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-  if (!res.ok) throw new Error(`Fichier introuvable sur GitHub (${res.status})`);
-  const data = await res.json();
-  return data.sha;
+function sanitizeFilename(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9._-]/g, '-');
 }
 
 const Admin: React.FC = () => {
   const [authenticated, setAuthenticated] = useState(
-    () => sessionStorage.getItem('admin_auth') === 'true'
+    () => !!sessionStorage.getItem('admin_password')
   );
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
 
   // Form state
-  const [editingSlug, setEditingSlug] = useState<string | null>(null); // null = new post
+  const [editingSlug, setEditingSlug] = useState<string | null>(null);
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
   const [content, setContent] = useState('');
@@ -48,29 +40,46 @@ const Admin: React.FC = () => {
   const [image, setImage] = useState('');
   const [originalDate, setOriginalDate] = useState('');
 
+  // Image upload state
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+
   // UI state
   const [loading, setLoading] = useState(false);
   const [deletingSlug, setDeletingSlug] = useState<string | null>(null);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
   const [showForm, setShowForm] = useState(false);
-
-  // Re-read posts (local build-time data)
   const [posts, setPosts] = useState<Post[]>(() => getAllPosts());
 
-  const handleLogin = (e: React.FormEvent) => {
+  const getPassword = () => sessionStorage.getItem('admin_password') ?? '';
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (passwordInput === import.meta.env.VITE_ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin_auth', 'true');
-      setAuthenticated(true);
-      setPasswordError('');
-    } else {
-      setPasswordError('Mot de passe incorrect.');
+    setLoginLoading(true);
+    setPasswordError('');
+    try {
+      const res = await fetch('/api/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: passwordInput }),
+      });
+      if (res.ok) {
+        sessionStorage.setItem('admin_password', passwordInput);
+        setAuthenticated(true);
+      } else {
+        const data = await res.json();
+        setPasswordError(data.error || 'Mot de passe incorrect.');
+      }
+    } catch {
+      setPasswordError('Erreur de connexion. Vérifiez votre réseau.');
+    } finally {
+      setLoginLoading(false);
     }
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('admin_auth');
+    sessionStorage.removeItem('admin_password');
     setAuthenticated(false);
   };
 
@@ -86,10 +95,7 @@ const Admin: React.FC = () => {
     setSuccess('');
   };
 
-  const openNew = () => {
-    resetForm();
-    setShowForm(true);
-  };
+  const openNew = () => { resetForm(); setShowForm(true); };
 
   const openEdit = (post: Post) => {
     setEditingSlug(post.slug);
@@ -110,15 +116,45 @@ const Admin: React.FC = () => {
     if (!editingSlug) setSlug(slugify(val));
   };
 
-  const buildMarkdown = (date: string) => `---
-title: "${title.replace(/"/g, '\\"')}"
-date: "${date}"
-slug: "${slug}"
-excerpt: "${excerpt.replace(/"/g, '\\"')}"
-image: "${image}"
----
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
-${content}`;
+    // Max 2 MB
+    if (file.size > 2 * 1024 * 1024) {
+      setError('Image trop lourde (max 2 Mo). Compressez-la avant de la téléverser.');
+      return;
+    }
+
+    setUploadingImage(true);
+    setError('');
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const base64 = (reader.result as string).split(',')[1];
+      const ext = file.name.split('.').pop() || 'jpg';
+      const filename = `${Date.now()}-${sanitizeFilename(file.name.replace(`.${ext}`, ''))}.${ext}`;
+
+      try {
+        const res = await fetch('/api/upload-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: getPassword(), filename, content: base64 }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          setImage(data.url);
+        } else {
+          setError(data.error || 'Erreur lors de l\'upload.');
+        }
+      } catch {
+        setError('Erreur lors de l\'upload.');
+      } finally {
+        setUploadingImage(false);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,43 +162,26 @@ ${content}`;
       setError('Veuillez remplir tous les champs obligatoires.');
       return;
     }
-
     setLoading(true);
     setError('');
     setSuccess('');
 
-    const repo = import.meta.env.VITE_GITHUB_REPO;
-    const branch = import.meta.env.VITE_GITHUB_BRANCH || 'main';
-    const token = import.meta.env.VITE_GITHUB_TOKEN;
-    const date = editingSlug ? originalDate : new Date().toISOString().split('T')[0];
-
     try {
-      const body: Record<string, string> = {
-        message: editingSlug ? `Mise à jour : ${title}` : `Article : ${title}`,
-        content: toBase64(buildMarkdown(date)),
-        branch,
-      };
+      const res = await fetch('/api/publish', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          password: getPassword(),
+          title, slug, content, excerpt, image,
+          editingSlug, originalDate,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`);
 
-      // For updates, we need the current file SHA
-      if (editingSlug) {
-        body.sha = await getFileSha(repo, token, editingSlug);
-      }
-
-      const res = await fetch(
-        `https://api.github.com/repos/${repo}/contents/posts/${slug}.md`,
-        {
-          method: 'PUT',
-          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
-        }
-      );
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.message || `Erreur ${res.status}`);
-      }
-
-      setSuccess(editingSlug ? 'Article mis à jour ! Le site se met à jour dans quelques instants.' : 'Article publié avec succès ! Le site se met à jour dans quelques instants.');
+      setSuccess(editingSlug
+        ? 'Article mis à jour ! Le site se met à jour dans quelques instants.'
+        : 'Article publié ! Le site se met à jour dans quelques instants.');
       setShowForm(false);
       resetForm();
       setPosts(getAllPosts());
@@ -178,26 +197,14 @@ ${content}`;
     setError('');
     setSuccess('');
 
-    const repo = import.meta.env.VITE_GITHUB_REPO;
-    const branch = import.meta.env.VITE_GITHUB_BRANCH || 'main';
-    const token = import.meta.env.VITE_GITHUB_TOKEN;
-
     try {
-      const sha = await getFileSha(repo, token, post.slug);
-
-      const res = await fetch(
-        `https://api.github.com/repos/${repo}/contents/posts/${post.slug}.md`,
-        {
-          method: 'DELETE',
-          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: `Suppression : ${post.title}`, sha, branch }),
-        }
-      );
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.message || `Erreur ${res.status}`);
-      }
+      const res = await fetch('/api/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: getPassword(), slug: post.slug, title: post.title }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`);
 
       setSuccess(`"${post.title}" supprimé. Le site se met à jour dans quelques instants.`);
       setPosts(getAllPosts());
@@ -237,8 +244,12 @@ ${content}`;
                   <AlertCircle size={14} /> {passwordError}
                 </p>
               )}
-              <button type="submit" className="w-full bg-primary text-white py-3 rounded-xl font-semibold hover:bg-rose-600 transition-colors">
-                Se connecter
+              <button
+                type="submit"
+                disabled={loginLoading}
+                className="w-full bg-primary text-white py-3 rounded-xl font-semibold hover:bg-rose-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+              >
+                {loginLoading ? <><RefreshCw size={16} className="animate-spin" /> Vérification…</> : 'Se connecter'}
               </button>
             </form>
           </div>
@@ -254,7 +265,6 @@ ${content}`;
       <main className="flex-grow pt-32 pb-24 bg-slate-50">
         <div className="container mx-auto px-6 max-w-3xl">
 
-          {/* Global notifications */}
           {success && (
             <div className="flex items-center gap-3 bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl mb-6">
               <CheckCircle size={20} className="shrink-0" />
@@ -274,24 +284,25 @@ ${content}`;
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h1 className="text-3xl font-serif font-bold text-slate-800">Articles</h1>
-                  <p className="text-slate-500 mt-1">{posts.length} article{posts.length > 1 ? 's' : ''} publié{posts.length > 1 ? 's' : ''}</p>
+                  <p className="text-slate-500 mt-1">
+                    {posts.length} article{posts.length > 1 ? 's' : ''} publié{posts.length > 1 ? 's' : ''}
+                  </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <button
                     onClick={handleLogout}
                     className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors"
-                    title="Se déconnecter"
                   >
                     <Lock size={14} />
                     Déconnexion
                   </button>
-                <button
-                  onClick={openNew}
-                  className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold hover:bg-rose-600 transition-colors shadow-sm"
-                >
-                  <Plus size={18} />
-                  Nouvel article
-                </button>
+                  <button
+                    onClick={openNew}
+                    className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full font-semibold hover:bg-rose-600 transition-colors shadow-sm"
+                  >
+                    <Plus size={18} />
+                    Nouvel article
+                  </button>
                 </div>
               </div>
 
@@ -330,22 +341,23 @@ ${content}`;
             </>
           )}
 
-          {/* Form (new or edit) */}
+          {/* Form */}
           {showForm && (
             <>
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h1 className="text-3xl font-serif font-bold text-slate-800">
-                    {editingSlug ? 'Modifier l\'article' : 'Nouvel article'}
+                    {editingSlug ? "Modifier l'article" : 'Nouvel article'}
                   </h1>
                   <p className="text-slate-500 mt-1">
-                    {editingSlug ? 'Les modifications seront envoyées sur GitHub.' : 'L\'article sera créé sur GitHub et le site se mettra à jour via Vercel.'}
+                    {editingSlug
+                      ? 'Les modifications seront envoyées sur GitHub.'
+                      : "L'article sera créé sur GitHub et le site se mettra à jour via Vercel."}
                   </p>
                 </div>
                 <button
                   onClick={() => { setShowForm(false); resetForm(); }}
                   className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
-                  title="Annuler"
                 >
                   <X size={22} />
                 </button>
@@ -435,17 +447,50 @@ ${content}`;
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Image de couverture
-                    <span className="ml-2 text-slate-400 font-normal text-xs">URL (optionnel)</span>
+                    <span className="ml-2 text-slate-400 font-normal text-xs">optionnel · max 2 Mo</span>
                   </label>
-                  <input
-                    type="url"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                    placeholder="https://example.com/image.jpg"
-                    className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
-                  />
+
+                  {/* Upload depuis l'ordinateur */}
+                  <div className="flex gap-2 mb-3">
+                    <button
+                      type="button"
+                      onClick={() => imageInputRef.current?.click()}
+                      disabled={uploadingImage}
+                      className="inline-flex items-center gap-2 px-4 py-2.5 border border-slate-200 rounded-xl text-slate-600 hover:text-primary hover:border-primary transition-colors text-sm font-medium disabled:opacity-50"
+                    >
+                      {uploadingImage
+                        ? <><RefreshCw size={15} className="animate-spin" /> Upload en cours…</>
+                        : <><ImagePlus size={15} /> Choisir une image</>}
+                    </button>
+                    <input
+                      ref={imageInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleImageUpload}
+                    />
+                    <span className="text-slate-400 text-sm self-center">ou</span>
+                    <input
+                      type="url"
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      placeholder="https://example.com/image.jpg"
+                      className="flex-1 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                    />
+                  </div>
+
                   {image && (
-                    <img src={image} alt="Aperçu" className="mt-3 rounded-xl h-32 object-cover w-full" />
+                    <div className="relative">
+                      <img src={image} alt="Aperçu" className="rounded-xl h-40 object-cover w-full" />
+                      <button
+                        type="button"
+                        onClick={() => setImage('')}
+                        className="absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-1.5 text-slate-500 hover:text-red-500 transition-colors"
+                        title="Supprimer l'image"
+                      >
+                        <X size={14} />
+                      </button>
+                    </div>
                   )}
                 </div>
 
@@ -459,16 +504,14 @@ ${content}`;
                   </button>
                   <button
                     type="submit"
-                    disabled={loading}
+                    disabled={loading || uploadingImage}
                     className="flex-2 flex-grow bg-primary text-white py-3.5 rounded-xl font-semibold hover:bg-rose-600 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {loading ? (
-                      <><RefreshCw size={18} className="animate-spin" /> En cours…</>
-                    ) : editingSlug ? (
-                      <><Send size={18} /> Mettre à jour</>
-                    ) : (
-                      <><Send size={18} /> Publier l'article</>
-                    )}
+                    {loading
+                      ? <><RefreshCw size={18} className="animate-spin" /> En cours…</>
+                      : editingSlug
+                        ? <><Send size={18} /> Mettre à jour</>
+                        : <><Send size={18} /> Publier l'article</>}
                   </button>
                 </div>
               </form>
@@ -481,13 +524,10 @@ ${content}`;
   );
 };
 
-// Inline delete button with confirmation step
 const DeleteButton: React.FC<{ loading: boolean; onConfirm: () => void }> = ({ loading, onConfirm }) => {
   const [confirming, setConfirming] = useState(false);
 
-  if (loading) {
-    return <RefreshCw size={17} className="animate-spin text-slate-400 mx-2" />;
-  }
+  if (loading) return <RefreshCw size={17} className="animate-spin text-slate-400 mx-2" />;
 
   if (confirming) {
     return (
