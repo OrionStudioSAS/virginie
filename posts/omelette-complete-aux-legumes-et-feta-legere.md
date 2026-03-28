@@ -3,7 +3,7 @@ title: "Omelette complète aux légumes et feta légère"
 date: "2026-03-28"
 slug: "omelette-complete-aux-legumes-et-feta-legere"
 excerpt: "Une omelette riche en protéines avec légumes et feta pour une satiété optimale"
-image: "https://cookaifood.com/wp-content/uploads/2024/08/fluffy-spinach-and-feta-omelette"
+image: "ttps://images.unsplash.com/photo-1604908177522-4295f8f6b1c1"
 ---
 
 ## Pourquoi ça cale ?
