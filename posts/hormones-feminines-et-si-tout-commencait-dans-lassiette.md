@@ -60,8 +60,6 @@ Ce ne sont pas “juste les hormones”. Ce sont des messages.
 
 🎯 Réduire les fringales et l’irritabilité
 
-![description de l'image](/assets/blog/1774701201866-etoile-icone.png)
-
 ---
 
 ### Phase ovulatoire : optimiser
@@ -73,8 +71,6 @@ Ce ne sont pas “juste les hormones”. Ce sont des messages.
 - Apports protéiques adaptés  
 
 🎯 Énergie maximale et récupération optimale
-
-![description de l'image](/assets/blog/1774701263499-orion-studio-landing-page--61-.png)
 
 ---
 
