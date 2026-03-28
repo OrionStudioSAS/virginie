@@ -471,7 +471,7 @@ const Admin: React.FC = () => {
                     />
                     <span className="text-slate-400 text-sm self-center">ou</span>
                     <input
-                      type="url"
+                      type="text"
                       value={image}
                       onChange={(e) => setImage(e.target.value)}
                       placeholder="https://example.com/image.jpg"
@@ -481,7 +481,15 @@ const Admin: React.FC = () => {
 
                   {image && (
                     <div className="relative">
-                      <img src={image} alt="Aperçu" className="rounded-xl h-40 object-cover w-full" />
+                      {image.startsWith('/assets/blog/') ? (
+                        <div className="rounded-xl h-20 bg-slate-50 border border-slate-200 flex items-center justify-center text-sm text-slate-500 gap-2">
+                          <CheckCircle size={15} className="text-green-500" />
+                          Image uploadée : <span className="font-mono text-xs">{image}</span>
+                          — visible en production après déploiement
+                        </div>
+                      ) : (
+                        <img src={image} alt="Aperçu" className="rounded-xl h-40 object-cover w-full" />
+                      )}
                       <button
                         type="button"
                         onClick={() => setImage('')}
