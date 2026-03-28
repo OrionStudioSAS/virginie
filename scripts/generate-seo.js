@@ -14,6 +14,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, 'posts');
+const NEWS_DIR = path.join(ROOT, 'news');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const BASE_URL = 'https://www.virginie-lelong-nutrition.fr';
 const TODAY = new Date().toISOString().split('T')[0];
@@ -57,10 +58,31 @@ function getPosts() {
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+/* ─── Lecture des actualités ─────────────────────────────────────────────── */
+function getNews() {
+  if (!fs.existsSync(NEWS_DIR)) return [];
+  return fs
+    .readdirSync(NEWS_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .map((file) => {
+      const raw = fs.readFileSync(path.join(NEWS_DIR, file), 'utf-8');
+      const { data } = parseFrontmatter(raw);
+      return {
+        slug:    data.slug    || file.replace('.md', ''),
+        title:   data.title   || 'Sans titre',
+        date:    data.date    || TODAY,
+        excerpt: data.excerpt || '',
+        image:   data.image   || '',
+      };
+    })
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 /* ─── URLs statiques (admin EXCLUE) ─────────────────────────────────────── */
 const STATIC_URLS = [
   { loc: `${BASE_URL}/`,                                   lastmod: '2025-11-26', changefreq: 'weekly',  priority: '1.0' },
   { loc: `${BASE_URL}/blog`,                               lastmod: TODAY,        changefreq: 'weekly',  priority: '0.9' },
+  { loc: `${BASE_URL}/actualites`,                         lastmod: TODAY,        changefreq: 'weekly',  priority: '0.9' },
   { loc: `${BASE_URL}/mentions-legales.html`,              lastmod: '2025-11-26', changefreq: 'yearly',  priority: '0.3' },
   { loc: `${BASE_URL}/politique-confidentialite.html`,     lastmod: '2025-11-26', changefreq: 'yearly',  priority: '0.3' },
   { loc: `${BASE_URL}/#about`,                             lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.9' },
@@ -148,9 +170,24 @@ ${items}
 
 /* ─── Main ───────────────────────────────────────────────────────────────── */
 const posts = getPosts();
+const newsItems = getNews();
 
-fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), generateSitemap(posts), 'utf-8');
-console.log(`✅ sitemap.xml — ${STATIC_URLS.length + posts.length} URLs (${posts.length} articles)`);
+// Sitemap : blog + actualités
+function generateSitemapFull(posts, news) {
+  const postUrls = posts.map((p) => ({
+    loc: `${BASE_URL}/blog/${p.slug}`, lastmod: p.date, changefreq: 'monthly', priority: '0.7',
+  }));
+  const newsUrls = news.map((n) => ({
+    loc: `${BASE_URL}/actualites/${n.slug}`, lastmod: n.date, changefreq: 'weekly', priority: '0.8',
+  }));
+  const urlBlocks = [...STATIC_URLS, ...postUrls, ...newsUrls]
+    .map((u) => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`)
+    .join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n${urlBlocks}\n\n</urlset>`;
+}
+
+fs.writeFileSync(path.join(PUBLIC_DIR, 'sitemap.xml'), generateSitemapFull(posts, newsItems), 'utf-8');
+console.log(`✅ sitemap.xml — ${STATIC_URLS.length + posts.length + newsItems.length} URLs (${posts.length} articles, ${newsItems.length} actualités)`);
 
 fs.writeFileSync(path.join(PUBLIC_DIR, 'rss.xml'), generateRss(posts), 'utf-8');
 console.log(`✅ rss.xml — ${Math.min(posts.length, 20)} articles`);

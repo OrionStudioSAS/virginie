@@ -11,9 +11,12 @@ import { Footer } from './components/Footer';
 import { Testimonials } from './components/Testimonials';
 import { Impedance } from './components/Impedance';
 import { BlogPreview } from './components/BlogPreview';
+import { NewsPreview } from './components/NewsPreview';
 import ReviewModal from './components/ReviewModal';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
+import NewsList from './pages/NewsList';
+import NewsPost from './pages/NewsPost';
 import Admin from './pages/Admin';
 import Seo from './components/Seo';
 
@@ -32,6 +35,7 @@ const HomePage: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => (
       <Impedance />
       <Locations />
       <BlogPreview />
+      <NewsPreview />
       <Testimonials onOpenReview={onOpenReview} />
       <Contact onOpenReview={onOpenReview} />
       <FAQ />
@@ -49,6 +53,8 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage onOpenReview={() => setOpenReviewModal(true)} />} />
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/actualites" element={<NewsList />} />
+        <Route path="/actualites/:slug" element={<NewsPost />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <ReviewModal open={openReviewModal} onClose={() => setOpenReviewModal(false)} />

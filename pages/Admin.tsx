@@ -3,7 +3,8 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import { getAllPosts, Post } from '../lib/blog';
-import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus, Copy, Check } from 'lucide-react';
+import { getAllNews, NewsItem } from '../lib/news';
+import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus, Copy, Check, Rss, BookOpen } from 'lucide-react';
 
 const CONTENT_IMAGE_SLOTS = 5;
 
@@ -61,6 +62,10 @@ const Admin: React.FC = () => {
   const [error, setError] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [posts, setPosts] = useState<Post[]>(() => getAllPosts());
+  const [news, setNews] = useState<NewsItem[]>(() => getAllNews());
+
+  // Tab : 'blog' | 'news'
+  const [activeTab, setActiveTab] = useState<'blog' | 'news'>('blog');
 
   const getPassword = () => sessionStorage.getItem('admin_password') ?? '';
 
@@ -225,6 +230,55 @@ const Admin: React.FC = () => {
     reader.readAsDataURL(file);
   };
 
+  const handleSubmitNews = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!title || !slug || !content || !excerpt) {
+      setError('Veuillez remplir tous les champs obligatoires.');
+      return;
+    }
+    setLoading(true);
+    setError('');
+    setSuccess('');
+    try {
+      const res = await fetch('/api/publish-news', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: getPassword(), title, slug, content, excerpt, image, editingSlug, originalDate }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`);
+      setSuccess(editingSlug ? 'Actualité mise à jour !' : 'Actualité publiée !');
+      setShowForm(false);
+      resetForm();
+      setNews(getAllNews());
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Une erreur est survenue.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteNews = async (item: NewsItem) => {
+    setDeletingSlug(item.slug);
+    setError('');
+    setSuccess('');
+    try {
+      const res = await fetch('/api/delete-news', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: getPassword(), slug: item.slug, title: item.title }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Erreur ${res.status}`);
+      setSuccess(`"${item.title}" supprimée.`);
+      setNews(getAllNews());
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Une erreur est survenue.');
+    } finally {
+      setDeletingSlug(null);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !slug || !content || !excerpt) {
@@ -334,6 +388,24 @@ const Admin: React.FC = () => {
       <main className="flex-grow pt-32 pb-24 bg-slate-50">
         <div className="container mx-auto px-6 max-w-3xl">
 
+          {/* Onglets Blog / Actualités */}
+          {!showForm && (
+            <div className="flex gap-2 mb-8 bg-white border border-slate-100 rounded-2xl p-1.5 shadow-sm w-fit">
+              <button
+                onClick={() => { setActiveTab('blog'); setError(''); setSuccess(''); }}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${activeTab === 'blog' ? 'bg-primary text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                <BookOpen size={16} /> Articles blog
+              </button>
+              <button
+                onClick={() => { setActiveTab('news'); setError(''); setSuccess(''); }}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all ${activeTab === 'news' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                <Rss size={16} /> Fil d'actualité
+              </button>
+            </div>
+          )}
+
           {success && (
             <div className="flex items-center gap-3 bg-green-50 border border-green-200 text-green-700 px-5 py-4 rounded-xl mb-6">
               <CheckCircle size={20} className="shrink-0" />
@@ -348,7 +420,7 @@ const Admin: React.FC = () => {
           )}
 
           {/* Article list */}
-          {!showForm && (
+          {!showForm && activeTab === 'blog' && (
             <>
               <div className="flex items-center justify-between mb-8">
                 <div>
@@ -410,19 +482,81 @@ const Admin: React.FC = () => {
             </>
           )}
 
+          {/* News list */}
+          {!showForm && activeTab === 'news' && (
+            <>
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h1 className="text-3xl font-serif font-bold text-slate-800">Fil d'actualité</h1>
+                  <p className="text-slate-500 mt-1">{news.length} actualité{news.length > 1 ? 's' : ''} publiée{news.length > 1 ? 's' : ''}</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button onClick={handleLogout} className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-600 text-sm font-medium transition-colors">
+                    <Lock size={14} /> Déconnexion
+                  </button>
+                  <button
+                    onClick={() => { resetForm(); setShowForm(true); }}
+                    className="inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-emerald-700 transition-colors shadow-sm"
+                  >
+                    <Plus size={18} /> Nouvelle actualité
+                  </button>
+                </div>
+              </div>
+
+              {news.length === 0 ? (
+                <div className="bg-white rounded-2xl border border-slate-100 p-12 text-center text-slate-400">
+                  Aucune actualité. Créez la première !
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {news.map((item) => (
+                    <div key={item.slug} className="bg-white rounded-2xl border border-slate-100 px-6 py-5 flex items-center gap-4">
+                      {item.image && (
+                        <img src={item.image} alt="" className="w-16 h-16 rounded-xl object-cover shrink-0" />
+                      )}
+                      <div className="flex-grow min-w-0">
+                        <p className="font-semibold text-slate-800 truncate">{item.title}</p>
+                        <p className="text-sm text-slate-400 mt-0.5">{item.date} · /actualites/{item.slug}</p>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        <button
+                          onClick={() => {
+                            setEditingSlug(item.slug);
+                            setTitle(item.title);
+                            setSlug(item.slug);
+                            setContent(item.content.trim());
+                            setExcerpt(item.excerpt);
+                            setImage(item.image || '');
+                            setOriginalDate(item.date);
+                            setError(''); setSuccess('');
+                            setShowForm(true);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }}
+                          className="p-2 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-colors"
+                          title="Modifier"
+                        >
+                          <Pencil size={17} />
+                        </button>
+                        <DeleteButton loading={deletingSlug === item.slug} onConfirm={() => handleDeleteNews(item)} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+
           {/* Form */}
           {showForm && (
             <>
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h1 className="text-3xl font-serif font-bold text-slate-800">
-                    {editingSlug ? "Modifier l'article" : 'Nouvel article'}
-                  </h1>
-                  <p className="text-slate-500 mt-1">
                     {editingSlug
-                      ? 'Les modifications seront envoyées sur GitHub.'
-                      : "L'article sera créé sur GitHub et le site se mettra à jour via Vercel."}
-                  </p>
+                      ? (activeTab === 'news' ? "Modifier l'actualité" : "Modifier l'article")
+                      : (activeTab === 'news' ? 'Nouvelle actualité' : 'Nouvel article')}
+                  </h1>
+                  <p className="text-slate-500 mt-1">Les modifications seront envoyées sur GitHub et le site se mettra à jour via Vercel.</p>
                 </div>
                 <button
                   onClick={() => { setShowForm(false); resetForm(); }}
@@ -439,7 +573,7 @@ const Admin: React.FC = () => {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+              <form onSubmit={activeTab === 'news' ? handleSubmitNews : handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
                 {/* Titre */}
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Titre *</label>
