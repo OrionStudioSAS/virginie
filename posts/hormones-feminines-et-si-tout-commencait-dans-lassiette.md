@@ -3,7 +3,7 @@ title: "Hormones féminines : et si tout commençait dans l’assiette ?"
 date: "2026-03-28"
 slug: "hormones-feminines-et-si-tout-commencait-dans-lassiette"
 excerpt: "Fatigue, fringales, cycle irrégulier… Et si votre assiette influençait directement vos hormones ? Découvrez 3 leviers simples et efficaces"
-image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352" ---"
+image: ""
 ---
 
 ## Hormones féminines : et si tout commençait dans l’assiette ?
