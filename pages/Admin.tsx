@@ -3,7 +3,9 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import { getAllPosts, Post } from '../lib/blog';
-import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus } from 'lucide-react';
+import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus, Copy, Check } from 'lucide-react';
+
+const CONTENT_IMAGE_SLOTS = 5;
 
 function slugify(str: string): string {
   return str
@@ -40,9 +42,17 @@ const Admin: React.FC = () => {
   const [image, setImage] = useState('');
   const [originalDate, setOriginalDate] = useState('');
 
-  // Image upload state
+  // Cover image upload state
   const [uploadingImage, setUploadingImage] = useState(false);
   const imageInputRef = useRef<HTMLInputElement>(null);
+
+  // Content images (5 slots)
+  type ContentImage = { url: string; markdown: string; copied: boolean } | null;
+  const [contentImages, setContentImages] = useState<ContentImage[]>(
+    () => Array(CONTENT_IMAGE_SLOTS).fill(null)
+  );
+  const [uploadingSlot, setUploadingSlot] = useState<number | null>(null);
+  const contentImageRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   // UI state
   const [loading, setLoading] = useState(false);
@@ -93,6 +103,65 @@ const Admin: React.FC = () => {
     setOriginalDate('');
     setError('');
     setSuccess('');
+    setContentImages(Array(CONTENT_IMAGE_SLOTS).fill(null));
+  };
+
+  const handleContentImageUpload = async (slotIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 2 * 1024 * 1024) {
+      setError('Image trop lourde (max 2 Mo).');
+      return;
+    }
+    setUploadingSlot(slotIndex);
+    setError('');
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const base64 = (reader.result as string).split(',')[1];
+      const ext = file.name.split('.').pop() || 'jpg';
+      const filename = `${Date.now()}-${sanitizeFilename(file.name.replace(`.${ext}`, ''))}.${ext}`;
+      try {
+        const res = await fetch('/api/upload-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: getPassword(), filename, content: base64 }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          const markdown = `![description de l'image](${data.url})`;
+          setContentImages(prev => {
+            const next = [...prev];
+            next[slotIndex] = { url: data.url, markdown, copied: false };
+            return next;
+          });
+        } else {
+          setError(data.error || "Erreur lors de l'upload.");
+        }
+      } catch {
+        setError("Erreur lors de l'upload.");
+      } finally {
+        setUploadingSlot(null);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleCopyMarkdown = (slotIndex: number) => {
+    const img = contentImages[slotIndex];
+    if (!img) return;
+    navigator.clipboard.writeText(img.markdown);
+    setContentImages(prev => {
+      const next = [...prev];
+      next[slotIndex] = { ...img, copied: true };
+      return next;
+    });
+    setTimeout(() => {
+      setContentImages(prev => {
+        const next = [...prev];
+        if (next[slotIndex]) next[slotIndex] = { ...next[slotIndex]!, copied: false };
+        return next;
+      });
+    }, 2000);
   };
 
   const openNew = () => { resetForm(); setShowForm(true); };
@@ -440,6 +509,60 @@ const Admin: React.FC = () => {
                   />
                   <p className="mt-1 text-xs text-slate-400">
                     Supporte Markdown : # Titre, **gras**, *italique*, - liste, [lien](url)
+                  </p>
+                </div>
+
+                {/* Images pour le contenu */}
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">
+                    Images pour le contenu
+                    <span className="ml-2 text-slate-400 font-normal text-xs">uploadez jusqu'à 5 images, copiez le code Markdown</span>
+                  </label>
+                  <div className="space-y-2">
+                    {Array.from({ length: CONTENT_IMAGE_SLOTS }).map((_, i) => {
+                      const img = contentImages[i];
+                      return (
+                        <div key={i} className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => contentImageRefs.current[i]?.click()}
+                            disabled={uploadingSlot === i}
+                            className="shrink-0 inline-flex items-center gap-1.5 px-3 py-2 border border-slate-200 rounded-xl text-slate-500 hover:text-primary hover:border-primary transition-colors text-xs font-medium disabled:opacity-50"
+                          >
+                            {uploadingSlot === i
+                              ? <RefreshCw size={13} className="animate-spin" />
+                              : <ImagePlus size={13} />}
+                            Image {i + 1}
+                          </button>
+                          <input
+                            ref={el => { contentImageRefs.current[i] = el; }}
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => handleContentImageUpload(i, e)}
+                          />
+                          {img ? (
+                            <>
+                              <code className="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-600 font-mono truncate">
+                                {img.markdown}
+                              </code>
+                              <button
+                                type="button"
+                                onClick={() => handleCopyMarkdown(i)}
+                                className={`shrink-0 inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${img.copied ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary'}`}
+                              >
+                                {img.copied ? <><Check size={13} /> Copié !</> : <><Copy size={13} /> Copier</>}
+                              </button>
+                            </>
+                          ) : (
+                            <span className="text-xs text-slate-400 italic">Aucune image uploadée</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="mt-2 text-xs text-slate-400">
+                    Collez le code copié dans le Markdown pour insérer l'image : <code className="bg-slate-100 px-1 rounded">![alt](url)</code>
                   </p>
                 </div>
 
