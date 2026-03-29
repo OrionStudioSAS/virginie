@@ -9,13 +9,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.virginie-lelong-nutrition.fr/blog</loc>
-    <lastmod>2026-03-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.virginie-lelong-nutrition.fr/actualites</loc>
+    <loc>https://www.virginie-lelong-nutrition.fr/blog-et-actualites</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -117,8 +111,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.virginie-lelong-nutrition.fr/actualites/bienvenue-dans-notre-fil-dactu</loc>
-    <lastmod>2026-03-28</lastmod>
+    <loc>https://www.virginie-lelong-nutrition.fr/actualites/mars-bleu-2026-la-prevention-du-cancer-colorectal-passe-aussi-par-lalimentation</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

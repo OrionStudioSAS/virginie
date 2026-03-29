@@ -8,7 +8,7 @@
     <description>Conseils nutrition, astuces bien-être et actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
     <language>fr-FR</language>
     <atom:link href="https://www.virginie-lelong-nutrition.fr/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 29 Mar 2026 13:45:35 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 16:23:34 GMT</lastBuildDate>
     <managingEditor>contact@virginie-lelong-nutrition.fr (Virginie Lelong)</managingEditor>
     <image>
       <url>https://www.virginie-lelong-nutrition.fr/assets/logo.jpeg</url>
@@ -21,7 +21,7 @@
     <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/reduire-le-sucre-pourquoi-et-comment-eviter-les-fringales</guid>
     <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[Fatigue, fringales, dépendance… Comprendre les effets du sucre et adopter des réflexes simples pour éviter les grignotages]]></description>
-      <enclosure url="https://example.com/reduire-le-sucre.jpg" type="image/jpeg" length="0" />
+      <enclosure url="/assets/blog/1774795014453-reduire-le-sucre.jpg" type="image/jpeg" length="0" />
   </item>
   <item>
     <title><![CDATA[Pavé de saumon au four, légumes rôtis & quinoa]]></title>
@@ -37,7 +37,7 @@
     <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/omelette-complete-aux-legumes-et-feta-legere</guid>
     <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[Une omelette riche en protéines avec légumes et feta pour une satiété optimale]]></description>
-      <enclosure url="ttps://images.unsplash.com/photo-1604908177522-4295f8f6b1c1" type="image/jpeg" length="0" />
+      <enclosure url="https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" length="0" />
   </item>
   <item>
     <title><![CDATA[Hormones féminines : et si tout commençait dans l’assiette ?]]></title>
@@ -45,7 +45,6 @@
     <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/hormones-feminines-et-si-tout-commencait-dans-lassiette</guid>
     <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
     <description><![CDATA[Fatigue, fringales, cycle irrégulier… Et si votre assiette influençait directement vos hormones ? Découvrez 3 leviers simples et efficaces]]></description>
-      <enclosure url="/assets/blog/1774700781004-capture-d-ecran-25-fevr-2026-de-julien-bourlieu.png" type="image/jpeg" length="0" />
   </item>
   <item>
     <title><![CDATA[La méthode de l'assiette équilibrée : simple et efficace]]></title>
