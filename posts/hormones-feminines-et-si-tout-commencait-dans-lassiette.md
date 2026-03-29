@@ -3,7 +3,7 @@ title: "Hormones féminines : et si tout commençait dans l’assiette ?"
 date: "2026-03-28"
 slug: "hormones-feminines-et-si-tout-commencait-dans-lassiette"
 excerpt: "Fatigue, fringales, cycle irrégulier… Et si votre assiette influençait directement vos hormones ? Découvrez 3 leviers simples et efficaces"
-image: "/assets/blog/1774700781004-capture-d-ecran-25-fevr-2026-de-julien-bourlieu.png"
+image: ""
 ---
 
 ## Hormones féminines : et si tout commençait dans l’assiette ?
@@ -11,7 +11,7 @@ image: "/assets/blog/1774700781004-capture-d-ecran-25-fevr-2026-de-julien-bourli
 Fatigue. Fringales. Cycle irrégulier. Règles douloureuses…  
 Ce ne sont pas “juste les hormones”. Ce sont des messages.
 
-👉 Votre alimentation joue un rôle direct sur votre équilibre hormonal.
+👉 Votre alimentation peut soutenir (ou perturber) votre équilibre hormonal.
 
 ---
 
@@ -23,15 +23,15 @@ Ce ne sont pas “juste les hormones”. Ce sont des messages.
 - Évitez le sucre seul (biscuit, jus, viennoiserie)  
 - Composez des repas simples et rassasiants  
 
-🎯 Moins de fatigue = moins d’envies incontrôlées
+🎯 Moins de coups de fatigue = moins d’envies incontrôlées
 
 ---
 
 ### 2. Ajouter du bon gras chaque jour 🥑
 
-- Huile d’olive pour cuisiner  
+- Huile d’olive  
 - Poisson 2×/semaine  
-- Une poignée de noix ou d’amandes  
+- Noix, amandes  
 - Œufs  
 
 🎯 Soutient naturellement la production hormonale
@@ -42,41 +42,65 @@ Ce ne sont pas “juste les hormones”. Ce sont des messages.
 
 - Des légumes chaque jour  
 - Une bonne hydratation  
-- De la régularité dans les repas  
+- De la régularité  
 
 🎯 Aider le corps à mieux fonctionner
 
 ---
 
-## 🌸 Adapter selon les phases du cycle
+## 🌸 Adapter son alimentation selon les phases du cycle
 
-### Phase lutéale : adoucir
+### Phase menstruelle : éliminer
 
-![Phase lutéale alimentation apaisante](https://images.unsplash.com/photo-1505576399279-565b52d4ac71)
+![Phase menstruelle alimentation chaude](https://images.unsplash.com/photo-1511690078903-71dc5a49f5e3)
 
-- Augmenter légèrement les apports énergétiques  
-- Favoriser les aliments riches en magnésium (amandes, chocolat noir, légumes verts)  
-- Privilégier des repas chauds et réconfortants  
+- Privilégier des aliments chauds et digestes  
+- Fer + vitamine C (lentilles, épinards, agrumes)  
+- Hydratation +++  
 
-🎯 Réduire les fringales et l’irritabilité
+🎯 Soutenir la récupération et limiter la fatigue
+
+---
+
+### Phase folliculaire : recharger
+
+![Phase folliculaire alimentation équilibrée](https://images.unsplash.com/photo-1498837167922-ddd27525d352)
+
+- Augmenter progressivement les protéines  
+- Ajouter des fibres (légumes, céréales complètes)  
+- Reprendre de l’énergie  
+
+🎯 Relancer l’organisme en douceur
 
 ---
 
 ### Phase ovulatoire : optimiser
 
-![Phase ovulatoire alimentation légère et fraîche](https://images.unsplash.com/photo-1512621776951-a57141f2eefd)
+![Phase ovulatoire alimentation fraîche](https://images.unsplash.com/photo-1512621776951-a57141f2eefd)
 
-- Miser sur des aliments frais et légers  
-- Augmenter les légumes crus et colorés  
-- Apports protéiques adaptés  
+- Alimentation fraîche et légère  
+- Beaucoup de légumes crus  
+- Protéines de qualité  
 
-🎯 Énergie maximale et récupération optimale
+🎯 Maximiser l’énergie et la vitalité
+
+---
+
+### Phase lutéale : adoucir
+
+![Phase lutéale alimentation réconfortante](https://images.unsplash.com/photo-1505576399279-565b52d4ac71)
+
+- Augmenter légèrement les apports  
+- Magnésium (amandes, chocolat noir, légumes verts)  
+- Repas rassasiants et réguliers  
+
+🎯 Limiter les fringales et l’irritabilité
 
 ---
 
 ## 🎯 L’objectif
 
-**Travailler avec votre corps, pas contre lui.**
+**S’adapter à son corps plutôt que lutter contre lui.**
 
 ---
 
