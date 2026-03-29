@@ -30,8 +30,8 @@ const NewsPost: React.FC = () => {
         <main className="flex-grow pt-32 pb-24 flex items-center justify-center bg-slate-50">
           <div className="text-center">
             <p className="text-slate-500 text-lg mb-6">Actualité introuvable.</p>
-            <Link to="/actualites" className="text-emerald-700 hover:underline font-medium">
-              ← Retour aux actualités
+            <Link to="/blog-et-actualites" className="text-emerald-700 hover:underline font-medium">
+              ← Retour au blog & actualités
             </Link>
           </div>
         </main>
@@ -54,11 +54,11 @@ const NewsPost: React.FC = () => {
       <main className="flex-grow pt-32 pb-24 bg-slate-50">
         <article className="container mx-auto px-6 max-w-3xl">
           <Link
-            to="/actualites"
+            to="/blog-et-actualites"
             className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-700 transition-colors mb-8 text-sm font-medium"
           >
             <ArrowLeft size={16} />
-            Retour aux actualités
+            Retour au blog & actualités
           </Link>
 
           {item.image && (

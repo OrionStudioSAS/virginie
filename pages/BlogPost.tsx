@@ -61,7 +61,7 @@ const BlogPost: React.FC = () => {
             className="inline-flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-8 text-sm font-medium"
           >
             <ArrowLeft size={16} />
-            Retour au blog
+            Retour au blog & actualités
           </Link>
 
           {post.image && (
