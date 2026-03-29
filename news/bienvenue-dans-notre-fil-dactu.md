@@ -3,7 +3,7 @@ title: "Bienvenue dans notre fil d'actualité !"
 date: "2026-03-28"
 slug: "bienvenue-dans-notre-fil-dactu"
 excerpt: "Retrouvez ici toutes les actualités du cabinet : nouveaux horaires, événements, conseils saisonniers et bien plus encore."
-image: ""
+image: "/assets/blog/1774792417172-capture-d-ecran-25-fevr-2026-de-julien-bourlieu.png"
 ---
 
 ## Bienvenue !
