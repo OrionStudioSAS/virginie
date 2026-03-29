@@ -78,7 +78,8 @@ export const ASSOCIATIONS = [
   "IEDM (Institut Européen de Diététique et Micronutrition)",
   "RENIF (Réseau de Néphrologie d’Ile-de-France)",
   "REPOP (Réseau de Prévention de l’Obésité Pédiatrique)",
-  "Revesdiab (Réseau de santé diabète)"
+  "Revesdiab (Réseau de santé diabète)",
+  "CPTS (Santé Seine Essonne)"
 ];
 
 export const WORKPLACES: Workplace[] = [
