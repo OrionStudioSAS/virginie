@@ -18,7 +18,7 @@ const BlogList: React.FC = () => {
       <Seo
         title="Blog & Actualités"
         description="Retrouvez tous les conseils nutrition, astuces bien-être et actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes."
-        canonical="/blog"
+        canonical="/blog-et-actualites"
         ogType="website"
       />
       <Navbar />

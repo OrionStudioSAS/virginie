@@ -81,8 +81,7 @@ function getNews() {
 /* ─── URLs statiques (admin EXCLUE) ─────────────────────────────────────── */
 const STATIC_URLS = [
   { loc: `${BASE_URL}/`,                                   lastmod: '2025-11-26', changefreq: 'weekly',  priority: '1.0' },
-  { loc: `${BASE_URL}/blog`,                               lastmod: TODAY,        changefreq: 'weekly',  priority: '0.9' },
-  { loc: `${BASE_URL}/actualites`,                         lastmod: TODAY,        changefreq: 'weekly',  priority: '0.9' },
+  { loc: `${BASE_URL}/blog-et-actualites`,                  lastmod: TODAY,        changefreq: 'weekly',  priority: '0.9' },
   { loc: `${BASE_URL}/mentions-legales.html`,              lastmod: '2025-11-26', changefreq: 'yearly',  priority: '0.3' },
   { loc: `${BASE_URL}/politique-confidentialite.html`,     lastmod: '2025-11-26', changefreq: 'yearly',  priority: '0.3' },
   { loc: `${BASE_URL}/#about`,                             lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.9' },

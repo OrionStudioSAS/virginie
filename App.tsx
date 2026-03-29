@@ -48,7 +48,7 @@ const App: React.FC = () => {
     <>
       <Routes>
         <Route path="/" element={<HomePage onOpenReview={() => setOpenReviewModal(true)} />} />
-        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog-et-actualites" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/actualites/:slug" element={<NewsPost />} />
         <Route path="/admin" element={<Admin />} />

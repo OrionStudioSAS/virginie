@@ -75,7 +75,7 @@ export const BlogPreview: React.FC = () => {
 
         <div className="text-center mt-12 reveal reveal-fade reveal-delay-200">
           <Link
-            to="/blog"
+            to="/blog-et-actualites"
             className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
           >
             Voir toutes les publications
