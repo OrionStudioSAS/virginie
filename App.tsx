@@ -17,6 +17,7 @@ import BlogPost from './pages/BlogPost';
 import NewsPost from './pages/NewsPost';
 import Admin from './pages/Admin';
 import Seo from './components/Seo';
+import ScrollToTop from './components/ScrollToTop';
 
 const HomePage: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => (
   <div className="min-h-screen flex flex-col font-sans">
@@ -46,6 +47,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage onOpenReview={() => setOpenReviewModal(true)} />} />
         <Route path="/blog-et-actualites" element={<BlogList />} />

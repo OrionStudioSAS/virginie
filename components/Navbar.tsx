@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
             </button>
           ))}
           <Link
-            to="/blog"
+            to="/blog-et-actualites"
             className="text-slate-600 hover:text-primary font-medium transition-colors relative group"
           >
             Blog
@@ -114,7 +114,7 @@ export const Navbar: React.FC = () => {
             </button>
           ))}
           <Link
-            to="/blog"
+            to="/blog-et-actualites"
             onClick={() => setIsOpen(false)}
             className="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50"
           >
