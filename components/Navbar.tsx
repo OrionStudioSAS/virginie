@@ -80,7 +80,7 @@ export const Navbar: React.FC = () => {
             to="/blog-et-actualites"
             className="text-slate-600 hover:text-primary font-medium transition-colors relative group"
           >
-            Blog
+            Blog & Actualités
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <a
