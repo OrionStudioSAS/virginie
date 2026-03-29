@@ -3,7 +3,7 @@ title: "Réduire le sucre : pourquoi et comment éviter les fringales"
 date: "2026-03-28"
 slug: "reduire-le-sucre-pourquoi-et-comment-eviter-les-fringales"
 excerpt: "Fatigue, fringales, dépendance… Comprendre les effets du sucre et adopter des réflexes simples pour éviter les grignotages"
-image: "https://static.wixstatic.com/media/bfe9ac_e35e90fcf1884b56948ec3cd725dbc40~mv2.jpg/v1/fill/w_700,h_700,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/bfe9ac_e35e90fcf1884b56948ec3cd725dbc40~mv2.jpg"
+image: "/assets/blog/1774795014453-reduire-le-sucre.jpg"
 ---
 
 ## Réduire le sucre : pourquoi… et surtout comment éviter les fringales ?
