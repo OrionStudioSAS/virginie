@@ -3,7 +3,7 @@ title: "Omelette complète aux légumes et feta légère"
 date: "2026-03-28"
 slug: "omelette-complete-aux-legumes-et-feta-legere"
 excerpt: "Une omelette riche en protéines avec légumes et feta pour une satiété optimale"
-image: "ttps://images.unsplash.com/photo-1604908177522-4295f8f6b1c1"
+image: "https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=1200&q=80"
 ---
 
 ## Pourquoi ça cale ?
