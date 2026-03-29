@@ -3,7 +3,7 @@ title: "🌿 Mars Bleu 2026 : la prévention du cancer colorectal passe aussi pa
 date: "2026-03-29"
 slug: "mars-bleu-2026-la-prevention-du-cancer-colorectal-passe-aussi-par-lalimentation"
 excerpt: "Mobilisation au SPOT à Évry pour Mars Bleu : dépistage, prévention et nutrition au cœur de l’action, avec l’engagement de Virginie Lelong-Mazaud, diététicienne nutritionniste."
-image: "/assets/blog/1774797299491-journee-prevetion-cancer-colorectal.jpeg"
+image: "/assets/blog/1774797829311-journee-prevention-cancer-colorectal.png"
 ---
 
 Le 19 mars 2026, la CPTS Santé Seine Essonne s’est mobilisée au SPOT à Évry, aux côtés de nombreux partenaires de santé, pour sensibiliser le public au dépistage du cancer colorectal.
