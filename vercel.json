@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/blog-et-actualites",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/" }
   ]
