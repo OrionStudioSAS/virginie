@@ -29,7 +29,7 @@ En tant que **diététicienne nutritionniste**, j’assure :
 
 Ce travail permet de proposer des **corrections ciblées et adaptées**, dans une démarche d’amélioration continue de la qualité des repas.
 
-👉 [Consulter les menus d’avril 2026](/assets/blog/1775081544761-cv-mazaud-theophile.pdf)
+👉 [Consulter les menus d’avril 2026]()
 
 ## 🤝 Une collaboration de confiance avec la mairie de Vert-Saint-Denis
 
