@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllPosts } from '../lib/blog';
 import { getAllNews } from '../lib/news';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
-import { Calendar, Rss } from 'lucide-react';
+import { Calendar, Rss, ArrowUpDown } from 'lucide-react';
 
 const BlogList: React.FC = () => {
+  const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
+
   const posts = getAllPosts().map((p) => ({ ...p, type: 'blog' as const }));
   const news = getAllNews().map((n) => ({ ...n, type: 'news' as const }));
 
-  const combined = [...posts, ...news].sort((a, b) => (a.date < b.date ? 1 : -1));
+  const combined = [...posts, ...news].sort((a, b) =>
+    sortOrder === 'desc' ? (a.date < b.date ? 1 : -1) : (a.date > b.date ? 1 : -1)
+  );
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
@@ -35,6 +39,19 @@ const BlogList: React.FC = () => {
               Conseils nutrition, astuces bien-être et actualités du cabinet — tout en un seul endroit.
             </p>
           </div>
+
+          {/* Tri par date */}
+          {combined.length > 0 && (
+            <div className="flex justify-end mb-6">
+              <button
+                onClick={() => setSortOrder(o => o === 'desc' ? 'asc' : 'desc')}
+                className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-primary border border-slate-200 hover:border-primary rounded-full px-4 py-2 transition-colors bg-white"
+              >
+                <ArrowUpDown size={14} />
+                {sortOrder === 'desc' ? 'Plus récents en premier' : 'Plus anciens en premier'}
+              </button>
+            </div>
+          )}
 
           {combined.length === 0 ? (
             <p className="text-center text-slate-500 py-16">Aucune publication pour le moment.</p>

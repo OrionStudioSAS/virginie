@@ -4,9 +4,10 @@ import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import { getAllPosts, Post } from '../lib/blog';
 import { getAllNews, NewsItem } from '../lib/news';
-import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus, Copy, Check, Rss, BookOpen } from 'lucide-react';
+import { Lock, Send, CheckCircle, AlertCircle, RefreshCw, Pencil, Trash2, Plus, X, ImagePlus, Copy, Check, Rss, BookOpen, FileText } from 'lucide-react';
 
 const CONTENT_IMAGE_SLOTS = 5;
+const CONTENT_PDF_SLOTS = 3;
 
 function slugify(str: string): string {
   return str
@@ -54,6 +55,14 @@ const Admin: React.FC = () => {
   );
   const [uploadingSlot, setUploadingSlot] = useState<number | null>(null);
   const contentImageRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  // Content PDFs (3 slots)
+  type ContentPdf = { url: string; markdown: string; name: string; copied: boolean } | null;
+  const [contentPdfs, setContentPdfs] = useState<ContentPdf[]>(
+    () => Array(CONTENT_PDF_SLOTS).fill(null)
+  );
+  const [uploadingPdfSlot, setUploadingPdfSlot] = useState<number | null>(null);
+  const contentPdfRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   // UI state
   const [loading, setLoading] = useState(false);
@@ -109,6 +118,7 @@ const Admin: React.FC = () => {
     setError('');
     setSuccess('');
     setContentImages(Array(CONTENT_IMAGE_SLOTS).fill(null));
+    setContentPdfs(Array(CONTENT_PDF_SLOTS).fill(null));
   };
 
   const handleContentImageUpload = async (slotIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -162,6 +172,57 @@ const Admin: React.FC = () => {
     });
     setTimeout(() => {
       setContentImages(prev => {
+        const next = [...prev];
+        if (next[slotIndex]) next[slotIndex] = { ...next[slotIndex]!, copied: false };
+        return next;
+      });
+    }, 2000);
+  };
+
+  const handleContentPdfUpload = async (slotIndex: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) { setError('PDF trop lourd (max 10 Mo).'); return; }
+    setUploadingPdfSlot(slotIndex);
+    setError('');
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const base64 = (reader.result as string).split(',')[1];
+        const filename = `${Date.now()}-${file.name.replace(/[^a-z0-9.\-_]/gi, '-').toLowerCase()}`;
+        const res = await fetch('/api/upload-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: getPassword(), filename, content: base64 }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          const markdown = `[📎 ${file.name}](${data.url})`;
+          setContentPdfs(prev => {
+            const next = [...prev];
+            next[slotIndex] = { url: data.url, markdown, name: file.name, copied: false };
+            return next;
+          });
+        } else {
+          setError(data.error || "Erreur lors de l'upload.");
+        }
+      } catch { setError("Erreur lors de l'upload."); }
+      finally { setUploadingPdfSlot(null); }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleCopyPdfMarkdown = (slotIndex: number) => {
+    const pdf = contentPdfs[slotIndex];
+    if (!pdf) return;
+    navigator.clipboard.writeText(pdf.markdown);
+    setContentPdfs(prev => {
+      const next = [...prev];
+      next[slotIndex] = { ...pdf, copied: true };
+      return next;
+    });
+    setTimeout(() => {
+      setContentPdfs(prev => {
         const next = [...prev];
         if (next[slotIndex]) next[slotIndex] = { ...next[slotIndex]!, copied: false };
         return next;
@@ -697,6 +758,60 @@ const Admin: React.FC = () => {
                   </div>
                   <p className="mt-2 text-xs text-slate-400">
                     Collez le code copié dans le Markdown pour insérer l'image : <code className="bg-slate-100 px-1 rounded">![alt](url)</code>
+                  </p>
+                </div>
+
+                {/* PDFs pour le contenu */}
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-1">
+                    Fichiers PDF à joindre
+                    <span className="ml-2 text-slate-400 font-normal text-xs">jusqu'à 3 PDF · max 10 Mo chacun</span>
+                  </label>
+                  <div className="space-y-2">
+                    {Array.from({ length: CONTENT_PDF_SLOTS }).map((_, i) => {
+                      const pdf = contentPdfs[i];
+                      return (
+                        <div key={i} className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => contentPdfRefs.current[i]?.click()}
+                            disabled={uploadingPdfSlot === i}
+                            className="shrink-0 inline-flex items-center gap-1.5 px-3 py-2 border border-slate-200 rounded-xl text-slate-500 hover:text-rose-700 hover:border-rose-300 transition-colors text-xs font-medium disabled:opacity-50"
+                          >
+                            {uploadingPdfSlot === i
+                              ? <RefreshCw size={13} className="animate-spin" />
+                              : <FileText size={13} />}
+                            PDF {i + 1}
+                          </button>
+                          <input
+                            ref={el => { contentPdfRefs.current[i] = el; }}
+                            type="file"
+                            accept=".pdf,application/pdf"
+                            className="hidden"
+                            onChange={(e) => handleContentPdfUpload(i, e)}
+                          />
+                          {pdf ? (
+                            <>
+                              <code className="flex-1 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-600 font-mono truncate">
+                                {pdf.markdown}
+                              </code>
+                              <button
+                                type="button"
+                                onClick={() => handleCopyPdfMarkdown(i)}
+                                className={`shrink-0 inline-flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-semibold transition-colors ${pdf.copied ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600 hover:bg-primary/10 hover:text-primary'}`}
+                              >
+                                {pdf.copied ? <><Check size={13} /> Copié !</> : <><Copy size={13} /> Copier</>}
+                              </button>
+                            </>
+                          ) : (
+                            <span className="text-xs text-slate-400 italic">Aucun PDF uploadé</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <p className="mt-2 text-xs text-slate-400">
+                    Collez le lien copié dans le Markdown : <code className="bg-slate-100 px-1 rounded">[📎 Nom du fichier](url)</code>
                   </p>
                 </div>
 
