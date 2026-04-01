@@ -33,9 +33,7 @@ Ce travail permet de proposer des **corrections ciblées et adaptées**, dans un
 
 ## 🤝 Une collaboration de confiance avec la mairie de Vert-Saint-Denis
 
-Ce fonctionnement — cuisine sur place, produits frais, introduction de BIO et approvisionnement local, associé à un suivi par une diététicienne nutritionniste — reste encore **peu développé dans de nombreuses communes**.
-
-Vert-Saint-Denis fait ici le choix d’un modèle exigeant, au service de la santé des enfants, avec une réelle volonté de proposer une restauration scolaire **de qualité, cohérente et responsable**.
+Cuisine sur place, produits frais, introduction de BIO et approvisionnement local,Vert-Saint-Denis fait ici le choix d’un modèle exigeant, au service de la santé des enfants, avec une réelle volonté de proposer une restauration scolaire **de qualité, cohérente et responsable**.
 
 C’est également un **véritable plaisir pour moi de m’inscrire dans cette collaboration**, fondée sur des valeurs communes de qualité, de prévention et d’attention portée aux enfants.
 
