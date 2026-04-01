@@ -3,7 +3,7 @@ title: "🥗 Menus scolaires – Écoles de Vert-Saint-Denis – Avril 2026"
 date: "2026-04-01"
 slug: "menus-scolaires-ecoles-de-vert-saint-denis-avril-2026"
 excerpt: "Découvrez les menus proposés dans les écoles de Vert-Saint-Denis pour le mois d’avril 2026, accompagnés d’un suivi nutritionnel rigoureux assuré par Virginie Lelong Mazaud, diététicienne nutritionniste, au service de la santé et du bien-être des enfants."
-image: "ttps://images.unsplash.com/photo-1588072432836-e10032774350)"
+image: "/assets/blog/1775045208967-mairievsd.jpg"
 ---
 
 Chaque mois, les menus proposés dans les **écoles de Vert-Saint-Denis** sont élaborés pour répondre aux besoins nutritionnels des enfants, tout en favorisant le plaisir de manger et la découverte alimentaire.
