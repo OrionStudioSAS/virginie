@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Actualités – Virginie Lelong, Diététicienne</title>
+    <link>https://www.virginie-lelong-nutrition.fr/actualites</link>
+    <description>Actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
+    <language>fr-FR</language>
+    <atom:link href="https://www.virginie-lelong-nutrition.fr/rss-actualites.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Apr 2026 22:07:30 GMT</lastBuildDate>
+    <managingEditor>contact@virginie-lelong-nutrition.fr (Virginie Lelong)</managingEditor>
+    <image>
+      <url>https://www.virginie-lelong-nutrition.fr/assets/logo.jpeg</url>
+      <title>Virginie Lelong Diététicienne</title>
+      <link>https://www.virginie-lelong-nutrition.fr</link>
+    </image>
+  <item>
+    <title><![CDATA[🥗 Menus scolaires – Écoles de Vert-Saint-Denis – Avril 2026]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/actualites/menus-scolaires-ecoles-de-vert-saint-denis-avril-2026</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/actualites/menus-scolaires-ecoles-de-vert-saint-denis-avril-2026</guid>
+    <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Découvrez les menus proposés dans les écoles de Vert-Saint-Denis pour le mois d’avril 2026, accompagnés d’un suivi nutritionnel rigoureux assuré par Virginie Lelong Mazaud, diététicienne nutritionniste, au service de la santé et du bien-être des enfants.]]></description>
+      <enclosure url="/assets/blog/1775045208967-mairievsd.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title><![CDATA[🌿 Mars Bleu 2026 : la prévention du cancer colorectal passe aussi par l’alimentation 💙]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/actualites/mars-bleu-2026-la-prevention-du-cancer-colorectal-passe-aussi-par-lalimentation</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/actualites/mars-bleu-2026-la-prevention-du-cancer-colorectal-passe-aussi-par-lalimentation</guid>
+    <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Mobilisation au SPOT à Évry pour Mars Bleu : dépistage, prévention et nutrition au cœur de l’action, avec l’engagement de Virginie Lelong-Mazaud, diététicienne nutritionniste.]]></description>
+      <enclosure url="/assets/blog/1774797829311-journee-prevention-cancer-colorectal.png" type="image/jpeg" length="0" />
+  </item>
+  </channel>
+</rss>

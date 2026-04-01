@@ -190,3 +190,47 @@ console.log(`✅ sitemap.xml — ${STATIC_URLS.length + posts.length + newsItems
 
 fs.writeFileSync(path.join(PUBLIC_DIR, 'rss.xml'), generateRss(posts), 'utf-8');
 console.log(`✅ rss.xml — ${Math.min(posts.length, 20)} articles`);
+
+// RSS Actualités
+function generateRssNews(news) {
+  const items = news
+    .slice(0, 20)
+    .map((n) => {
+      const pubDate = new Date(n.date).toUTCString();
+      const imageTag = n.image
+        ? `\n      <enclosure url="${escapeXml(n.image)}" type="image/jpeg" length="0" />`
+        : '';
+      return `  <item>
+    <title><![CDATA[${n.title}]]></title>
+    <link>${BASE_URL}/actualites/${n.slug}</link>
+    <guid isPermaLink="true">${BASE_URL}/actualites/${n.slug}</guid>
+    <pubDate>${pubDate}</pubDate>
+    <description><![CDATA[${n.excerpt}]]></description>${imageTag}
+  </item>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Actualités – Virginie Lelong, Diététicienne</title>
+    <link>${BASE_URL}/actualites</link>
+    <description>Actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
+    <language>fr-FR</language>
+    <atom:link href="${BASE_URL}/rss-actualites.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <managingEditor>contact@virginie-lelong-nutrition.fr (Virginie Lelong)</managingEditor>
+    <image>
+      <url>${BASE_URL}/assets/logo.jpeg</url>
+      <title>Virginie Lelong Diététicienne</title>
+      <link>${BASE_URL}</link>
+    </image>
+${items}
+  </channel>
+</rss>`;
+}
+
+fs.writeFileSync(path.join(PUBLIC_DIR, 'rss-actualites.xml'), generateRssNews(newsItems), 'utf-8');
+console.log(`✅ rss-actualites.xml — ${Math.min(newsItems.length, 20)} actualités`);
