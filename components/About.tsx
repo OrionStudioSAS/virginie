@@ -41,11 +41,11 @@ export const About: React.FC = () => {
         {/* Bio Section */}
         <div className="max-w-4xl mx-auto mb-20 reveal">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 relative inline-block">
+            <h2 id="cms-apropos_nom" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 relative inline-block">
               {FULL_NAME}
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full"></span>
             </h2>
-            <h3 className="text-xl text-primary font-medium">Diététicienne-Nutritionniste diplômée d'État</h3>
+            <h3 id="cms-apropos_sous_titre" className="text-xl text-primary font-medium">Diététicienne-Nutritionniste diplômée d'État</h3>
           </div>
           
           <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
@@ -62,8 +62,8 @@ export const About: React.FC = () => {
         {/* Specialties Grid - New Design */}
         <div className="mb-24">
           <div className="text-center mb-12 reveal">
-            <h3 className="text-3xl font-serif font-bold text-slate-800 mb-4">Mes Domaines d'Expertise</h3>
-            <p className="text-slate-500 max-w-2xl mx-auto">Parce que chaque corps est unique, je vous propose un accompagnement adapté à vos besoins spécifiques.</p>
+            <h3 id="cms-expertise_titre" className="text-3xl font-serif font-bold text-slate-800 mb-4">Mes Domaines d'Expertise</h3>
+            <p id="cms-expertise_description" className="text-slate-500 max-w-2xl mx-auto">Parce que chaque corps est unique, je vous propose un accompagnement adapté à vos besoins spécifiques.</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -96,7 +96,7 @@ export const About: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <Award className="text-primary w-8 h-8" />
-                <h3 className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations</h3>
+                <h3 id="cms-diplomes_titre" className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations</h3>
               </div>
               <ChevronDown 
                 className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${diplomasOpen ? 'rotate-180' : ''}`}
@@ -128,7 +128,7 @@ export const About: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <Users className="text-secondary w-8 h-8" />
-                <h3 className="text-2xl font-serif font-bold text-slate-800">Membre des associations</h3>
+                <h3 id="cms-associations_titre" className="text-2xl font-serif font-bold text-slate-800">Membre des associations</h3>
               </div>
               <ChevronDown 
                 className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${associationsOpen ? 'rotate-180' : ''}`}

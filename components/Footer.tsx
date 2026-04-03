@@ -12,13 +12,13 @@ export const Footer: React.FC = () => {
           {/* Logo Section Matching Header */}
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-slate-200">
-              <img src={SQUARE_LOGO} alt="Logo" className="w-full h-full object-cover" />
+              <img id="cms-footer_logo" src={SQUARE_LOGO} alt="Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-xl font-serif font-bold text-slate-900 leading-none">
+              <span id="cms-footer_nom" className="text-xl font-serif font-bold text-slate-900 leading-none">
                 Virginie Lelong Mazaud
               </span>
-              <span className="text-primary text-sm font-medium tracking-wide">
+              <span id="cms-footer_titre" className="text-primary text-sm font-medium tracking-wide">
                 Diététicienne Nutritionniste
               </span>
             </div>

@@ -7,10 +7,10 @@ export const Locations: React.FC = () => {
     <section id="locations" className="py-24 bg-neutral">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 reveal">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
+          <h2 id="cms-cabinets_titre" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
             Lieux de consultation à Melun & Corbeil-Essonnes
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">Je vous accueille dans mes trois cabinets situés en Seine-et-Marne et en Essonne.</p>
+          <p id="cms-cabinets_description" className="text-slate-500 max-w-2xl mx-auto">Je vous accueille dans mes trois cabinets situés en Seine-et-Marne et en Essonne.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

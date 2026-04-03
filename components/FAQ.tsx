@@ -14,7 +14,7 @@ export const FAQ: React.FC = () => {
       <div className="container mx-auto px-6 max-w-3xl">
         <div className="flex items-center justify-center gap-3 mb-12 reveal">
           <HelpCircle className="text-secondary w-8 h-8" />
-          <h2 className="text-3xl font-serif font-bold text-slate-800">Questions Fréquentes</h2>
+          <h2 id="cms-faq_titre" className="text-3xl font-serif font-bold text-slate-800">Questions Fréquentes</h2>
         </div>
 
         <div className="space-y-4">

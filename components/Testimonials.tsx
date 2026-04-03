@@ -17,10 +17,10 @@ export const Testimonials: React.FC<Props> = ({ onOpenReview }) => {
                     <Star size={24} fill="currentColor" />
                  </div>
             </div>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
+          <h2 id="cms-avis_titre" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
             Ce qu'en pensent mes patients
           </h2>
-          <p className="text-slate-500">Retours d'expériences</p>
+          <p id="cms-avis_sous_titre" className="text-slate-500">Retours d'expériences</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">

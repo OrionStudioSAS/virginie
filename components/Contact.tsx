@@ -25,8 +25,8 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                 <Clock size={32} />
               </div>
               <div>
-                <h2 className="text-3xl font-serif font-bold text-slate-800">Horaires</h2>
-                <p className="text-slate-500 text-sm">Sur rendez-vous uniquement</p>
+                <h2 id="cms-contact_horaires_titre" className="text-3xl font-serif font-bold text-slate-800">Horaires</h2>
+                <p id="cms-contact_horaires_sous_titre" className="text-slate-500 text-sm">Sur rendez-vous uniquement</p>
               </div>
             </div>
             
@@ -50,7 +50,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
              
              {/* Contact Info Cards */}
             <div className="reveal reveal-scale-up reveal-delay-100">
-               <h2 className="text-3xl font-serif font-bold text-slate-800 mb-6">Me contacter</h2>
+               <h2 id="cms-contact_titre" className="text-3xl font-serif font-bold text-slate-800 mb-6">Me contacter</h2>
                <div className="flex flex-col gap-4">
                   <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
                     <div className="bg-slate-100 p-3 rounded-full group-hover:bg-primary group-hover:text-white transition-colors text-slate-600">
@@ -58,7 +58,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                     </div>
                     <div>
                         <p className="text-xs text-slate-500 uppercase tracking-wide">Téléphone</p>
-                        <span className="font-semibold text-lg text-slate-800">{PHONE_NUMBER}</span>
+                        <span id="cms-contact_telephone" className="font-semibold text-lg text-slate-800">{PHONE_NUMBER}</span>
                     </div>
                   </a>
                   <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
@@ -67,7 +67,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                     </div>
                     <div>
                         <p className="text-xs text-slate-500 uppercase tracking-wide">Email</p>
-                        <span className="font-medium text-lg text-slate-800 break-all">{EMAIL_ADDRESS}</span>
+                        <span id="cms-contact_email" className="font-medium text-lg text-slate-800 break-all">{EMAIL_ADDRESS}</span>
                     </div>
                   </a>
                </div>
@@ -75,10 +75,10 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
 
             {/* Appointment & Review CTA */}
             <div className="text-center md:text-left reveal reveal-pop reveal-delay-200 pt-6 border-t border-slate-100">
-              <h3 className="text-xl font-bold text-slate-800 mb-2">
+              <h3 id="cms-contact_rdv_titre" className="text-xl font-bold text-slate-800 mb-2">
                 Rendez-vous & Avis
               </h3>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+              <p id="cms-contact_rdv_description" className="text-slate-600 mb-6 leading-relaxed text-sm">
                 Prenez rendez-vous en ligne ou partagez votre expérience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
