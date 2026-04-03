@@ -96,7 +96,7 @@ export const About: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <Award className="text-primary w-8 h-8" />
-                <h3 id="cms-diplomes_titre" className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations</h3>
+                <h3 id="cms-diplomes_titre" className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations test</h3>
               </div>
               <ChevronDown 
                 className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${diplomasOpen ? 'rotate-180' : ''}`}
