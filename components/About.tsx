@@ -21,10 +21,10 @@ export const About: React.FC = () => {
           </div>
           
           <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
-            <p id="cms-apropos_paragraphe_1" className="text-slate-600">Experte en nutrition depuis plusieurs années, je vous accompagne dans l'alimentation équilibrée et personnalisée selon votre situation : perte de poids, obésité, diabète, hypertension, ménopause, grossesse, sport, maladies cardiovasculaires, et plus.</p>
-            <p id="cms-apropos_paragraphe_2" className="text-slate-600">Je suis également spécialisée en chirurgie bariatrique (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.</p>
-            <p id="cms-apropos_paragraphe_3" className="text-slate-600">Mon approche : un bilan complet, suivi régulier et conseils pratiques adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec impédancemètre, j'évalue précisément votre composition corporelle et vos progrès.</p>
-            <p id="cms-apropos_paragraphe_4" className="text-slate-600">Mon objectif : vous aider à retrouver plaisir et équilibre alimentaire, tout en prenant soin de votre santé.</p>
+            <p id="cms-apropos_paragraphe_1" className="text-slate-600">Experte en nutrition depuis plusieurs années, je vous accompagne dans l'<b>alimentation équilibrée</b> et personnalisée selon votre situation : <b>perte de poids</b>, <b>obésité</b>, <b>diabète</b>, <b>hypertension</b>, <b>ménopause</b>, <b>grossesse</b>, <b>sport</b>, <b>maladies cardiovasculaires</b>, et plus.</p>
+            <p id="cms-apropos_paragraphe_2" className="text-slate-600">Je suis également spécialisée en <b>chirurgie bariatrique</b> (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.</p>
+            <p id="cms-apropos_paragraphe_3" className="text-slate-600">Mon approche : un <b>bilan complet</b>, <b>suivi régulier</b> et <b>conseils pratiques</b> adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec <b>impédancemètre</b>, j'évalue précisément votre <b>composition corporelle</b> et vos progrès.</p>
+            <p id="cms-apropos_paragraphe_4" className="text-slate-600">Mon objectif : vous aider à retrouver plaisir et <b>équilibre alimentaire</b>, tout en prenant soin de votre <b>santé</b>.</p>
           </div>
         </div>
 
