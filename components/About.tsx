@@ -5,34 +5,6 @@ import { Award, Users, ChevronDown } from 'lucide-react';
 export const About: React.FC = () => {
   const [diplomasOpen, setDiplomasOpen] = useState(false);
   const [associationsOpen, setAssociationsOpen] = useState(false);
-  const highlightKeywords = (text: string) => {
-    const keywords = [
-      "alimentation équilibrée",
-      "perte de poids",
-      "obésité",
-      "diabète",
-      "hypertension",
-      "ménopause",
-      "grossesse",
-      "sport",
-      "maladies cardiovasculaires",
-      "chirurgie bariatrique",
-      "bilan complet",
-      "suivi régulier",
-      "conseils pratiques",
-      "impédancemètre",
-      "composition corporelle",
-      "équilibre alimentaire",
-      "santé"
-    ];
-
-    const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-    return keywords.reduce((acc, keyword) => {
-      const regex = new RegExp(escapeRegExp(keyword), 'gi');
-      return acc.replace(regex, (match) => `<span class="text-slate-900 font-semibold">${match}</span>`);
-    }, text);
-  };
 
   return (
     <section id="about" className="py-24 bg-white">
@@ -49,10 +21,10 @@ export const About: React.FC = () => {
           </div>
           
           <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
-            <p id="cms-apropos_paragraphe_1" className="text-slate-600" dangerouslySetInnerHTML={{ __html: highlightKeywords("Experte en nutrition depuis plusieurs années, je vous accompagne dans l'alimentation équilibrée et personnalisée selon votre situation : perte de poids, obésité, diabète, hypertension, ménopause, grossesse, sport, maladies cardiovasculaires, et plus.") }} />
-            <p id="cms-apropos_paragraphe_2" className="text-slate-600" dangerouslySetInnerHTML={{ __html: highlightKeywords("Je suis également spécialisée en chirurgie bariatrique (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.") }} />
-            <p id="cms-apropos_paragraphe_3" className="text-slate-600" dangerouslySetInnerHTML={{ __html: highlightKeywords("Mon approche : un bilan complet, suivi régulier et conseils pratiques adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec impédancemètre, j'évalue précisément votre composition corporelle et vos progrès.") }} />
-            <p id="cms-apropos_paragraphe_4" className="text-slate-600" dangerouslySetInnerHTML={{ __html: highlightKeywords("Mon objectif : vous aider à retrouver plaisir et équilibre alimentaire, tout en prenant soin de votre santé.") }} />
+            <p id="cms-apropos_paragraphe_1" className="text-slate-600">Experte en nutrition depuis plusieurs années, je vous accompagne dans l'alimentation équilibrée et personnalisée selon votre situation : perte de poids, obésité, diabète, hypertension, ménopause, grossesse, sport, maladies cardiovasculaires, et plus.</p>
+            <p id="cms-apropos_paragraphe_2" className="text-slate-600">Je suis également spécialisée en chirurgie bariatrique (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.</p>
+            <p id="cms-apropos_paragraphe_3" className="text-slate-600">Mon approche : un bilan complet, suivi régulier et conseils pratiques adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec impédancemètre, j'évalue précisément votre composition corporelle et vos progrès.</p>
+            <p id="cms-apropos_paragraphe_4" className="text-slate-600">Mon objectif : vous aider à retrouver plaisir et équilibre alimentaire, tout en prenant soin de votre santé.</p>
           </div>
         </div>
 
