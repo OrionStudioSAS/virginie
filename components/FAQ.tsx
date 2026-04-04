@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FAQ_ITEMS } from '../constants';
+import { FAQ_ITEMS, FAQ_TITRE } from '../constants';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 
 export const FAQ: React.FC = () => {
@@ -14,13 +14,13 @@ export const FAQ: React.FC = () => {
       <div className="container mx-auto px-6 max-w-3xl">
         <div className="flex items-center justify-center gap-3 mb-12 reveal">
           <HelpCircle className="text-secondary w-8 h-8" />
-          <h2 id="cms-faq_titre" className="text-3xl font-serif font-bold text-slate-800">Questions Fréquentes</h2>
+          <h2 className="text-3xl font-serif font-bold text-slate-800">{FAQ_TITRE}</h2>
         </div>
 
         <div className="space-y-4">
           {FAQ_ITEMS.map((item, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`border border-slate-200 rounded-xl overflow-hidden transition-all duration-300 ${openIndex === idx ? 'shadow-md border-primary/30' : 'hover:border-slate-300'}`}
             >
               <button
@@ -34,8 +34,8 @@ export const FAQ: React.FC = () => {
                   <ChevronDown className="text-slate-400 w-5 h-5 flex-shrink-0" />
                 )}
               </button>
-              
-              <div 
+
+              <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === idx ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="p-5 pt-0 text-slate-600 leading-relaxed border-t border-slate-50 bg-slate-50/50 whitespace-pre-line">

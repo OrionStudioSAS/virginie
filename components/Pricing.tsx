@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRICES } from '../constants';
+import { PRICES, TARIFS_TITRE, TARIFS_PAIEMENT, TARIFS_NOTE_1, TARIFS_NOTE_2 } from '../constants';
 
 export const Pricing: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ export const Pricing: React.FC = () => {
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            Honoraires
+            {TARIFS_TITRE}
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
@@ -23,13 +23,13 @@ export const Pricing: React.FC = () => {
             ))}
           </div>
           <div className="p-6 bg-slate-50 text-center text-sm text-slate-500">
-            Moyens de paiement acceptés : Chèques, espèces et carte bancaire.
+            {TARIFS_PAIEMENT}
           </div>
         </div>
-        
+
         <div className="mt-8 text-center text-slate-500 text-sm reveal reveal-delay-200">
-          <p>Les consultations diététiques ne sont pas prises en charge par la Sécurité Sociale.</p>
-          <p>De nombreuses mutuelles proposent un remboursement partiel ou total, renseignez-vous auprès de la vôtre.</p>
+          <p>{TARIFS_NOTE_1}</p>
+          <p>{TARIFS_NOTE_2}</p>
         </div>
       </div>
     </section>

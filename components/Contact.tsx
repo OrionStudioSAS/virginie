@@ -1,5 +1,10 @@
 import React from 'react';
-import { DOCTOLIB_URL, SCHEDULE, GOOGLE_REVIEW_URL } from '../constants';
+import {
+  DOCTOLIB_URL, SCHEDULE, GOOGLE_REVIEW_URL,
+  PHONE_NUMBER, PHONE_TEL, EMAIL_ADDRESS,
+  CONTACT_HORAIRES_TITRE, CONTACT_HORAIRES_SOUS_TITRE,
+  CONTACT_TITRE, CONTACT_RDV_TITRE, CONTACT_RDV_DESCRIPTION
+} from '../constants';
 import { Button } from './Button';
 import { ExternalLink, Phone, Mail, Clock, MapPin, MessageSquare } from 'lucide-react';
 
@@ -16,7 +21,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Schedule Column */}
           <div className="reveal reveal-slide-left bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100 relative overflow-hidden">
              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
@@ -25,11 +30,11 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                 <Clock size={32} />
               </div>
               <div>
-                <h2 id="cms-contact_horaires_titre" className="text-3xl font-serif font-bold text-slate-800">Horaires</h2>
-                <p id="cms-contact_horaires_sous_titre" className="text-slate-500 text-sm">Sur rendez-vous uniquement</p>
+                <h2 className="text-3xl font-serif font-bold text-slate-800">{CONTACT_HORAIRES_TITRE}</h2>
+                <p className="text-slate-500 text-sm">{CONTACT_HORAIRES_SOUS_TITRE}</p>
               </div>
             </div>
-            
+
             <div className="space-y-4 relative z-10">
                {SCHEDULE.map((item, index) => (
                 <div key={index} className="flex flex-col sm:flex-row justify-between sm:items-center py-3 border-b border-slate-50 last:border-0 gap-1">
@@ -47,27 +52,27 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
 
           {/* Contact & Actions Column */}
           <div className="flex flex-col gap-8 justify-center h-full reveal reveal-slide-right">
-             
+
              {/* Contact Info Cards */}
             <div className="reveal reveal-scale-up reveal-delay-100">
-               <h2 id="cms-contact_titre" className="text-3xl font-serif font-bold text-slate-800 mb-6">Me contacter</h2>
+               <h2 className="text-3xl font-serif font-bold text-slate-800 mb-6">{CONTACT_TITRE}</h2>
                <div className="flex flex-col gap-4">
-                  <a href="tel:0699505157" className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
+                  <a href={`tel:${PHONE_TEL}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
                     <div className="bg-slate-100 p-3 rounded-full group-hover:bg-primary group-hover:text-white transition-colors text-slate-600">
                       <Phone size={20} />
                     </div>
                     <div>
                         <p className="text-xs text-slate-500 uppercase tracking-wide">Téléphone</p>
-                        <span id="cms-contact_telephone" className="font-semibold text-lg text-slate-800">06 99 50 51 57</span>
+                        <span className="font-semibold text-lg text-slate-800">{PHONE_NUMBER}</span>
                     </div>
                   </a>
-                  <a href="mailto:vlelongdiet@orange.fr" className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
+                  <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
                     <div className="bg-slate-100 p-3 rounded-full group-hover:bg-primary group-hover:text-white transition-colors text-slate-600">
                       <Mail size={20} />
                     </div>
                     <div>
                         <p className="text-xs text-slate-500 uppercase tracking-wide">Email</p>
-                        <span id="cms-contact_email" className="font-medium text-lg text-slate-800 break-all">vlelongdiet@orange.fr</span>
+                        <span className="font-medium text-lg text-slate-800 break-all">{EMAIL_ADDRESS}</span>
                     </div>
                   </a>
                </div>
@@ -75,11 +80,11 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
 
             {/* Appointment & Review CTA */}
             <div className="text-center md:text-left reveal reveal-pop reveal-delay-200 pt-6 border-t border-slate-100">
-              <h3 id="cms-contact_rdv_titre" className="text-xl font-bold text-slate-800 mb-2">
-                Rendez-vous & Avis
+              <h3 className="text-xl font-bold text-slate-800 mb-2">
+                {CONTACT_RDV_TITRE}
               </h3>
-              <p id="cms-contact_rdv_description" className="text-slate-600 mb-6 leading-relaxed text-sm">
-                Prenez rendez-vous en ligne ou partagez votre expérience.
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm">
+                {CONTACT_RDV_DESCRIPTION}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button href={DOCTOLIB_URL} target="_blank" className="flex-1 shadow-lg shadow-rose-500/20 py-4 text-lg justify-center">

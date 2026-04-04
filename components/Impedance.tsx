@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { IMPEDANCE_BENEFITS } from '../constants';
+import { IMPEDANCE_BENEFITS, IMPEDANCE_BADGE, IMPEDANCE_TITLE, IMPEDANCE_DESCRIPTION, IMPEDANCE_IMAGE } from '../constants';
 import { Activity, CheckCircle, Smartphone } from 'lucide-react';
 
 export const Impedance: React.FC = () => {
@@ -8,20 +7,20 @@ export const Impedance: React.FC = () => {
     <section className="py-24 bg-white overflow-hidden border-t border-slate-50">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          
+
           {/* Text Content */}
           <div className="flex-1 reveal reveal-slide-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-6">
                <Activity size={16} />
-               <span id="cms-impedance_badge">Technologie Professionnelle</span>
+               <span>{IMPEDANCE_BADGE}</span>
             </div>
 
-            <h2 id="cms-impedance_titre" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6">
-              Analyse par Impédancemétrie
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6">
+              {IMPEDANCE_TITLE}
             </h2>
 
-            <p id="cms-impedance_description" className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Le poids sur la balance ne suffit pas à évaluer votre santé. Grâce à un impédancemètre professionnel, nous analysons précisément votre composition corporelle pour mieux cibler vos objectifs et mesurer vos progrès réels (perte de gras, prise de muscle, hydratation).
+            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              {IMPEDANCE_DESCRIPTION}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
@@ -44,8 +43,7 @@ export const Impedance: React.FC = () => {
              <div className="relative group">
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] lg:aspect-auto lg:max-h-[640px] lg:max-w-[480px]">
                     <img
-                    id="cms-impedance_image"
-                    src={new URL('../assets/imdependancemetre.png', import.meta.url).href}
+                    src={IMPEDANCE_IMAGE}
                     alt="Analyse impédancemétrie"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />

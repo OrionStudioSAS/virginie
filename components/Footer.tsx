@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_LOGO, FOOTER_NOM, FOOTER_TITRE } from '../constants';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -7,18 +8,18 @@ export const Footer: React.FC = () => {
     <footer className="bg-slate-50 text-slate-600 py-12 border-t border-slate-200">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          
+
           {/* Logo Section Matching Header */}
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-slate-200">
-              <img id="cms-footer_logo" src={new URL('../assets/logo.jpeg', import.meta.url).href} alt="Logo" className="w-full h-full object-cover" />
+              <img src={SITE_LOGO} alt="Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col text-left">
-              <span id="cms-footer_nom" className="text-xl font-serif font-bold text-slate-900 leading-none">
-                Virginie Lelong Mazaud
+              <span className="text-xl font-serif font-bold text-slate-900 leading-none">
+                {FOOTER_NOM}
               </span>
-              <span id="cms-footer_titre" className="text-primary text-sm font-medium tracking-wide">
-                Diététicienne Nutritionniste
+              <span className="text-primary text-sm font-medium tracking-wide">
+                {FOOTER_TITRE}
               </span>
             </div>
           </div>

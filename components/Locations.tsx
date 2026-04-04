@@ -1,5 +1,5 @@
 import React from 'react';
-import { WORKPLACES } from '../constants';
+import { WORKPLACES, CABINETS_TITRE, CABINETS_DESCRIPTION } from '../constants';
 import { MapPin } from 'lucide-react';
 
 export const Locations: React.FC = () => {
@@ -7,10 +7,10 @@ export const Locations: React.FC = () => {
     <section id="locations" className="py-24 bg-neutral">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 reveal">
-          <h2 id="cms-cabinets_titre" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            Lieux de consultation à Melun & Corbeil-Essonnes
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
+            {CABINETS_TITRE}
           </h2>
-          <p id="cms-cabinets_description" className="text-slate-500 max-w-2xl mx-auto">Je vous accueille dans mes trois cabinets situés en Seine-et-Marne et en Essonne.</p>
+          <p className="text-slate-500 max-w-2xl mx-auto">{CABINETS_DESCRIPTION}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -18,9 +18,9 @@ export const Locations: React.FC = () => {
             <div key={place.id} className={`reveal reveal-scale-up reveal-delay-${(idx + 1) * 100} bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col`}>
               <div className="h-72 overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                <img 
-                  src={place.imageUrl} 
-                  alt={place.name} 
+                <img
+                  src={place.imageUrl}
+                  alt={place.name}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -36,7 +36,7 @@ export const Locations: React.FC = () => {
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-100">
-                  <a 
+                  <a
                     href={place.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`}
                     target="_blank"
                     rel="noopener noreferrer"

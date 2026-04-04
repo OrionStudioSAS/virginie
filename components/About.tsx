@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { SPECIALTIES, DIPLOMAS, ASSOCIATIONS } from '../constants';
+import {
+  SPECIALTIES, DIPLOMAS, ASSOCIATIONS,
+  APROPOS_NOM, APROPOS_SOUS_TITRE,
+  APROPOS_BIO_P1, APROPOS_BIO_P2, APROPOS_BIO_P3, APROPOS_BIO_P4,
+  EXPERTISE_TITRE, EXPERTISE_DESCRIPTION,
+  DIPLOMES_TITRE, ASSOCIATIONS_TITRE
+} from '../constants';
 import { Award, Users, ChevronDown } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -9,36 +15,36 @@ export const About: React.FC = () => {
   return (
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-6">
-        
+
         {/* Bio Section */}
         <div className="max-w-4xl mx-auto mb-20 reveal">
           <div className="text-center mb-12">
-            <h2 id="cms-apropos_nom" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 relative inline-block">
-              Virginie Lelong - Mazaud
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 relative inline-block">
+              {APROPOS_NOM}
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full"></span>
             </h2>
-            <h3 id="cms-apropos_sous_titre" className="text-xl text-primary font-medium">Diététicienne-Nutritionniste diplômée d'État</h3>
+            <h3 className="text-xl text-primary font-medium">{APROPOS_SOUS_TITRE}</h3>
           </div>
-          
+
           <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
-            <p id="cms-apropos_paragraphe_1" className="text-slate-600">Experte en nutrition depuis plusieurs années, je vous accompagne dans l'<b>alimentation équilibrée</b> et personnalisée selon votre situation : <b>perte de poids</b>, <b>obésité</b>, <b>diabète</b>, <b>hypertension</b>, <b>ménopause</b>, <b>grossesse</b>, <b>sport</b>, <b>maladies cardiovasculaires</b>, et plus.</p>
-            <p id="cms-apropos_paragraphe_2" className="text-slate-600">Je suis également spécialisée en <b>chirurgie bariatrique</b> (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.</p>
-            <p id="cms-apropos_paragraphe_3" className="text-slate-600">Mon approche : un <b>bilan complet</b>, <b>suivi régulier</b> et <b>conseils pratiques</b> adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec <b>impédancemètre</b>, j'évalue précisément votre <b>composition corporelle</b> et vos progrès.</p>
-            <p id="cms-apropos_paragraphe_4" className="text-slate-600">Mon objectif : vous aider à retrouver plaisir et <b>équilibre alimentaire</b>, tout en prenant soin de votre <b>santé</b>.</p>
+            <p className="text-slate-600">{APROPOS_BIO_P1}</p>
+            <p className="text-slate-600">{APROPOS_BIO_P2}</p>
+            <p className="text-slate-600">{APROPOS_BIO_P3}</p>
+            <p className="text-slate-600">{APROPOS_BIO_P4}</p>
           </div>
         </div>
 
-        {/* Specialties Grid - New Design */}
+        {/* Specialties Grid */}
         <div className="mb-24">
           <div className="text-center mb-12 reveal">
-            <h3 id="cms-expertise_titre" className="text-3xl font-serif font-bold text-slate-800 mb-4">Mes Domaines d'Expertise</h3>
-            <p id="cms-expertise_description" className="text-slate-500 max-w-2xl mx-auto">Parce que chaque corps est unique, je vous propose un accompagnement adapté à vos besoins spécifiques.</p>
+            <h3 className="text-3xl font-serif font-bold text-slate-800 mb-4">{EXPERTISE_TITRE}</h3>
+            <p className="text-slate-500 max-w-2xl mx-auto">{EXPERTISE_DESCRIPTION}</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SPECIALTIES.map((service, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`reveal reveal-scale-up reveal-delay-${(index % 3) * 100} bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-rose-100`}
               >
                 <div className="w-14 h-14 bg-rose-50 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -55,24 +61,22 @@ export const About: React.FC = () => {
 
         {/* Diplomas & Associations */}
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          
-          {/* Diplômes - Accordion on mobile, normal on desktop */}
+
+          {/* Diplômes */}
           <div className="reveal">
-            {/* Mobile: Clickable header */}
-            <button 
+            <button
               onClick={() => setDiplomasOpen(!diplomasOpen)}
               className="md:pointer-events-none w-full flex items-center justify-between gap-3 mb-6 md:cursor-default"
             >
               <div className="flex items-center gap-3">
                 <Award className="text-primary w-8 h-8" />
-                <h3 id="cms-diplomes_titre" className="text-2xl font-serif font-bold text-slate-800">Diplômes & Formations</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-800">{DIPLOMES_TITRE}</h3>
               </div>
-              <ChevronDown 
+              <ChevronDown
                 className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${diplomasOpen ? 'rotate-180' : ''}`}
               />
             </button>
-            
-            {/* Content - Collapsible on mobile, always visible on desktop */}
+
             <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
               diplomasOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100'
             }`}>
@@ -88,23 +92,21 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Associations - Accordion on mobile, normal on desktop */}
+          {/* Associations */}
           <div className="reveal reveal-delay-200">
-            {/* Mobile: Clickable header */}
-            <button 
+            <button
               onClick={() => setAssociationsOpen(!associationsOpen)}
               className="md:pointer-events-none w-full flex items-center justify-between gap-3 mb-6 md:cursor-default"
             >
               <div className="flex items-center gap-3">
                 <Users className="text-secondary w-8 h-8" />
-                <h3 id="cms-associations_titre" className="text-2xl font-serif font-bold text-slate-800">Membre des associations</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-800">{ASSOCIATIONS_TITRE}</h3>
               </div>
-              <ChevronDown 
+              <ChevronDown
                 className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${associationsOpen ? 'rotate-180' : ''}`}
               />
             </button>
-            
-            {/* Content - Collapsible on mobile, always visible on desktop */}
+
             <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
               associationsOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100'
             }`}>
