@@ -3,20 +3,9 @@ import { Workplace, ScheduleItem, NavItem, PriceItem, FaqItem, SpecialtyItem, Te
 import { Scale, Activity, Stethoscope, Baby, Dumbbell, Heart } from 'lucide-react';
 
 // Images
-// NOTE: using local images placed in `assets/` (assumed filenames: mds.jpeg, hermitage.jpeg, foh.jpeg)
-export const DOCTOR_IMAGE = new URL('./assets/image banner.jpg', import.meta.url).href;
 export const SQUARE_LOGO = new URL('./assets/logo.jpeg', import.meta.url).href;
-export const IMPEDANCE_IMAGE = new URL('./assets/imdependancemetre.png', import.meta.url).href; // local impédancemètre image
-
-export const LOGO_COLORS = {
-  pink: '#F43F5E',
-  green: '#8BC242',
-  white: '#FFFFFF',
-  black: '#1e293b'
-};
 
 // Content Text
-export const FULL_NAME = "Virginie Lelong - Mazaud";
 export const BIO_TEXT = [
   "Experte en nutrition depuis plusieurs années, je vous accompagne dans l’alimentation équilibrée et personnalisée selon votre situation : perte de poids, obésité, diabète, hypertension, ménopause, grossesse, sport, maladies cardiovasculaires, et plus.",
   "Je suis également spécialisée en chirurgie bariatrique (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.",
@@ -196,8 +185,6 @@ export const TESTIMONIALS: TestimonialItem[] = [
   }
 ];
 
-export const IMPEDANCE_TITLE = "Analyse par Impédancemétrie";
-export const IMPEDANCE_DESCRIPTION = "Le poids sur la balance ne suffit pas à évaluer votre santé. Grâce à un impédancemètre professionnel, nous analysons précisément votre composition corporelle pour mieux cibler vos objectifs et mesurer vos progrès réels (perte de gras, prise de muscle, hydratation).";
 export const IMPEDANCE_BENEFITS = [
   { title: "Masse Grasse", description: "Mesure précise de la réserve adipeuse." },
   { title: "Masse Musculaire", description: "Suivi de la tonicité et du métabolisme." },
@@ -216,5 +203,3 @@ export const NAV_ITEMS: NavItem[] = [
 // External Links & Contact
 export const DOCTOLIB_URL = "https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud";
 export const GOOGLE_REVIEW_URL = "https://www.google.com/maps";
-export const PHONE_NUMBER = "06 99 50 51 57";
-export const EMAIL_ADDRESS = "vlelongdiet@orange.fr";
