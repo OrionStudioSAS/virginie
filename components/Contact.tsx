@@ -52,7 +52,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
             <div className="reveal reveal-scale-up reveal-delay-100">
                <h2 id="cms-contact_titre" className="text-3xl font-serif font-bold text-slate-800 mb-6">Me contacter</h2>
                <div className="flex flex-col gap-4">
-                  <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
+                  <a href="tel:0699505157" className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
                     <div className="bg-slate-100 p-3 rounded-full group-hover:bg-primary group-hover:text-white transition-colors text-slate-600">
                       <Phone size={20} />
                     </div>
@@ -61,7 +61,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                         <span id="cms-contact_telephone" className="font-semibold text-lg text-slate-800">06 99 50 51 57</span>
                     </div>
                   </a>
-                  <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
+                  <a href="mailto:vlelongdiet@orange.fr" className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
                     <div className="bg-slate-100 p-3 rounded-full group-hover:bg-primary group-hover:text-white transition-colors text-slate-600">
                       <Mail size={20} />
                     </div>
