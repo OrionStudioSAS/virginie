@@ -1,5 +1,5 @@
 import React from 'react';
-import { DOCTOLIB_URL, PHONE_NUMBER, EMAIL_ADDRESS, SCHEDULE, GOOGLE_REVIEW_URL } from '../constants';
+import { DOCTOLIB_URL, SCHEDULE, GOOGLE_REVIEW_URL } from '../constants';
 import { Button } from './Button';
 import { ExternalLink, Phone, Mail, Clock, MapPin, MessageSquare } from 'lucide-react';
 
@@ -58,7 +58,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                     </div>
                     <div>
                         <p className="text-xs text-slate-500 uppercase tracking-wide">Téléphone</p>
-                        <span id="cms-contact_telephone" className="font-semibold text-lg text-slate-800">{PHONE_NUMBER}</span>
+                        <span id="cms-contact_telephone" className="font-semibold text-lg text-slate-800">06 99 50 51 57</span>
                     </div>
                   </a>
                   <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center gap-4 p-4 rounded-xl border border-slate-100 hover:border-primary/30 hover:bg-slate-50 bg-white transition-all group shadow-sm">
@@ -67,7 +67,7 @@ export const Contact: React.FC<Props> = ({ onOpenReview }) => {
                     </div>
                     <div>
                         <p className="text-xs text-slate-500 uppercase tracking-wide">Email</p>
-                        <span id="cms-contact_email" className="font-medium text-lg text-slate-800 break-all">{EMAIL_ADDRESS}</span>
+                        <span id="cms-contact_email" className="font-medium text-lg text-slate-800 break-all">vlelongdiet@orange.fr</span>
                     </div>
                   </a>
                </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SQUARE_LOGO } from '../constants';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +11,7 @@ export const Footer: React.FC = () => {
           {/* Logo Section Matching Header */}
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm border border-slate-200">
-              <img id="cms-footer_logo" src={SQUARE_LOGO} alt="Logo" className="w-full h-full object-cover" />
+              <img id="cms-footer_logo" src={new URL('../assets/logo.jpeg', import.meta.url).href} alt="Logo" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col text-left">
               <span id="cms-footer_nom" className="text-xl font-serif font-bold text-slate-900 leading-none">

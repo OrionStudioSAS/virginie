@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { IMPEDANCE_IMAGE, IMPEDANCE_TITLE, IMPEDANCE_DESCRIPTION, IMPEDANCE_BENEFITS } from '../constants';
+import { IMPEDANCE_BENEFITS } from '../constants';
 import { Activity, CheckCircle, Smartphone } from 'lucide-react';
 
 export const Impedance: React.FC = () => {
@@ -17,11 +17,11 @@ export const Impedance: React.FC = () => {
             </div>
 
             <h2 id="cms-impedance_titre" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6">
-              {IMPEDANCE_TITLE}
+              Analyse par Impédancemétrie
             </h2>
 
             <p id="cms-impedance_description" className="text-lg text-slate-600 mb-8 leading-relaxed">
-              {IMPEDANCE_DESCRIPTION}
+              Le poids sur la balance ne suffit pas à évaluer votre santé. Grâce à un impédancemètre professionnel, nous analysons précisément votre composition corporelle pour mieux cibler vos objectifs et mesurer vos progrès réels (perte de gras, prise de muscle, hydratation).
             </p>
 
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
@@ -45,7 +45,7 @@ export const Impedance: React.FC = () => {
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] lg:aspect-auto lg:max-h-[640px] lg:max-w-[480px]">
                     <img
                     id="cms-impedance_image"
-                    src={IMPEDANCE_IMAGE}
+                    src={new URL('../assets/imdependancemetre.png', import.meta.url).href}
                     alt="Analyse impédancemétrie"
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                     />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BIO_TEXT, SPECIALTIES, DIPLOMAS, ASSOCIATIONS, FULL_NAME } from '../constants';
+import { BIO_TEXT, SPECIALTIES, DIPLOMAS, ASSOCIATIONS } from '../constants';
 import { Award, Users, ChevronDown } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -42,7 +42,7 @@ export const About: React.FC = () => {
         <div className="max-w-4xl mx-auto mb-20 reveal">
           <div className="text-center mb-12">
             <h2 id="cms-apropos_nom" className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 relative inline-block">
-              {FULL_NAME}
+              Virginie Lelong - Mazaud
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full"></span>
             </h2>
             <h3 id="cms-apropos_sous_titre" className="text-xl text-primary font-medium">Diététicienne-Nutritionniste diplômée d'État</h3>

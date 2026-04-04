@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './Button';
-import { DOCTOLIB_URL, DOCTOR_IMAGE } from '../constants';
+import { DOCTOLIB_URL } from '../constants';
 import { ChevronDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
              <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 translate-x-3 translate-y-3"></div>
             <img
               id="cms-hero_image"
-              src={DOCTOR_IMAGE}
+              src={new URL('../assets/image banner.jpg', import.meta.url).href}
               alt="Analyse nutritionnelle et impédancemétrie"
               className="w-full h-full object-cover object-center rounded-[2rem] shadow-2xl relative z-10 border-4 border-white transition-transform duration-500 hover:scale-[1.01]"
             />
