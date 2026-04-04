@@ -5,13 +5,6 @@ import { Scale, Activity, Stethoscope, Baby, Dumbbell, Heart } from 'lucide-reac
 // Images
 export const SQUARE_LOGO = new URL('./assets/logo.jpeg', import.meta.url).href;
 
-// Content Text
-export const BIO_TEXT = [
-  "Experte en nutrition depuis plusieurs années, je vous accompagne dans l’alimentation équilibrée et personnalisée selon votre situation : perte de poids, obésité, diabète, hypertension, ménopause, grossesse, sport, maladies cardiovasculaires, et plus.",
-  "Je suis également spécialisée en chirurgie bariatrique (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.",
-  "Mon approche : un bilan complet, suivi régulier et conseils pratiques adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec impédancemètre, j’évalue précisément votre composition corporelle et vos progrès.",
-  "Mon objectif : vous aider à retrouver plaisir et équilibre alimentaire, tout en prenant soin de votre santé."
-];
 
 export const SPECIALTIES: SpecialtyItem[] = [
   {
