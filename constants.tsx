@@ -6,10 +6,15 @@ import { Scale, Activity, Stethoscope, Baby, Dumbbell, Heart } from 'lucide-reac
 // ─── Global ───
 export const SITE_LOGO = new URL('./assets/logo.jpeg', import.meta.url).href;
 export const PHONE_NUMBER = "06 99 50 51 57";
+export const PHONE_NUMBER_en = "06 99 50 51 57";
 export const PHONE_TEL = "0699505157";
+export const PHONE_TEL_en = "0699505157";
 export const EMAIL_ADDRESS = "vlelongdiet@orange.fr";
+export const EMAIL_ADDRESS_en = "vlelongdiet@orange.fr";
 export const DOCTOLIB_URL = "https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud";
+export const DOCTOLIB_URL_en = "https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud";
 export const GOOGLE_REVIEW_URL = "https://www.google.com/maps";
+export const GOOGLE_REVIEW_URL_en = "https://www.google.com/maps";
 
 // ─── Navigation ───
 export const NAV_ITEMS: NavItem[] = [
@@ -18,22 +23,51 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Lieux", targetId: "locations" },
   { label: "Contact", targetId: "contact" },
 ];
+export const NAV_ITEMS_en = [
+  {
+    label: "Accueil",
+    targetId: "home",
+  },
+  {
+    label: "En savoir plus",
+    targetId: "about",
+  },
+  {
+    label: "Lieux",
+    targetId: "locations",
+  },
+  {
+    label: "Contact",
+    targetId: "contact",
+  },
+];
 export const NAV_BLOG_LABEL = "Blog & Actualités";
+export const NAV_BLOG_LABEL_en = "Blog & Actualités";
 export const NAV_RDV_LABEL = "Prendre RDV";
+export const NAV_RDV_LABEL_en = "Prendre RDV";
 export const NAV_RDV_LABEL_MOBILE = "Prendre rendez-vous";
+export const NAV_RDV_LABEL_MOBILE_en = "Prendre rendez-vous";
 
 // ─── Hero ───
 export const HERO_BADGE = "Diététicienne Nutritionniste";
+export const HERO_BADGE_en = "Diététicienne Nutritionniste";
 export const HERO_TITLE = "Retrouvez votre équilibre avec un accompagnement";
+export const HERO_TITLE_en = "Retrouvez votre équilibre avec un accompagnement";
 export const HERO_TITLE_ACCENT = "personnalisé";
+export const HERO_TITLE_ACCENT_en = "personnalisé";
 export const HERO_DESCRIPTION = "Je vous propose des programmes sur-mesure, un suivi bienveillant et des conseils fondés sur la science de la nutrition.";
+export const HERO_DESCRIPTION_en = "Je vous propose des programmes sur-mesure, un suivi bienveillant et des conseils fondés sur la science de la nutrition.";
 export const HERO_BTN_RDV = "Prendre rendez-vous";
+export const HERO_BTN_RDV_en = "Prendre rendez-vous";
 export const HERO_BTN_SAVOIR_PLUS = "En savoir plus";
+export const HERO_BTN_SAVOIR_PLUS_en = "En savoir plus";
 export const HERO_IMAGE = new URL('./assets/image banner.jpg', import.meta.url).href;
 
 // ─── À propos ───
 export const APROPOS_NOM = "Virginie Lelong - Mazaud";
+export const APROPOS_NOM_en = "Virginie Lelong - Mazaud";
 export const APROPOS_SOUS_TITRE = "Diététicienne-Nutritionniste diplômée d'État";
+export const APROPOS_SOUS_TITRE_en = "Diététicienne-Nutritionniste diplômée d'État";
 export const APROPOS_BIO_P1: React.ReactNode = <>Experte en nutrition depuis plusieurs années, je vous accompagne dans l'<b>alimentation équilibrée</b> et personnalisée selon votre situation : <b>perte de poids</b>, <b>obésité</b>, <b>diabète</b>, <b>hypertension</b>, <b>ménopause</b>, <b>grossesse</b>, <b>sport</b>, <b>maladies cardiovasculaires</b>, et plus.</>;
 export const APROPOS_BIO_P2: React.ReactNode = <>Je suis également spécialisée en <b>chirurgie bariatrique</b> (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.</>;
 export const APROPOS_BIO_P3: React.ReactNode = <>Mon approche : un <b>bilan complet</b>, <b>suivi régulier</b> et <b>conseils pratiques</b> adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec <b>impédancemètre</b>, j'évalue précisément votre <b>composition corporelle</b> et vos progrès.</>;
@@ -41,7 +75,9 @@ export const APROPOS_BIO_P4: React.ReactNode = <>Mon objectif : vous aider à re
 
 // ─── Expertise ───
 export const EXPERTISE_TITRE = "Mes Domaines d'Expertise";
+export const EXPERTISE_TITRE_en = "Mes Domaines d'Expertise";
 export const EXPERTISE_DESCRIPTION = "Parce que chaque corps est unique, je vous propose un accompagnement adapté à vos besoins spécifiques.";
+export const EXPERTISE_DESCRIPTION_en = "Parce que chaque corps est unique, je vous propose un accompagnement adapté à vos besoins spécifiques.";
 export const SPECIALTIES: SpecialtyItem[] = [
   {
     title: "Perte de poids & Obésité",
@@ -74,9 +110,36 @@ export const SPECIALTIES: SpecialtyItem[] = [
     icon: Heart
   }
 ];
+export const SPECIALTIES_en = [
+  {
+    title: "Perte de poids & Obésité",
+    description: "Un accompagnement bienveillant et personnalisé pour retrouver votre poids de forme durablement, sans régimes restrictifs.",
+  },
+  {
+    title: "Diabète & Hypertension",
+    description: "Gestion nutritionnelle adaptée pour stabiliser la glycémie et la tension artérielle tout en préservant le plaisir de manger.",
+  },
+  {
+    title: "Chirurgie Bariatrique",
+    description: "Suivi spécialisé pré et post-opératoire pour prévenir les carences et optimiser les résultats de l'intervention.",
+  },
+  {
+    title: "Ménopause & Grossesse",
+    description: "Adaptation de l'alimentation aux changements hormonaux, pour vivre sereinement ces étapes clés de la vie.",
+  },
+  {
+    title: "Nutrition du Sport",
+    description: "Stratégies nutritionnelles pour optimiser vos performances, votre énergie et votre récupération musculaire.",
+  },
+  {
+    title: "Maladies Cardiovasculaires",
+    description: "Prévention et prise en charge des facteurs de risques cardio-vasculaires par une assiette protectrice.",
+  },
+];
 
 // ─── Diplômes ───
 export const DIPLOMES_TITRE = "Diplômes & Formations";
+export const DIPLOMES_TITRE_en = "Diplômes & Formations";
 export const DIPLOMAS = [
   "B.T.S. Diététique - Educatel",
   "Éducation thérapeutique du patient - Ligue Contre l'Obésité",
@@ -92,10 +155,35 @@ export const DIPLOMAS = [
   "Micronutrition - IEDM",
   "Alimentation & cancer - Gustave Roussy"
 ];
+export const DIPLOMAS_en: string[] = [
+  "B.T.S. Diététique - Educatel",
+  "Éducation thérapeutique du patient - Ligue Contre l'Obésité",
+  "Préménopause, ménopause et nutrition - SIIN",
+  "Surpoids et obésité de l'enfant/adolescent - REPOP",
+  "Micronutrition ménopause - Kiné Formations",
+  "Diabète - SER diabète",
+  "Maladie rénale chronique - RENIF",
+  "Nutrition du sport - AFDN",
+  "Nutrition comportementale - CFDC",
+  "Inflammation & micronutrition - Kiné Formations",
+  "Chirurgie bariatrique - Educform",
+  "Micronutrition - IEDM",
+  "Alimentation & cancer - Gustave Roussy",
+];
 
 // ─── Associations ───
 export const ASSOCIATIONS_TITRE = "Membre des associations";
+export const ASSOCIATIONS_TITRE_en = "Membre des associations";
 export const ASSOCIATIONS = [
+  "AFDN (Association Française des Diététiciens Nutritionnistes)",
+  "IEDM (Institut Européen de Diététique et Micronutrition)",
+  "RENIF (Réseau de Néphrologie d'Ile-de-France)",
+  "REPOP (Réseau de Prévention de l'Obésité Pédiatrique)",
+  "Revesdiab (Réseau de santé diabète)",
+  "CPTS Santé Seine Essonne",
+  "Réseau Oncodiets",
+];
+export const ASSOCIATIONS_en: string[] = [
   "AFDN (Association Française des Diététiciens Nutritionnistes)",
   "IEDM (Institut Européen de Diététique et Micronutrition)",
   "RENIF (Réseau de Néphrologie d'Ile-de-France)",
@@ -107,8 +195,11 @@ export const ASSOCIATIONS = [
 
 // ─── Impédance ───
 export const IMPEDANCE_BADGE = "Technologie Professionnelle";
+export const IMPEDANCE_BADGE_en = "Technologie Professionnelle";
 export const IMPEDANCE_TITLE = "Analyse par Impédancemétrie";
+export const IMPEDANCE_TITLE_en = "Analyse par Impédancemétrie";
 export const IMPEDANCE_DESCRIPTION = "Le poids sur la balance ne suffit pas à évaluer votre santé. Grâce à un impédancemètre professionnel, nous analysons précisément votre composition corporelle pour mieux cibler vos objectifs et mesurer vos progrès réels (perte de gras, prise de muscle, hydratation).";
+export const IMPEDANCE_DESCRIPTION_en = "Le poids sur la balance ne suffit pas à évaluer votre santé. Grâce à un impédancemètre professionnel, nous analysons précisément votre composition corporelle pour mieux cibler vos objectifs et mesurer vos progrès réels (perte de gras, prise de muscle, hydratation).";
 export const IMPEDANCE_IMAGE = new URL('./assets/imdependancemetre.png', import.meta.url).href;
 export const IMPEDANCE_BENEFITS = [
   { title: "Masse Grasse", description: "Mesure précise de la réserve adipeuse." },
@@ -117,10 +208,34 @@ export const IMPEDANCE_BENEFITS = [
   { title: "Graisse Viscérale", description: "Prévention des risques cardiovasculaires." },
   { title: "Métabolisme de Base", description: "Calcul exact de vos besoins énergétiques." }
 ];
+export const IMPEDANCE_BENEFITS_en = [
+  {
+    title: "Masse Grasse",
+    description: "Mesure précise de la réserve adipeuse.",
+  },
+  {
+    title: "Masse Musculaire",
+    description: "Suivi de la tonicité et du métabolisme.",
+  },
+  {
+    title: "Hydratation",
+    description: "Contrôle de la rétention d'eau.",
+  },
+  {
+    title: "Graisse Viscérale",
+    description: "Prévention des risques cardiovasculaires.",
+  },
+  {
+    title: "Métabolisme de Base",
+    description: "Calcul exact de vos besoins énergétiques.",
+  },
+];
 
 // ─── Cabinets ───
 export const CABINETS_TITRE = "Lieux de consultation à Melun & Corbeil-Essonnes";
+export const CABINETS_TITRE_en = "Lieux de consultation à Melun & Corbeil-Essonnes";
 export const CABINETS_DESCRIPTION = "Je vous accueille dans mes trois cabinets situés en Seine-et-Marne et en Essonne.";
+export const CABINETS_DESCRIPTION_en = "Je vous accueille dans mes trois cabinets situés en Seine-et-Marne et en Essonne.";
 export const WORKPLACES: Workplace[] = [
   {
     id: 1,
@@ -150,10 +265,38 @@ export const WORKPLACES: Workplace[] = [
     reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJkeCYY4nn5UcRzhWFR9kiwmo"
   }
 ];
+export const WORKPLACES_en = [
+  {
+    name: "Cabinet Melun - Quai Foch",
+    address: "13 Quai Maréchal Foch, 77000 Melun",
+    description: "Cabinet principal situé en bord de Seine.",
+    mapUrl: "https://www.google.com/maps?hl=fr&gl=fr&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x47e5fbf99bb9b5b1:0x74e189db56de381e",
+    reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJsbW5m_n75UcRHjjeVtuJ4XQ",
+    imageUrl: "./assets/foch.jpeg",
+  },
+  {
+    name: "Cabinet Melun - Clinique St Jean l'Ermitage",
+    address: "274 Avenue Marc Jacquet, 77000 Melun",
+    description: "Maison des consultations.",
+    mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+clinique+St+Jean+l'Ermitage+Melun/@48.556294,2.640313,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5fb5fb350d58b:0xded221dd99c1dddd!8m2!3d48.556294!4d2.640313!16s%2Fg%2F11lv7pv_2h?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+    reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJi9VQs1_75UcR3d3Bmd0h0t4",
+    imageUrl: "./assets/hermitage.jpeg",
+  },
+  {
+    name: "Cabinet Corbeil-Essonnes - Maison de santé \"les Allées\"",
+    address: "25 Allée Aristide Briand, 91100 Corbeil-Essonnes",
+    description: "Cabinet pluridisciplinaire facile d'accès.",
+    mapUrl: "https://www.google.com/maps/place/Lelong-Mazaud+Virginie+Di%C3%A9t%C3%A9ticienne+Maison+de+sant%C3%A9+Corbeil-Essonnes/@48.6103233,2.4760804,17z/data=!3m1!4b1!4m6!3m5!1s0x47e5e7896398e091:0x6ac222d9478515ce!8m2!3d48.6103233!4d2.4760804!16s%2Fg%2F11k47msyfn?hl=fr&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+    reviewUrl: "https://search.google.com/local/writereview?placeid=ChIJkeCYY4nn5UcRzhWFR9kiwmo",
+    imageUrl: "./assets/mds.jpeg",
+  },
+];
 
 // ─── Avis ───
 export const AVIS_TITRE = "Ce qu'en pensent mes patients";
+export const AVIS_TITRE_en = "Ce qu'en pensent mes patients";
 export const AVIS_SOUS_TITRE = "Retours d'expériences";
+export const AVIS_SOUS_TITRE_en = "Retours d'expériences";
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     name: "Sandrine Munoz",
@@ -171,12 +314,30 @@ export const TESTIMONIALS: TestimonialItem[] = [
     rating: 5
   }
 ];
+export const TESTIMONIALS_en = [
+  {
+    name: "Sandrine Munoz",
+    text: "Mme Mazaud a su être à l'écoute de mes attentes. Nous avons pu revoir mes habitudes alimentaires alors que la ménopause s'est invitée chez-moi! Avec bienveillance, elle a suivi l'évolution de ma prise de conscience et les petits changements appliqués. Je recommande vivement praticienne.",
+  },
+  {
+    name: "Leslie Rados",
+    text: "Si vous êtes à la recherche d'une professionnelle consciencieuse, Virginie est la personne qu'il vous faut. Un immense merci pour votre accompagnement qui porte ses fruits.",
+  },
+  {
+    name: "Maxence PECQUENARD — Entraîneur d'aviron",
+    text: "Merci beaucoup ! Je recommande, même pour les sportifs ! Donne de bons conseils, à l'écoute,… Top satisfait à 100%",
+  },
+];
 
 // ─── Tarifs ───
 export const TARIFS_TITRE = "Honoraires";
+export const TARIFS_TITRE_en = "Honoraires";
 export const TARIFS_PAIEMENT = "Moyens de paiement acceptés : Chèques, espèces et carte bancaire.";
+export const TARIFS_PAIEMENT_en = "Moyens de paiement acceptés : Chèques, espèces et carte bancaire.";
 export const TARIFS_NOTE_1 = "Les consultations diététiques ne sont pas prises en charge par la Sécurité Sociale.";
+export const TARIFS_NOTE_1_en = "Les consultations diététiques ne sont pas prises en charge par la Sécurité Sociale.";
 export const TARIFS_NOTE_2 = "De nombreuses mutuelles proposent un remboursement partiel ou total, renseignez-vous auprès de la vôtre.";
+export const TARIFS_NOTE_2_en = "De nombreuses mutuelles proposent un remboursement partiel ou total, renseignez-vous auprès de la vôtre.";
 export const PRICES: PriceItem[] = [
   { label: "Bilan nutritionnel - Première consultation", price: "65 €" },
   { label: "Consultation de suivi", price: "40 €" },
@@ -186,13 +347,48 @@ export const PRICES: PriceItem[] = [
   { label: "Consultation de suivi couple", price: "60 €" },
   { label: "Forfait 2 consultations de suivi/mois au cabinet", price: "70 €" }
 ];
+export const PRICES_en = [
+  {
+    label: "Bilan nutritionnel - Première consultation",
+    price: "65 €",
+  },
+  {
+    label: "Consultation de suivi",
+    price: "40 €",
+  },
+  {
+    label: "Première consultation pré-opératoire chirurgie bariatrique",
+    price: "75 €",
+  },
+  {
+    label: "Bilan nutritionnel visioconférence - Première consultation",
+    price: "65 €",
+  },
+  {
+    label: "Consultation de suivi visioconférence",
+    price: "40 €",
+  },
+  {
+    label: "Consultation de suivi couple",
+    price: "60 €",
+  },
+  {
+    label: "Forfait 2 consultations de suivi/mois au cabinet",
+    price: "70 €",
+  },
+];
 
 // ─── Contact ───
 export const CONTACT_HORAIRES_TITRE = "Horaires";
+export const CONTACT_HORAIRES_TITRE_en = "Horaires";
 export const CONTACT_HORAIRES_SOUS_TITRE = "Sur rendez-vous uniquement";
+export const CONTACT_HORAIRES_SOUS_TITRE_en = "Sur rendez-vous uniquement";
 export const CONTACT_TITRE = "Me contacter";
+export const CONTACT_TITRE_en = "Me contacter";
 export const CONTACT_RDV_TITRE = "Rendez-vous & Avis";
+export const CONTACT_RDV_TITRE_en = "Rendez-vous & Avis";
 export const CONTACT_RDV_DESCRIPTION = "Prenez rendez-vous en ligne ou partagez votre expérience.";
+export const CONTACT_RDV_DESCRIPTION_en = "Prenez rendez-vous en ligne ou partagez votre expérience.";
 export const SCHEDULE: ScheduleItem[] = [
   { day: "Lundi", hours: "09:00 - 19:00", location: "13 Quai Maréchal Foch, Melun" },
   { day: "Mardi", hours: "09:00 - 19:00", location: "274 Av. Marc Jacquet, Melun" },
@@ -202,9 +398,47 @@ export const SCHEDULE: ScheduleItem[] = [
   { day: "Vendredi", hours: "09:30 - 19:00", location: "25 Allée A. Briand, Corbeil" },
   { day: "Samedi", hours: "09:00 - 15:00", location: "13 Quai Maréchal Foch, Melun" },
 ];
+export const SCHEDULE_en = [
+  {
+    day: "Lundi",
+    hours: "09:00 - 19:00",
+    location: "13 Quai Maréchal Foch, Melun",
+  },
+  {
+    day: "Mardi",
+    hours: "09:00 - 19:00",
+    location: "274 Av. Marc Jacquet, Melun",
+  },
+  {
+    day: "Mercredi",
+    hours: "09:30 - 19:00",
+    location: "25 Allée A. Briand, Corbeil",
+  },
+  {
+    day: "Jeudi",
+    hours: "09:00 - 15:00",
+    location: "13 Quai Maréchal Foch, Melun",
+  },
+  {
+    day: "Vendredi",
+    hours: "09:00 - 19:00",
+    location: "13 Quai Maréchal Foch, Melun",
+  },
+  {
+    day: "Vendredi",
+    hours: "09:30 - 19:00",
+    location: "25 Allée A. Briand, Corbeil",
+  },
+  {
+    day: "Samedi",
+    hours: "09:00 - 15:00",
+    location: "13 Quai Maréchal Foch, Melun",
+  },
+];
 
 // ─── FAQ ───
 export const FAQ_TITRE = "Questions Fréquentes";
+export const FAQ_TITRE_en = "Questions Fréquentes";
 export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Quelle est l'adresse de Mme Virginie Lelong - Mazaud ?",
@@ -250,7 +484,54 @@ Vendredi : 09h30 - 19h00`
     answer: "Oui, Mme Virginie Lelong - Mazaud accepte des nouveaux patients"
   }
 ];
+export const FAQ_ITEMS_en = [
+  {
+    question: "Quelle est l'adresse de Mme Virginie Lelong - Mazaud ?",
+    answer: `Mme Virginie Lelong - Mazaud reçoit des patients aux adresses suivantes:
+13 Quai Maréchal Foch, 77000 Melun
+274 Avenue Marc Jacquet, 77000 Melun
+25 Allée Aristide Briand, 91100 Corbeil-Essonnes`,
+  },
+  {
+    question: "Quels sont les horaires d'ouverture ?",
+    answer: `Mme Virginie Lelong - Mazaud est ouvert:
+
+13 Quai Maréchal Foch, 77000 Melun
+Mme Virginie Lelong - Mazaud est ouvert:
+Lundi : 09h00 - 19h00
+Jeudi : 09h00 - 15h00
+Vendredi : 09h00 - 19h00
+Samedi : 09h00 - 15h00
+
+274 Avenue Marc Jacquet, 77000 Melun
+Mme Virginie Lelong - Mazaud est ouvert:
+Mardi : 09h00 - 19h00
+
+25 Allée Aristide Briand, 91100 Corbeil-Essonnes
+Mme Virginie Lelong - Mazaud est ouvert:
+Mercredi : 09h30 - 19h00
+Vendredi : 09h30 - 19h00`,
+  },
+  {
+    question: "Quels sont les moyens de paiement acceptés ?",
+    answer: "Mme Virginie Lelong - Mazaud accepte les moyens de paiements suivants: Chèques, espèces et carte bancaire",
+  },
+  {
+    question: "Est-ce que Mme Virginie Lelong - Mazaud accepte la carte Vitale ?",
+    answer: "Non, Mme Virginie Lelong - Mazaud n'accepte pas la carte Vitale",
+  },
+  {
+    question: "Quelles sont les langues parlées ?",
+    answer: "Les langues qui peuvent être parlées avec Mme Virginie Lelong - Mazaud sont les suivantes : Français",
+  },
+  {
+    question: "Est-ce que Mme Virginie Lelong - Mazaud accepte des nouveaux patients ?",
+    answer: "Oui, Mme Virginie Lelong - Mazaud accepte des nouveaux patients",
+  },
+];
 
 // ─── Footer ───
 export const FOOTER_NOM = "Virginie Lelong Mazaud";
+export const FOOTER_NOM_en = "Virginie Lelong Mazaud";
 export const FOOTER_TITRE = "Diététicienne Nutritionniste";
+export const FOOTER_TITRE_en = "Diététicienne Nutritionniste";
