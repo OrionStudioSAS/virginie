@@ -1,24 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { SITE_LOGO, DOCTOLIB_URL } from '../constants';
 import { useLanguage } from '../lib/LanguageContext';
 import { t } from '../lib/i18n';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
-
-const LANGUAGES = [
-  { code: 'fr', flag: '🇫🇷', label: 'FR' },
-  { code: 'en', flag: '🇬🇧', label: 'EN' },
-];
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { lang, setLang } = useLanguage();
+  const { lang } = useLanguage();
 
   const navItems: NavItem[] = t('NAV_ITEMS', lang);
   const navBlogLabel: string = t('NAV_BLOG_LABEL', lang);
@@ -31,17 +24,6 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Ferme le dropdown langue si clic extérieur
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
-        setLangOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -66,8 +48,6 @@ export const Navbar: React.FC = () => {
       navigate('/');
     }
   };
-
-  const currentLang = LANGUAGES.find(l => l.code === lang) ?? LANGUAGES[0];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-transparent py-4'}`}>
@@ -107,60 +87,10 @@ export const Navbar: React.FC = () => {
           >
             {navRdvLabel}
           </a>
-
-          {/* Sélecteur de langue */}
-          <div className="relative" ref={langRef}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 text-slate-600 hover:text-primary font-medium transition-colors text-sm border border-slate-200 rounded-full px-3 py-1.5 hover:border-primary/40"
-            >
-              <span>{currentLang.flag}</span>
-              <span>{currentLang.label}</span>
-              <ChevronDown size={14} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-50 min-w-[80px]">
-                {LANGUAGES.map((l) => (
-                  <button
-                    key={l.code}
-                    onClick={() => { setLang(l.code); setLangOpen(false); }}
-                    className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-rose-50 transition-colors ${lang === l.code ? 'text-primary font-semibold bg-rose-50/50' : 'text-slate-600'}`}
-                  >
-                    <span>{l.flag}</span>
-                    <span>{l.label}</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden flex items-center gap-3">
-          {/* Sélecteur langue mobile (compact) */}
-          <div className="relative" ref={undefined}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 text-slate-600 text-sm border border-slate-200 rounded-full px-2 py-1"
-            >
-              <span>{currentLang.flag}</span>
-              <span className="text-xs">{currentLang.label}</span>
-            </button>
-            {langOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-50 min-w-[80px]">
-                {LANGUAGES.map((l) => (
-                  <button
-                    key={l.code}
-                    onClick={() => { setLang(l.code); setLangOpen(false); }}
-                    className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-rose-50 transition-colors ${lang === l.code ? 'text-primary font-semibold' : 'text-slate-600'}`}
-                  >
-                    <span>{l.flag}</span>
-                    <span>{l.label}</span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+        <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-slate-600 hover:text-primary transition-colors">
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
