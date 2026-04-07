@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button } from './Button';
-import { DOCTOLIB_URL, HERO_BADGE, HERO_TITLE, HERO_TITLE_ACCENT, HERO_DESCRIPTION, HERO_BTN_RDV, HERO_BTN_SAVOIR_PLUS, HERO_IMAGE } from '../constants';
+import { DOCTOLIB_URL, HERO_IMAGE } from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
 import { ChevronDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
+  const { lang } = useLanguage();
+
   return (
     <section
       id="home"
@@ -16,23 +20,23 @@ export const Hero: React.FC = () => {
         <div className="flex-1 space-y-8 text-center md:text-left">
           <div className="reveal reveal-slide-left">
             <h2 className="inline-block bg-rose-50/80 text-primary font-semibold uppercase tracking-widest text-xs md:text-sm mb-3 px-4 py-1.5 rounded-full shadow-sm">
-              {HERO_BADGE}
+              {t('HERO_BADGE', lang)}
             </h2>
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-slate-800 leading-tight">
-              {HERO_TITLE} <span className="text-[#8bc242] underline decoration-[#8bc242]/20 decoration-4 underline-offset-4">{HERO_TITLE_ACCENT}</span>
+              {t('HERO_TITLE', lang)} <span className="text-[#8bc242] underline decoration-[#8bc242]/20 decoration-4 underline-offset-4">{t('HERO_TITLE_ACCENT', lang)}</span>
             </h1>
           </div>
 
           <p className="reveal reveal-slide-left reveal-delay-100 text-lg text-slate-600 leading-relaxed max-w-lg mx-auto md:mx-0">
-            {HERO_DESCRIPTION}
+            {t('HERO_DESCRIPTION', lang)}
           </p>
 
           <div className="reveal reveal-scale-up reveal-delay-200 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <Button href={DOCTOLIB_URL} target="_blank">
-              {HERO_BTN_RDV}
+              {t('HERO_BTN_RDV', lang)}
             </Button>
             <Button variant="outline" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
-              {HERO_BTN_SAVOIR_PLUS}
+              {t('HERO_BTN_SAVOIR_PLUS', lang)}
             </Button>
           </div>
         </div>

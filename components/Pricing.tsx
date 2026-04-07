@@ -1,13 +1,18 @@
 import React from 'react';
-import { PRICES, TARIFS_TITRE, TARIFS_PAIEMENT, TARIFS_NOTE_1, TARIFS_NOTE_2 } from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
+import { PriceItem } from '../types';
 
 export const Pricing: React.FC = () => {
+  const { lang } = useLanguage();
+  const prices: PriceItem[] = t('PRICES', lang);
+
   return (
     <section id="pricing" className="py-24 bg-rose-50/30">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            {TARIFS_TITRE}
+            {t('TARIFS_TITRE', lang)}
           </h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
@@ -15,7 +20,7 @@ export const Pricing: React.FC = () => {
         <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-rose-100 reveal reveal-scale-up">
           <div className="p-1 bg-gradient-to-r from-rose-200 via-primary to-rose-200"></div>
           <div className="divide-y divide-slate-100">
-            {PRICES.map((item, idx) => (
+            {prices.map((item, idx) => (
               <div key={idx} className="p-6 md:p-8 flex flex-col md:flex-row justify-between items-center hover:bg-slate-50 transition-colors gap-4">
                 <span className="text-lg font-medium text-slate-700 text-center md:text-left">{item.label}</span>
                 <span className="text-xl md:text-2xl font-bold text-primary whitespace-nowrap bg-rose-50 px-4 py-1 rounded-full">{item.price}</span>
@@ -23,13 +28,13 @@ export const Pricing: React.FC = () => {
             ))}
           </div>
           <div className="p-6 bg-slate-50 text-center text-sm text-slate-500">
-            {TARIFS_PAIEMENT}
+            {t('TARIFS_PAIEMENT', lang)}
           </div>
         </div>
 
         <div className="mt-8 text-center text-slate-500 text-sm reveal reveal-delay-200">
-          <p>{TARIFS_NOTE_1}</p>
-          <p>{TARIFS_NOTE_2}</p>
+          <p>{t('TARIFS_NOTE_1', lang)}</p>
+          <p>{t('TARIFS_NOTE_2', lang)}</p>
         </div>
       </div>
     </section>

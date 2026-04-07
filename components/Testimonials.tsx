@@ -1,13 +1,19 @@
 import React from 'react';
-import { TESTIMONIALS, GOOGLE_REVIEW_URL, AVIS_TITRE, AVIS_SOUS_TITRE } from '../constants';
-import { Star, Quote } from 'lucide-react';
+import { GOOGLE_REVIEW_URL } from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
+import { Star } from 'lucide-react';
 import { Button } from './Button';
+import { TestimonialItem } from '../types';
 
 type Props = {
   onOpenReview?: () => void;
 };
 
 export const Testimonials: React.FC<Props> = ({ onOpenReview }) => {
+  const { lang } = useLanguage();
+  const testimonials: TestimonialItem[] = t('TESTIMONIALS', lang);
+
   return (
     <section id="testimonials" className="py-24 bg-rose-50/30">
       <div className="container mx-auto px-6">
@@ -18,13 +24,13 @@ export const Testimonials: React.FC<Props> = ({ onOpenReview }) => {
                  </div>
             </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            {AVIS_TITRE}
+            {t('AVIS_TITRE', lang)}
           </h2>
-          <p className="text-slate-500">{AVIS_SOUS_TITRE}</p>
+          <p className="text-slate-500">{t('AVIS_SOUS_TITRE', lang)}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {TESTIMONIALS.map((item, idx) => (
+          {testimonials.map((item, idx) => (
             <div key={idx} className={`bg-white p-8 rounded-2xl shadow-sm border border-rose-50 reveal reveal-scale-up reveal-delay-${idx * 100} hover:shadow-md transition-shadow`}>
               <div className="flex gap-1 text-yellow-400 mb-6">
                 {[...Array(item.rating)].map((_, i) => (

@@ -1,8 +1,13 @@
 import React from 'react';
-import { IMPEDANCE_BENEFITS, IMPEDANCE_BADGE, IMPEDANCE_TITLE, IMPEDANCE_DESCRIPTION, IMPEDANCE_IMAGE } from '../constants';
+import { IMPEDANCE_IMAGE } from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
 import { Activity, CheckCircle, Smartphone } from 'lucide-react';
 
 export const Impedance: React.FC = () => {
+  const { lang } = useLanguage();
+  const benefits: { title: string; description: string }[] = t('IMPEDANCE_BENEFITS', lang);
+
   return (
     <section className="py-24 bg-white overflow-hidden border-t border-slate-50">
       <div className="container mx-auto px-6">
@@ -12,19 +17,19 @@ export const Impedance: React.FC = () => {
           <div className="flex-1 reveal reveal-slide-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-semibold mb-6">
                <Activity size={16} />
-               <span>{IMPEDANCE_BADGE}</span>
+               <span>{t('IMPEDANCE_BADGE', lang)}</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6">
-              {IMPEDANCE_TITLE}
+              {t('IMPEDANCE_TITLE', lang)}
             </h2>
 
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              {IMPEDANCE_DESCRIPTION}
+              {t('IMPEDANCE_DESCRIPTION', lang)}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-8">
-              {IMPEDANCE_BENEFITS.map((item, idx) => (
+              {benefits.map((item, idx) => (
                 <div key={idx} className="flex gap-3">
                   <div className="mt-1 flex-shrink-0">
                      <CheckCircle className="text-primary w-6 h-6" />

@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import {
-  SPECIALTIES, DIPLOMAS, ASSOCIATIONS,
-  APROPOS_NOM, APROPOS_SOUS_TITRE,
-  APROPOS_BIO_P1, APROPOS_BIO_P2, APROPOS_BIO_P3, APROPOS_BIO_P4,
-  EXPERTISE_TITRE, EXPERTISE_DESCRIPTION,
-  DIPLOMES_TITRE, ASSOCIATIONS_TITRE
-} from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
 import { Award, Users, ChevronDown } from 'lucide-react';
+import { SpecialtyItem } from '../types';
 
 export const About: React.FC = () => {
   const [diplomasOpen, setDiplomasOpen] = useState(false);
   const [associationsOpen, setAssociationsOpen] = useState(false);
+  const { lang } = useLanguage();
+
+  const specialties: SpecialtyItem[] = t('SPECIALTIES', lang);
+  const diplomas: string[] = t('DIPLOMAS', lang);
+  const associations: string[] = t('ASSOCIATIONS', lang);
 
   return (
     <section id="about" className="py-24 bg-white">
@@ -20,29 +21,29 @@ export const About: React.FC = () => {
         <div className="max-w-4xl mx-auto mb-20 reveal">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 relative inline-block">
-              {APROPOS_NOM}
+              {t('APROPOS_NOM', lang)}
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary/20 to-primary/60 rounded-full"></span>
             </h2>
-            <h3 className="text-xl text-primary font-medium">{APROPOS_SOUS_TITRE}</h3>
+            <h3 className="text-xl text-primary font-medium">{t('APROPOS_SOUS_TITRE', lang)}</h3>
           </div>
 
           <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
-            <p className="text-slate-600">{APROPOS_BIO_P1}</p>
-            <p className="text-slate-600">{APROPOS_BIO_P2}</p>
-            <p className="text-slate-600">{APROPOS_BIO_P3}</p>
-            <p className="text-slate-600">{APROPOS_BIO_P4}</p>
+            <p className="text-slate-600">{t('APROPOS_BIO_P1', lang)}</p>
+            <p className="text-slate-600">{t('APROPOS_BIO_P2', lang)}</p>
+            <p className="text-slate-600">{t('APROPOS_BIO_P3', lang)}</p>
+            <p className="text-slate-600">{t('APROPOS_BIO_P4', lang)}</p>
           </div>
         </div>
 
         {/* Specialties Grid */}
         <div className="mb-24">
           <div className="text-center mb-12 reveal">
-            <h3 className="text-3xl font-serif font-bold text-slate-800 mb-4">{EXPERTISE_TITRE}</h3>
-            <p className="text-slate-500 max-w-2xl mx-auto">{EXPERTISE_DESCRIPTION}</p>
+            <h3 className="text-3xl font-serif font-bold text-slate-800 mb-4">{t('EXPERTISE_TITRE', lang)}</h3>
+            <p className="text-slate-500 max-w-2xl mx-auto">{t('EXPERTISE_DESCRIPTION', lang)}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SPECIALTIES.map((service, index) => (
+            {specialties.map((service, index) => (
               <div
                 key={index}
                 className={`reveal reveal-scale-up reveal-delay-${(index % 3) * 100} bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 hover:border-rose-100`}
@@ -51,9 +52,7 @@ export const About: React.FC = () => {
                   <service.icon size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  {service.description}
-                </p>
+                <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
               </div>
             ))}
           </div>
@@ -70,11 +69,9 @@ export const About: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <Award className="text-primary w-8 h-8" />
-                <h3 className="text-2xl font-serif font-bold text-slate-800">{DIPLOMES_TITRE}</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-800">{t('DIPLOMES_TITRE', lang)}</h3>
               </div>
-              <ChevronDown
-                className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${diplomasOpen ? 'rotate-180' : ''}`}
-              />
+              <ChevronDown className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${diplomasOpen ? 'rotate-180' : ''}`} />
             </button>
 
             <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
@@ -82,7 +79,7 @@ export const About: React.FC = () => {
             }`}>
               <div className="p-6 md:p-8">
                 <ul className="space-y-3">
-                  {DIPLOMAS.map((diploma, idx) => (
+                  {diplomas.map((diploma, idx) => (
                     <li key={idx} className="text-slate-600 text-sm md:text-base border-b border-slate-50 last:border-0 pb-2 last:pb-0">
                       • {diploma}
                     </li>
@@ -100,11 +97,9 @@ export const About: React.FC = () => {
             >
               <div className="flex items-center gap-3">
                 <Users className="text-secondary w-8 h-8" />
-                <h3 className="text-2xl font-serif font-bold text-slate-800">{ASSOCIATIONS_TITRE}</h3>
+                <h3 className="text-2xl font-serif font-bold text-slate-800">{t('ASSOCIATIONS_TITRE', lang)}</h3>
               </div>
-              <ChevronDown
-                className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${associationsOpen ? 'rotate-180' : ''}`}
-              />
+              <ChevronDown className={`md:hidden text-slate-400 w-6 h-6 transition-transform duration-300 ${associationsOpen ? 'rotate-180' : ''}`} />
             </button>
 
             <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 ${
@@ -112,7 +107,7 @@ export const About: React.FC = () => {
             }`}>
               <div className="p-6 md:p-8">
                 <ul className="space-y-3">
-                  {ASSOCIATIONS.map((asso, idx) => (
+                  {associations.map((asso, idx) => (
                     <li key={idx} className="text-slate-600 text-sm md:text-base flex items-start gap-2">
                       <span className="text-secondary mt-1.5 w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
                       {asso}

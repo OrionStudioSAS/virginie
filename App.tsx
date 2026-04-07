@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './lib/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -46,7 +47,7 @@ const App: React.FC = () => {
   const [openReviewModal, setOpenReviewModal] = useState(false);
 
   return (
-    <>
+    <LanguageProvider>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage onOpenReview={() => setOpenReviewModal(true)} />} />
@@ -56,7 +57,7 @@ const App: React.FC = () => {
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <ReviewModal open={openReviewModal} onClose={() => setOpenReviewModal(false)} />
-    </>
+    </LanguageProvider>
   );
 };
 

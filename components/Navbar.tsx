@@ -1,27 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import { NAV_ITEMS, SITE_LOGO, DOCTOLIB_URL, FOOTER_NOM, FOOTER_TITRE, NAV_BLOG_LABEL, NAV_RDV_LABEL, NAV_RDV_LABEL_MOBILE } from '../constants';
-import { Menu, X } from 'lucide-react';
+import { SITE_LOGO, DOCTOLIB_URL } from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { NavItem } from '../types';
+
+const LANGUAGES = [
+  { code: 'fr', flag: '🇫🇷', label: 'FR' },
+  { code: 'en', flag: '🇬🇧', label: 'EN' },
+];
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { lang, setLang } = useLanguage();
+
+  const navItems: NavItem[] = t('NAV_ITEMS', lang);
+  const navBlogLabel: string = t('NAV_BLOG_LABEL', lang);
+  const navRdvLabel: string = t('NAV_RDV_LABEL', lang);
+  const navRdvLabelMobile: string = t('NAV_RDV_LABEL_MOBILE', lang);
+  const footerNom: string = t('FOOTER_NOM', lang);
+  const footerTitre: string = t('FOOTER_TITRE', lang);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Ferme le dropdown langue si clic extérieur
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleNavClick = (targetId: string) => {
@@ -43,30 +67,25 @@ export const Navbar: React.FC = () => {
     }
   };
 
+  const currentLang = LANGUAGES.find(l => l.code === lang) ?? LANGUAGES[0];
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo Section */}
-        <div
-          className="flex items-center gap-4 cursor-pointer"
-          onClick={handleLogoClick}
-        >
+        {/* Logo */}
+        <div className="flex items-center gap-4 cursor-pointer" onClick={handleLogoClick}>
           <div className="w-12 h-12 rounded-lg overflow-hidden shadow-sm border-2 border-white">
             <img src={SITE_LOGO} alt="Logo" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl md:text-2xl font-serif font-bold text-slate-900 leading-none">
-              {FOOTER_NOM}
-            </span>
-            <span className="text-primary text-sm font-medium tracking-wide">
-              {FOOTER_TITRE}
-            </span>
+            <span className="text-xl md:text-2xl font-serif font-bold text-slate-900 leading-none">{footerNom}</span>
+            <span className="text-primary text-sm font-medium tracking-wide">{footerTitre}</span>
           </div>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <button
               key={item.targetId}
               onClick={() => handleNavClick(item.targetId)}
@@ -76,11 +95,8 @@ export const Navbar: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
-          <Link
-            to="/blog-et-actualites"
-            className="text-slate-600 hover:text-primary font-medium transition-colors relative group"
-          >
-            {NAV_BLOG_LABEL}
+          <Link to="/blog-et-actualites" className="text-slate-600 hover:text-primary font-medium transition-colors relative group">
+            {navBlogLabel}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <a
@@ -89,12 +105,62 @@ export const Navbar: React.FC = () => {
             rel="noopener noreferrer"
             className="bg-primary text-white px-5 py-2.5 rounded-full hover:bg-rose-600 transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold"
           >
-            {NAV_RDV_LABEL}
+            {navRdvLabel}
           </a>
+
+          {/* Sélecteur de langue */}
+          <div className="relative" ref={langRef}>
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1 text-slate-600 hover:text-primary font-medium transition-colors text-sm border border-slate-200 rounded-full px-3 py-1.5 hover:border-primary/40"
+            >
+              <span>{currentLang.flag}</span>
+              <span>{currentLang.label}</span>
+              <ChevronDown size={14} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-50 min-w-[80px]">
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setLangOpen(false); }}
+                    className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-rose-50 transition-colors ${lang === l.code ? 'text-primary font-semibold bg-rose-50/50' : 'text-slate-600'}`}
+                  >
+                    <span>{l.flag}</span>
+                    <span>{l.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-3">
+          {/* Sélecteur langue mobile (compact) */}
+          <div className="relative" ref={undefined}>
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className="flex items-center gap-1 text-slate-600 text-sm border border-slate-200 rounded-full px-2 py-1"
+            >
+              <span>{currentLang.flag}</span>
+              <span className="text-xs">{currentLang.label}</span>
+            </button>
+            {langOpen && (
+              <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden z-50 min-w-[80px]">
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setLangOpen(false); }}
+                    className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-rose-50 transition-colors ${lang === l.code ? 'text-primary font-semibold' : 'text-slate-600'}`}
+                  >
+                    <span>{l.flag}</span>
+                    <span>{l.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button onClick={() => setIsOpen(!isOpen)} className="text-slate-600 hover:text-primary transition-colors">
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -104,7 +170,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       <div className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 transition-all duration-300 ease-in-out origin-top ${isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 h-0 overflow-hidden'}`}>
         <div className="flex flex-col p-6 space-y-4">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <button
               key={item.targetId}
               onClick={() => handleNavClick(item.targetId)}
@@ -118,7 +184,7 @@ export const Navbar: React.FC = () => {
             onClick={() => setIsOpen(false)}
             className="text-left text-slate-600 hover:text-primary font-medium py-2 border-b border-slate-50"
           >
-            {NAV_BLOG_LABEL}
+            {navBlogLabel}
           </Link>
           <a
             href={DOCTOLIB_URL}
@@ -126,7 +192,7 @@ export const Navbar: React.FC = () => {
             rel="noopener noreferrer"
             className="bg-primary text-white px-4 py-3 rounded-lg text-center font-semibold mt-4 shadow-md"
           >
-            {NAV_RDV_LABEL_MOBILE}
+            {navRdvLabelMobile}
           </a>
         </div>
       </div>

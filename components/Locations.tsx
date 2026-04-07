@@ -1,20 +1,25 @@
 import React from 'react';
-import { WORKPLACES, CABINETS_TITRE, CABINETS_DESCRIPTION } from '../constants';
+import { useLanguage } from '../lib/LanguageContext';
+import { t } from '../lib/i18n';
 import { MapPin } from 'lucide-react';
+import { Workplace } from '../types';
 
 export const Locations: React.FC = () => {
+  const { lang } = useLanguage();
+  const workplaces: Workplace[] = t('WORKPLACES', lang);
+
   return (
     <section id="locations" className="py-24 bg-neutral">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 reveal">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-            {CABINETS_TITRE}
+            {t('CABINETS_TITRE', lang)}
           </h2>
-          <p className="text-slate-500 max-w-2xl mx-auto">{CABINETS_DESCRIPTION}</p>
+          <p className="text-slate-500 max-w-2xl mx-auto">{t('CABINETS_DESCRIPTION', lang)}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {WORKPLACES.map((place, idx) => (
+          {workplaces.map((place, idx) => (
             <div key={place.id} className={`reveal reveal-scale-up reveal-delay-${(idx + 1) * 100} bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col`}>
               <div className="h-72 overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
@@ -31,9 +36,7 @@ export const Locations: React.FC = () => {
                     <MapPin className="text-primary w-5 h-5 flex-shrink-0 mt-0.5" />
                     <p className="text-sm text-slate-600 font-medium">{place.address}</p>
                   </div>
-                  <p className="text-sm text-slate-500 leading-relaxed">
-                    {place.description}
-                  </p>
+                  <p className="text-sm text-slate-500 leading-relaxed">{place.description}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-100">
                   <a
