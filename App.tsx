@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { LanguageProvider } from './lib/LanguageContext';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { LanguageProvider, useLanguage } from './lib/LanguageContext';
+import { getAvailableLangs, t } from './lib/i18n';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -20,28 +21,43 @@ import Admin from './pages/Admin';
 import Seo from './components/Seo';
 import ScrollToTop from './components/ScrollToTop';
 
-const HomePage: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => (
-  <div className="min-h-screen flex flex-col font-sans">
-    <Seo
-      title="Virginie Lelong | Diététicienne Nutritionniste Melun & Corbeil-Essonnes"
-      description="Diététicienne nutritionniste à Melun et Corbeil-Essonnes, Virginie Lelong Mazaud propose bilans impédancemétriques, suivi personnalisé et programmes sur-mesure."
-      canonical="/"
-      ogType="website"
-    />
-    <Navbar />
-    <main className="flex-grow">
-      <Hero />
-      <About />
-      <Impedance />
-      <Locations />
-      <BlogPreview />
-      <Testimonials onOpenReview={onOpenReview} />
-      <Contact onOpenReview={onOpenReview} />
-      <FAQ />
-    </main>
-    <Footer />
-  </div>
-);
+const HomePage: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => {
+  const { lang } = useLanguage();
+  return (
+    <div className="min-h-screen flex flex-col font-sans">
+      <Seo
+        title={t('SEO_TITLE', lang)}
+        description={t('SEO_DESCRIPTION', lang)}
+        ogImage={t('SEO_OG_IMAGE', lang)}
+        canonical={lang === 'fr' ? '/' : `/${lang}`}
+        ogType="website"
+        lang={lang}
+        hreflang
+      />
+      <Navbar />
+      <main className="flex-grow">
+        <Hero />
+        <About />
+        <Impedance />
+        <Locations />
+        <BlogPreview />
+        <Testimonials onOpenReview={onOpenReview} />
+        <Contact onOpenReview={onOpenReview} />
+        <FAQ />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+const LangRoute: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => {
+  const { lang } = useParams<{ lang: string }>();
+  const validLangs = getAvailableLangs().filter(l => l !== 'fr');
+  if (!lang || !validLangs.includes(lang)) {
+    return <Navigate to="/" replace />;
+  }
+  return <HomePage onOpenReview={onOpenReview} />;
+};
 
 const App: React.FC = () => {
   const [openReviewModal, setOpenReviewModal] = useState(false);
@@ -55,6 +71,7 @@ const App: React.FC = () => {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/actualites/:slug" element={<NewsPost />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/:lang" element={<LangRoute onOpenReview={() => setOpenReviewModal(true)} />} />
       </Routes>
       <ReviewModal open={openReviewModal} onClose={() => setOpenReviewModal(false)} />
     </LanguageProvider>

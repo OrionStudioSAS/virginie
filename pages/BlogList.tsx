@@ -6,6 +6,7 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import { Calendar, Rss, ArrowUpDown } from 'lucide-react';
+import { SEO_BLOG_TITLE, SEO_BLOG_DESCRIPTION } from '../constants';
 
 const BlogList: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
@@ -20,8 +21,8 @@ const BlogList: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <Seo
-        title="Blog & Actualités"
-        description="Retrouvez tous les conseils nutrition, astuces bien-être et actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes."
+        title={SEO_BLOG_TITLE}
+        description={SEO_BLOG_DESCRIPTION}
         canonical="/blog-et-actualites"
         ogType="website"
       />

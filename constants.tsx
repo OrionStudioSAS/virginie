@@ -534,4 +534,26 @@ Vendredi : 09h30 - 19h00`,
 export const FOOTER_NOM = "Virginie Lelong Mazaud";
 export const FOOTER_NOM_en = "Virginie Lelong Mazaud";
 export const FOOTER_TITRE = "Diététicienne Nutritionniste";
-export const FOOTER_TITRE_en = "Diététicienne Nutritionniste";
+export const FOOTER_TITRE_en = "Dietitian Nutritionist";
+
+// ─── SEO – Accueil ───
+export const SEO_TITLE = "Virginie Lelong - Diététicienne Nutritionniste à Melun";
+export const SEO_TITLE_en = "Virginie Lelong - Dietitian Nutritionist near Paris";
+export const SEO_DESCRIPTION = "Diététicienne nutritionniste diplômée à Melun et Corbeil-Essonnes. Perte de poids, diabète, chirurgie bariatrique, nutrition du sport.";
+export const SEO_DESCRIPTION_en = "Registered dietitian nutritionist in Melun & Corbeil-Essonnes. Weight loss, diabetes, bariatric surgery, sports nutrition.";
+export const SEO_OG_IMAGE = new URL('./assets/og-image.jpg', import.meta.url).href;
+export const SEO_OG_TYPE = "website";
+
+// ─── SEO – Blog & Actualités (liste) ───
+export const SEO_BLOG_TITLE = "Blog & Actualités – Nutrition et Diététique";
+export const SEO_BLOG_TITLE_en = "Blog & News – Nutrition and Dietetics";
+export const SEO_BLOG_DESCRIPTION = "Articles de nutrition, conseils diététiques et actualités du cabinet de Virginie Lelong Mazaud, diététicienne nutritionniste.";
+export const SEO_BLOG_DESCRIPTION_en = "Nutrition articles, dietetic tips and news from Virginie Lelong Mazaud, registered dietitian nutritionist.";
+
+// ─── SEO – Article de blog (fallback) ───
+export const SEO_BLOG_POST_TITLE_SUFFIX = "– Blog Nutrition | Virginie Lelong";
+export const SEO_BLOG_POST_TITLE_SUFFIX_en = "– Nutrition Blog | Virginie Lelong";
+
+// ─── SEO – Actualité (fallback) ───
+export const SEO_NEWS_POST_TITLE_SUFFIX = "– Actualités | Virginie Lelong";
+export const SEO_NEWS_POST_TITLE_SUFFIX_en = "– News | Virginie Lelong";

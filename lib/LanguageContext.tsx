@@ -1,35 +1,37 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getAvailableLangs } from './i18n';
 
 export type Lang = string;
 
 interface LanguageContextType {
   lang: Lang;
   setLang: (lang: Lang) => void;
+  availableLangs: string[];
 }
 
 const LanguageContext = createContext<LanguageContextType>({
   lang: 'fr',
   setLang: () => {},
+  availableLangs: ['fr'],
 });
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Lang>(() => {
-    try {
-      return localStorage.getItem('lang') || 'fr';
-    } catch {
-      return 'fr';
-    }
-  });
+  const location = useLocation();
+  const navigate = useNavigate();
+  const availableLangs = useMemo(() => getAvailableLangs(), []);
+
+  const lang = useMemo(() => {
+    const segment = location.pathname.split('/')[1];
+    return availableLangs.includes(segment) && segment !== 'fr' ? segment : 'fr';
+  }, [location.pathname, availableLangs]);
 
   const setLang = (l: Lang) => {
-    try {
-      localStorage.setItem('lang', l);
-    } catch {}
-    setLangState(l);
+    navigate(l === 'fr' ? '/' : `/${l}`);
   };
 
   return (
-    <LanguageContext.Provider value={{ lang, setLang }}>
+    <LanguageContext.Provider value={{ lang, setLang, availableLangs }}>
       {children}
     </LanguageContext.Provider>
   );

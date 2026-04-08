@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { SITE_LOGO, DOCTOLIB_URL } from '../constants';
 import { useLanguage } from '../lib/LanguageContext';
-import { t } from '../lib/i18n';
+import { t, LANG_META } from '../lib/i18n';
 import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
 
@@ -11,7 +11,7 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { lang } = useLanguage();
+  const { lang, setLang, availableLangs } = useLanguage();
 
   const navItems: NavItem[] = t('NAV_ITEMS', lang);
   const navBlogLabel: string = t('NAV_BLOG_LABEL', lang);
@@ -30,24 +30,33 @@ export const Navbar: React.FC = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const isHomePage = () => {
+    const p = location.pathname;
+    return p === '/' || availableLangs.filter(l => l !== 'fr').some(l => p === `/${l}`);
+  };
+
+  const homePath = lang === 'fr' ? '/' : `/${lang}`;
+
   const handleNavClick = (targetId: string) => {
     setIsOpen(false);
-    if (location.pathname === '/') {
+    if (isHomePage()) {
       scrollToSection(targetId);
     } else {
-      navigate('/');
+      navigate(homePath);
       setTimeout(() => scrollToSection(targetId), 150);
     }
   };
 
   const handleLogoClick = () => {
     setIsOpen(false);
-    if (location.pathname === '/') {
+    if (isHomePage()) {
       scrollToSection('home');
     } else {
-      navigate('/');
+      navigate(homePath);
     }
   };
+
+  const otherLangs = availableLangs.filter(l => l !== lang);
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' : 'bg-transparent py-4'}`}>
@@ -87,6 +96,24 @@ export const Navbar: React.FC = () => {
           >
             {navRdvLabel}
           </a>
+          {/* Language selector */}
+          {otherLangs.length > 0 && (
+            <div className="flex items-center gap-1 border border-slate-200 rounded-full px-2 py-1">
+              <span className="text-xs font-semibold text-slate-700 px-1">
+                {LANG_META[lang]?.flag} {LANG_META[lang]?.label ?? lang.toUpperCase()}
+              </span>
+              {otherLangs.map(l => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className="text-xs text-slate-400 hover:text-primary px-1 transition-colors"
+                  title={LANG_META[l]?.label ?? l.toUpperCase()}
+                >
+                  {LANG_META[l]?.flag} {LANG_META[l]?.label ?? l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Mobile Hamburger */}
@@ -124,6 +151,23 @@ export const Navbar: React.FC = () => {
           >
             {navRdvLabelMobile}
           </a>
+          {/* Language selector mobile */}
+          {otherLangs.length > 0 && (
+            <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
+              <span className="text-sm font-semibold text-slate-700">
+                {LANG_META[lang]?.flag} {LANG_META[lang]?.label ?? lang.toUpperCase()}
+              </span>
+              {otherLangs.map(l => (
+                <button
+                  key={l}
+                  onClick={() => { setIsOpen(false); setLang(l); }}
+                  className="text-sm text-slate-400 hover:text-primary transition-colors"
+                >
+                  {LANG_META[l]?.flag} {LANG_META[l]?.label ?? l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </nav>
