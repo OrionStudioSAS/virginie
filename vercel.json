@@ -1,12 +1,7 @@
 {
-  "redirects": [
-    {
-      "source": "/blog",
-      "destination": "/blog-et-actualites",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    { "source": "/((?!api/).*)", "destination": "/" }
+  "routes": [
+    { "src": "/blog", "headers": { "Location": "/blog-et-actualites" }, "status": 301 },
+    { "handle": "filesystem" },
+    { "src": "/((?!api/).*)", "dest": "/index.html" }
   ]
 }
