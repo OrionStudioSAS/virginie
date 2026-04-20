@@ -80,17 +80,12 @@ function getNews() {
 
 /* ─── URLs statiques (admin EXCLUE) ─────────────────────────────────────── */
 const STATIC_URLS = [
-  { loc: `${BASE_URL}/`,                                   lastmod: '2025-11-26', changefreq: 'weekly',  priority: '1.0' },
-  { loc: `${BASE_URL}/blog-et-actualites`,                  lastmod: TODAY,        changefreq: 'weekly',  priority: '0.9' },
-  { loc: `${BASE_URL}/mentions-legales.html`,              lastmod: '2025-11-26', changefreq: 'yearly',  priority: '0.3' },
-  { loc: `${BASE_URL}/politique-confidentialite.html`,     lastmod: '2025-11-26', changefreq: 'yearly',  priority: '0.3' },
-  { loc: `${BASE_URL}/#about`,                             lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.9' },
-  { loc: `${BASE_URL}/#locations`,                         lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.9' },
-  { loc: `${BASE_URL}/#impedance`,                         lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.8' },
-  { loc: `${BASE_URL}/#pricing`,                          lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/#testimonials`,                     lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.6' },
-  { loc: `${BASE_URL}/#faq`,                              lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${BASE_URL}/#contact`,                          lastmod: '2025-11-26', changefreq: 'monthly', priority: '0.8' },
+  { loc: `${BASE_URL}/`,                                lastmod: '2025-11-26', changefreq: 'weekly', priority: '1.0' },
+  { loc: `${BASE_URL}/blog-et-actualites`,              lastmod: TODAY,        changefreq: 'weekly', priority: '0.9' },
+  { loc: `${BASE_URL}/mentions-legales.html`,           lastmod: '2025-11-26', changefreq: 'yearly', priority: '0.3' },
+  { loc: `${BASE_URL}/politique-confidentialite.html`,  lastmod: '2025-11-26', changefreq: 'yearly', priority: '0.3' },
+  // Les sections #about, #locations, #faq, etc. ne sont PAS des URLs distinctes
+  // (les fragments sont ignorés par les crawlers et invalides dans la spec sitemap)
 ];
 
 /* ─── Générateur sitemap ─────────────────────────────────────────────────── */
