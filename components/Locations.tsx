@@ -3,10 +3,49 @@ import { useLanguage } from '../lib/LanguageContext';
 import { t } from '../lib/i18n';
 import { MapPin } from 'lucide-react';
 import { Workplace } from '../types';
+import MobileSlider from './MobileSlider';
 
 export const Locations: React.FC = () => {
   const { lang } = useLanguage();
   const workplaces: Workplace[] = t('WORKPLACES', lang);
+
+  const cards = workplaces.map((place) => (
+    <div
+      key={place.id}
+      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col h-full"
+    >
+      <div className="h-56 md:h-72 overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+        <img
+          src={place.imageUrl}
+          alt={place.name}
+          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+        />
+      </div>
+      <div className="p-6 flex-grow flex flex-col justify-between">
+        <div>
+          <h3 className="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors mb-2">
+            {place.name}
+          </h3>
+          <div className="flex items-start gap-2 mb-4">
+            <MapPin className="text-primary w-5 h-5 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-slate-600 font-medium">{place.address}</p>
+          </div>
+          <p className="text-sm text-slate-500 leading-relaxed">{place.description}</p>
+        </div>
+        <div className="mt-6 pt-4 border-t border-slate-100">
+          <a
+            href={place.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-secondary hover:text-green-600 inline-flex items-center gap-1"
+          >
+            Voir sur la carte →
+          </a>
+        </div>
+      </div>
+    </div>
+  ));
 
   return (
     <section id="locations" className="py-24 bg-neutral">
@@ -18,40 +57,9 @@ export const Locations: React.FC = () => {
           <p className="text-slate-500 max-w-2xl mx-auto">{t('CABINETS_DESCRIPTION', lang)}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {workplaces.map((place, idx) => (
-            <div key={place.id} className={`reveal reveal-scale-up reveal-delay-${(idx + 1) * 100} bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col`}>
-              <div className="h-72 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                <img
-                  src={place.imageUrl}
-                  alt={place.name}
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors mb-2">{place.name}</h3>
-                  <div className="flex items-start gap-2 mb-4">
-                    <MapPin className="text-primary w-5 h-5 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-slate-600 font-medium">{place.address}</p>
-                  </div>
-                  <p className="text-sm text-slate-500 leading-relaxed">{place.description}</p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-slate-100">
-                  <a
-                    href={place.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-semibold text-secondary hover:text-green-600 inline-flex items-center gap-1"
-                  >
-                    Voir sur la carte →
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <MobileSlider desktopGrid="md:grid md:grid-cols-3 md:gap-8">
+          {cards}
+        </MobileSlider>
       </div>
     </section>
   );
