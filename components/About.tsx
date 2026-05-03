@@ -28,10 +28,13 @@ export const About: React.FC = () => {
           </div>
 
           <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-slate-100 shadow-sm leading-relaxed text-lg text-slate-600 space-y-5">
-            <p className="text-slate-600">{t('APROPOS_BIO_P1', lang)}</p>
-            <p className="text-slate-600">{t('APROPOS_BIO_P2', lang)}</p>
-            <p className="text-slate-600">{t('APROPOS_BIO_P3', lang)}</p>
-            <p className="text-slate-600">{t('APROPOS_BIO_P4', lang)}</p>
+            {/* Mobile : version courte */}
+            <p className="md:hidden text-slate-600">{t('APROPOS_BIO_MOBILE', lang)}</p>
+            {/* Desktop : version complète */}
+            <p className="hidden md:block text-slate-600">{t('APROPOS_BIO_P1', lang)}</p>
+            <p className="hidden md:block text-slate-600">{t('APROPOS_BIO_P2', lang)}</p>
+            <p className="hidden md:block text-slate-600">{t('APROPOS_BIO_P3', lang)}</p>
+            <p className="hidden md:block text-slate-600">{t('APROPOS_BIO_P4', lang)}</p>
           </div>
         </div>
 

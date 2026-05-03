@@ -36,6 +36,8 @@ export const APROPOS_BIO_P1: React.ReactNode = <>Experte en nutrition depuis plu
 export const APROPOS_BIO_P2: React.ReactNode = <>Je suis également spécialisée en <b>chirurgie bariatrique</b> (pré et post-opératoire) pour optimiser les résultats et prévenir les complications.</>;
 export const APROPOS_BIO_P3: React.ReactNode = <>Mon approche : un <b>bilan complet</b>, <b>suivi régulier</b> et <b>conseils pratiques</b> adaptés à votre mode de vie, pour des objectifs réalistes et durables. Grâce à ma balance professionnelle avec <b>impédancemètre</b>, j'évalue précisément votre <b>composition corporelle</b> et vos progrès.</>;
 export const APROPOS_BIO_P4: React.ReactNode = <>Mon objectif : vous aider à retrouver plaisir et <b>équilibre alimentaire</b>, tout en prenant soin de votre <b>santé</b>.</>;
+// Version courte affichée uniquement sur mobile
+export const APROPOS_BIO_MOBILE: React.ReactNode = <>Diététicienne-nutritionniste, je vous accompagne selon votre situation : <b>perte de poids</b>, <b>diabète</b>, <b>ménopause</b>, <b>chirurgie bariatrique</b>, <b>sport</b> et plus. Mon approche : bilan personnalisé, suivi bienveillant et objectifs durables.</>;
 
 // ─── Expertise ───
 export const EXPERTISE_TITRE = "Mes Domaines d'Expertise";
