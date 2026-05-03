@@ -46,8 +46,8 @@ const MobileSlider: React.FC<Props> = ({
         <div
           ref={ref}
           onScroll={onScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-6 px-6 pb-2"
-          style={{ scrollbarWidth: 'none' }}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth -mx-[7.5vw] px-[7.5vw] pb-2"
+          style={{ scrollbarWidth: 'none', scrollPaddingLeft: '7.5vw' }}
         >
           {children.map((child, i) => (
             <div
