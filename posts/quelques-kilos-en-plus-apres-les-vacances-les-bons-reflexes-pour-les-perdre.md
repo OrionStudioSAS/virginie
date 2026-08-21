@@ -29,12 +29,11 @@ Revenez plutôt à quelques réflexes simples :
 - après des vacances où les apéros ont été fréquents, faites une **vraie pause avec l’alcool pendant une semaine**. C’est un moyen simple de réduire les apports superflus, de retrouver un meilleur sommeil et surtout de casser le rythme de l’apéritif quotidien ;
 - ensuite, réservez l’alcool à des **moments choisis**, plutôt que de conserver les habitudes prises pendant les vacances ;
 - reprenez progressivement votre **activité physique** : une marche de 10 à 20 minutes après un repas est déjà intéressante ;
-- retrouvez un **sommeil régulier**, lui aussi souvent perturbé pendant les vacances.
 
 ## Surtout, ne cherchez pas à aller trop vite
 
-Vouloir perdre en quelques jours ce qui s’est installé en plusieurs semaines conduit souvent à trop se restreindre… avec le risque d’avoir davantage faim et de repartir dans les grignotages.
+Vouloir perdre en quelques jours les kilos pris pendant les vacances conduit souvent à trop se restreindre, avec davantage de faim, de frustration et de grignotages… alors qu’un retour à des habitudes simples et régulières est généralement plus efficace pour retrouver son poids.
 
 **Commencez simplement par une semaine : moins d’alcool, des repas structurés, moins de prises alimentaires entre les repas, de l’eau, du mouvement et du sommeil.**
 
-Puis faites le point. Si le poids pris pendant les vacances persiste, il sera alors temps d’ajuster plus précisément votre alimentation, sans régime drastique ni culpabilité.
+Puis faites le point. Si le poids pris pendant les vacances persiste, il sera alors temps d’ajuster plus précisément votre alimentation, sans régime drastique ni culpabilité. Si besoin, un professionnel de la nutrition pourra vous aider à identifier les ajustements les plus adaptés à votre situation. Si besoin, une diététicienne pourra vous aider à identifier les ajustements les plus adaptés à votre situation.
