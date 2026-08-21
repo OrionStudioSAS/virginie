@@ -1,9 +1,9 @@
 ---
-title: "# Quelques kilos en plus après les vacances ? Les bons réflexes pour les perdre"
+title: "Quelques kilos en plus après les vacances ? Les bons réflexes pour les perdre"
 date: "2026-08-21"
 slug: "quelques-kilos-en-plus-apres-les-vacances-les-bons-reflexes-pour-les-perdre"
 excerpt: "La balance affiche quelques kilos de plus au retour des vacances ? Pas question de se lancer dans un régime drastique. Une partie de cette hausse peut être temporaire et quelques bons réflexes permettent de relancer progressivement la perte de poids."
-image: ""
+image: "/assets/blog/1787303369988-retrouver-mon-equilibre.png"
 ---
 
 Barbecues, desserts, apéros qui s’étirent, restaurants… **les vacances sont aussi faites pour en profiter !**
