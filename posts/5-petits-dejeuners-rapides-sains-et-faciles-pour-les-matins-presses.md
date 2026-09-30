@@ -128,24 +128,24 @@ Une alternative salée, colorée et facile à préparer.
 
 La solution pratique des matins pressés : **on le prépare le soir et il est prêt au réveil.**
 
-### Ingrédients – 1 personne
+### Ingrédients – 1 portion
 
-- 20 à 25 g de graines de chia
+- 2 c. à soupe de flocons d’avoine
+- 1 c. à soupe de graines de chia
 - 150 ml de lait ou de boisson végétale sans sucres ajoutés
 - ½ mangue ou un autre fruit de saison
 - Facultatif : vanille, cannelle ou cacao non sucré
 
 ### Préparation
 
-1. Mélangez les graines de chia avec le lait.
-2. Laissez reposer 5 minutes puis mélangez à nouveau pour éviter les amas.
+1. Mélangez les flocons d’avoine, les graines de chia et le lait.
+2. Laissez reposer 5 minutes puis mélangez à nouveau.
 3. Placez au réfrigérateur toute la nuit.
-4. Le lendemain matin, ajoutez les fruits frais.
+4. Le matin, ajoutez les fruits frais.
 
-**Pour varier :** mangue, kiwi, poire, fruits rouges… adaptez la recette aux saisons et aux goûts de chacun.
+**Pour varier :** mangue, kiwi, poire, fruits rouges… Pour une version plus riche en protéines, ajoutez un peu de fromage blanc ou de skyr au moment de servir.
 
-Pour une version plus riche en protéines, ajoutez un peu de fromage blanc ou de skyr.
-
+**Pour les enfants :** à partir de 3 ans, commencez par **1 c. à café de graines de chia**, toujours bien hydratées dans la préparation, puis adaptez la quantité selon l’âge et la tolérance digestive. **Cette recette n’est pas proposée aux enfants de moins de 3 ans.**
 ---
 
 ## Quelques minutes d’organisation pour gagner du temps le matin
