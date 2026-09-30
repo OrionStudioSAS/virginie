@@ -3,7 +3,7 @@ title: "5 petits-déjeuners rapides, sains et faciles pour les matins pressés"
 date: "2026-09-30"
 slug: "5-petits-dejeuners-rapides-sains-et-faciles-pour-les-matins-presses"
 excerpt: "Pas le temps le matin ? Découvrez 5 idées de petits-déjeuners rapides, simples et équilibrés, à préparer en quelques minutes, la veille ou le week-end. Des recettes faciles à réaliser et à partager en famille."
-image: ""
+image: "/assets/blog/1790761344944-5kdadki-qyb1bj0_uhdo7lcwkcsrsauaroumtq2wttzq-colj8-nxnoalw1fyulkmoabsjbcbhis3srdhb04yp88dl6a_s9y53iz7mkyvzkvvhdatuofvfwo9liueozyuta-ae9sm-4ofsz4tcrkrbiq8vmxoe-7qn-8beratooxfeelj0aezwr4kxccivhq.jpeg"
 ---
 
 # 5 petits-déjeuners rapides, sains et faciles pour les matins pressés
