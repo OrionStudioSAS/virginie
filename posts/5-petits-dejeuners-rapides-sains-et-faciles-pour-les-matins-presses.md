@@ -22,7 +22,7 @@ Voici 5 idées faciles pour varier les petits-déjeuners sans compliquer les mat
 
 ## 1. Bowl cake kiwi-chocolat – prêt en 5 minutes
 
-![Bowl cake kiwi chocolat, petit-déjeuner rapide](bowl-cake-kiwi-chocolat.jpg)
+![Bowl cake kiwi chocolat, petit-déjeuner rapide](/assets/blog/1790762801031-1.jpg)
 
 Un petit-déjeuner express à préparer directement dans un bol.
 
@@ -48,7 +48,7 @@ Un petit-déjeuner express à préparer directement dans un bol.
 
 ## 2. Granola maison – 5 minutes de préparation
 
-![Granola maison aux flocons d'avoine, amandes et noisettes](granola-maison.jpg)
+![Granola maison aux flocons d'avoine, amandes et noisettes](/assets/blog/1790762990320-uimzghcetj2-ny1f_zuysgvfuqlh1xmk7dl3t4oq8ognrebcvw32_mi0zwy6bl0fnri_sehmchecvfhyrclyx0zjim8jby4zpudjjbeqrja3aljczrrtd1dudxxfzoycfbzeeaa57yvtev7aqfzlgeuuvkkvjh2_lc6qi871_srgcsgycnlgnajc1fok3-kr.jpeg)
 
 Quelques minutes de préparation le week-end permettent d’avoir du granola prêt pour plusieurs petits-déjeuners.
 
@@ -74,7 +74,7 @@ Quelques minutes de préparation le week-end permettent d’avoir du granola pr�
 
 ## 3. Pâte à tartiner maison dattes, cacao et amandes – 5 minutes
 
-![Pâte à tartiner maison aux dattes, cacao et amandes](pate-a-tartiner-dattes-cacao.jpg)
+![Pâte à tartiner maison aux dattes, cacao et amandes](/assets/blog/1790762853265-2.jpg)
 
 Une recette toute simple à réaliser au mixeur et à partager en famille.
 
@@ -99,7 +99,7 @@ Une recette toute simple à réaliser au mixeur et à partager en famille.
 
 ## 4. Tartines avocat, houmous de betterave et feta – 10 minutes
 
-![Tartines avocat, houmous de betterave et feta](tartines-avocat-betterave-feta.jpg)
+![Tartines avocat, houmous de betterave et feta](/assets/blog/1790762874286-3.jpg)
 
 Une alternative salée, colorée et facile à préparer.
 
@@ -124,7 +124,7 @@ Une alternative salée, colorée et facile à préparer.
 
 ## 5. Pudding de chia aux fruits – 5 minutes la veille
 
-![Pudding de chia aux fruits préparé la veille](pudding-chia-fruits.jpg)
+![Pudding de chia aux fruits préparé la veille](/assets/blog/1790762905218-z5p74f3wjplgptzodxirajmo68o4xkgzdcepzznmiyidioalwxyaviev7leoivefggzawyyljvbjdr2j81m-gxmyj8b6eul0_evcd6gayc8fvhsdfe7vc0xxh1ri69h9lackujggzzakaoa3xscudd0htxtucczwkztnohepz2z8rzhqqf1yor-fhnbg96im.jpeg)
 
 La solution pratique des matins pressés : **on le prépare le soir et il est prêt au réveil.**
 
