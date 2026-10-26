@@ -6,7 +6,6 @@ excerpt: "Fatigue, baisse de moral, envies de sucre ? Découvrez comment une ali
 image: "/assets/blog/1793024586087-plats-d-automne.jpg"
 ---
 
-
 # 🍂 Fatigue et moral en baisse : et si votre alimentation pouvait vous aider ?
 
 Avec l'arrivée de l'automne et de l'hiver, les journées raccourcissent, la luminosité diminue et la fatigue peut se faire davantage ressentir. Baisse de moral, manque d'énergie, envies de sucre… Ces changements sont fréquents à cette période de l'année.
@@ -33,38 +32,43 @@ Certains nutriments méritent une attention particulière :
 
 ## 🍽️ Une journée alimentaire pour faire le plein d'énergie
 
-Voici un exemple de journée simple et équilibrée, riche en nutriments utiles au fonctionnement du cerveau et du système nerveux.
+Voici un exemple de journée équilibrée, riche en nutriments utiles au bon fonctionnement du cerveau et du système nerveux.
 
 ### 🌅 Petit-déjeuner
-- 150 g de fromage blanc ou de skyr
-- 40 g de flocons d'avoine
+- Du fromage blanc ou du skyr
+- Des flocons d'avoine
 - 1 kiwi ou 1 fruit de saison
-- Une petite poignée de noix
+- Quelques noix
 
 ### ☀️ Déjeuner
-- Une portion de saumon ou de sardines
-- Du quinoa ou du riz complet
+- Du saumon ou des sardines
+- Du quinoa ou du riz complet ou Basmati
 - Des légumes de saison avec un filet d'huile d'olive
 - 1 fruit
 
-### 🍎 Collation (si faim)
-- 1 fruit
-- Une poignée d'amandes ou 2 carrés de chocolat noir
+### 🍎 Collation (uniquement si faim)
+
+Selon vos envies, choisissez une option :
+
+- Un yaourt nature avec quelques amandes ou noix
+- Une tranche de pain complet avec de la purée d'amandes
+- Deux carrés de chocolat noir accompagnés d'un fromage blanc ou d'un fruit
+
+**La collation n'est pas obligatoire : elle dépend de votre faim, de votre activité physique et de l'heure du dîner.**
 
 ### 🌙 Dîner
 - Une soupe de légumes maison
-- Une salade de lentilles (150 à 200 g cuites) avec des légumes et un filet d'huile de colza
+- Une salade de lentilles avec des légumes de saison
+- Des œufs ou du tofu ou du tempeh (facultatif)
+- Du pain au levain (facultatif)
+- Un filet d'huile de colza
 - 1 yaourt nature
 
 **💚 Pourquoi cette journée est-elle intéressante ?**
 
-Elle apporte des protéines, des glucides complexes, des fibres, des oméga-3, du magnésium et des vitamines du groupe B. Ces nutriments participent au bon fonctionnement de l'organisme et contribuent à couvrir ses besoins énergétiques.
+Elle associe des protéines, des glucides complexes, des fibres, des oméga-3, du magnésium et des vitamines du groupe B, qui participent au bon fonctionnement de l'organisme.
 
-*Cette journée est un exemple à adapter à votre appétit, à votre activité physique et à vos besoins nutritionnels.*
-
-## 💚 Prendre soin de son alimentation, c'est aussi prendre soin de soi
-
-Aucun aliment miracle ne permet de retrouver instantanément énergie et bonne humeur. C'est avant tout **l'équilibre alimentaire global, associé à un sommeil de qualité et à une activité physique régulière**, qui contribue au bien-être.
+**Les quantités sont à adapter selon votre faim, votre satiété et vos besoins, notamment votre niveau d'activité physique.**
 
 Une fatigue persistante ou une baisse de moral importante mérite toutefois un avis médical.
 
