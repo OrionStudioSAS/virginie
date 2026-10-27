@@ -2,7 +2,7 @@
 title: "Omelette complète aux légumes et feta légère"
 date: "2026-03-28"
 slug: "omelette-complete-aux-legumes-et-feta-legere"
-excerpt: "Une omelette riche en protéines avec légumes et feta pour une satiété optimale"
+excerpt: "Omelette aux épinards, poivron et feta légère : une recette rapide, riche en protéines et en fibres, idéale pour un repas rassasiant et équilibré."
 image: "https://images.unsplash.com/photo-1510693206972-df098062cb71?auto=format&fit=crop&w=1200&q=80"
 ---
 

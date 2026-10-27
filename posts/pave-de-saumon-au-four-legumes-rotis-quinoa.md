@@ -2,7 +2,7 @@
 title: "Pavé de saumon au four, légumes rôtis & quinoa"
 date: "2026-03-28"
 slug: "pave-de-saumon-au-four-legumes-rotis-quinoa"
-excerpt: "Une recette simple, rassasiante et équilibrée, riche en protéines, fibres et oméga-3"
+excerpt: "Pavé de saumon au four, courgette et carottes rôties, quinoa : une recette simple et rassasiante, riche en protéines, fibres et oméga-3."
 image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288"
 ---
 

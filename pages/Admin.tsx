@@ -689,6 +689,18 @@ const Admin: React.FC = () => {
                     className="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"
                     required
                   />
+                  {/* Longueur idéale pour la description affichée dans Google/Bing : 120 à 160 caractères */}
+                  <p className={`mt-1 text-xs ${
+                    excerpt.length === 0 ? 'text-slate-400'
+                      : excerpt.length < 120 ? 'text-amber-600'
+                      : excerpt.length <= 160 ? 'text-emerald-600'
+                      : 'text-amber-600'
+                  }`}>
+                    {excerpt.length} caractères
+                    {excerpt.length > 0 && excerpt.length < 120 && ' — un peu court, visez 120 à 160 pour Google et Bing'}
+                    {excerpt.length >= 120 && excerpt.length <= 160 && ' — longueur idéale ✓'}
+                    {excerpt.length > 160 && ' — sera coupé dans Google et Bing au-delà de 160'}
+                  </p>
                 </div>
 
                 {/* Contenu */}

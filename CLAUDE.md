@@ -57,6 +57,7 @@ Dans `.env.local` (et sur Vercel) :
 - `robots.txt` : Disallow /admin
 - `scripts/generate-seo.js` s'exécute au build : sitemap + 2 flux RSS
 - `scripts/generate-pages.js` (post-build) : pages statiques pré-rendues, JSON-LD (Dietitian, FAQPage, BlogPosting) et `llms.txt`, tous dérivés de `constants.tsx` via `scripts/site-data.js` → modifier adresses/horaires/tarifs/FAQ uniquement dans `constants.tsx`
+- `scripts/indexnow.js` (fin de build, production Vercel uniquement) : signale à Bing via IndexNow les URLs modifiées depuis le dernier déploiement (`VERCEL_GIT_PREVIOUS_SHA`). Clé : `public/6075da98ac2d17239de47162ac15db7e.txt`
 
 ## Frontmatter des fichiers .md
 ```yaml
