@@ -248,7 +248,7 @@ export const FOOTER_TITRE = "Diététicienne Nutritionniste";
 // ─── SEO – Accueil ───
 export const SEO_TITLE = "Virginie Lelong - Diététicienne Nutritionniste à Melun";
 export const SEO_DESCRIPTION = "Diététicienne nutritionniste diplômée à Melun et Corbeil-Essonnes. Perte de poids, diabète, chirurgie bariatrique, nutrition du sport.";
-export const SEO_OG_IMAGE = new URL('./assets/og-image.jpg', import.meta.url).href;
+export const SEO_OG_IMAGE = "https://www.virginie-lelong-nutrition.fr/assets/og-image.jpg";
 export const SEO_OG_TYPE = "website";
 
 // ─── SEO – Blog & Actualités (liste) ───

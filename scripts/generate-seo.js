@@ -146,7 +146,7 @@ function generateRss(posts) {
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Blog – Virginie Lelong, Diététicienne</title>
-    <link>${BASE_URL}/blog</link>
+    <link>${BASE_URL}/blog-et-actualites</link>
     <description>Conseils nutrition, astuces bien-être et actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
     <language>fr-FR</language>
     <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
@@ -211,7 +211,7 @@ function generateRssNews(news) {
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Actualités – Virginie Lelong, Diététicienne</title>
-    <link>${BASE_URL}/actualites</link>
+    <link>${BASE_URL}/blog-et-actualites</link>
     <description>Actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
     <language>fr-FR</language>
     <atom:link href="${BASE_URL}/rss-actualites.xml" rel="self" type="application/rss+xml" />

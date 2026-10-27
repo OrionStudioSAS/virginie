@@ -4,17 +4,49 @@
   xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Blog – Virginie Lelong, Diététicienne</title>
-    <link>https://www.virginie-lelong-nutrition.fr/blog</link>
+    <link>https://www.virginie-lelong-nutrition.fr/blog-et-actualites</link>
     <description>Conseils nutrition, astuces bien-être et actualités du cabinet de Virginie Lelong, diététicienne nutritionniste à Melun et Corbeil-Essonnes.</description>
     <language>fr-FR</language>
     <atom:link href="https://www.virginie-lelong-nutrition.fr/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 03 May 2026 15:31:10 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 14:53:14 GMT</lastBuildDate>
     <managingEditor>contact@virginie-lelong-nutrition.fr (Virginie Lelong)</managingEditor>
     <image>
       <url>https://www.virginie-lelong-nutrition.fr/assets/logo.jpeg</url>
       <title>Virginie Lelong Diététicienne</title>
       <link>https://www.virginie-lelong-nutrition.fr</link>
     </image>
+  <item>
+    <title><![CDATA[Fatigue et moral en baisse : et si votre alimentation pouvait vous aider ?]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/fatigue-et-moral-en-baisse-et-si-votre-alimentation-pouvait-vous-aider</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/fatigue-et-moral-en-baisse-et-si-votre-alimentation-pouvait-vous-aider</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Fatigue, baisse de moral, envies de sucre ? Découvrez comment une alimentation équilibrée peut vous aider à préserver votre énergie et votre bien-être en automne, avec des conseils pratiques et une journée type.]]></description>
+      <enclosure url="/assets/blog/1793024586087-plats-d-automne.jpg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title><![CDATA[5 petits-déjeuners rapides, sains et faciles pour les matins pressés]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/5-petits-dejeuners-rapides-sains-et-faciles-pour-les-matins-presses</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/5-petits-dejeuners-rapides-sains-et-faciles-pour-les-matins-presses</guid>
+    <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Pas le temps le matin ? Découvrez 5 idées de petits-déjeuners rapides, simples et équilibrés, à préparer en quelques minutes, la veille ou le week-end. Des recettes faciles à réaliser et à partager en famille.]]></description>
+      <enclosure url="/assets/blog/1790761344944-5kdadki-qyb1bj0_uhdo7lcwkcsrsauaroumtq2wttzq-colj8-nxnoalw1fyulkmoabsjbcbhis3srdhb04yp88dl6a_s9y53iz7mkyvzkvvhdatuofvfwo9liueozyuta-ae9sm-4ofsz4tcrkrbiq8vmxoe-7qn-8beratooxfeelj0aezwr4kxccivhq.jpeg" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title><![CDATA[Quelques kilos en plus après les vacances ? Les bons réflexes pour les perdre]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/quelques-kilos-en-plus-apres-les-vacances-les-bons-reflexes-pour-les-perdre</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/quelques-kilos-en-plus-apres-les-vacances-les-bons-reflexes-pour-les-perdre</guid>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[La balance affiche quelques kilos de plus au retour des vacances ? Pas question de se lancer dans un régime drastique. Une partie de cette hausse peut être temporaire et quelques bons réflexes permettent de relancer progressivement la perte de poids.]]></description>
+      <enclosure url="/assets/blog/1787303369988-retrouver-mon-equilibre.png" type="image/jpeg" length="0" />
+  </item>
+  <item>
+    <title><![CDATA[Les 4 nutriments indispensables pour une belle peau cet été]]></title>
+    <link>https://www.virginie-lelong-nutrition.fr/blog/les-4-nutriments-indispensables-pour-une-belle-peau-cet-ete</link>
+    <guid isPermaLink="true">https://www.virginie-lelong-nutrition.fr/blog/les-4-nutriments-indispensables-pour-une-belle-peau-cet-ete</guid>
+    <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+    <description><![CDATA[Le soleil, la chaleur et les baignades peuvent fragiliser la peau. Découvrez les 4 nutriments clés à privilégier cet été pour préserver son éclat, son hydratation et sa souplesse grâce à l'alimentation.]]></description>
+      <enclosure url="/assets/blog/1782132073588-belle-peau-ete.png" type="image/jpeg" length="0" />
+  </item>
   <item>
     <title><![CDATA[Réduire le sucre : pourquoi et comment éviter les fringales]]></title>
     <link>https://www.virginie-lelong-nutrition.fr/blog/reduire-le-sucre-pourquoi-et-comment-eviter-les-fringales</link>

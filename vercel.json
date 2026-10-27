@@ -1,7 +1,9 @@
 {
   "routes": [
-    { "src": "/blog", "headers": { "Location": "/blog-et-actualites" }, "status": 301 },
+    { "src": "/blog/?", "headers": { "Location": "/blog-et-actualites" }, "status": 301 },
+    { "src": "/actualites/?", "headers": { "Location": "/blog-et-actualites" }, "status": 301 },
     { "handle": "filesystem" },
-    { "src": "/((?!api/).*)", "dest": "/index.html" }
+    { "src": "/admin/?", "dest": "/index.html" },
+    { "src": "/((?!api/).*)", "dest": "/404.html", "status": 404 }
   ]
 }

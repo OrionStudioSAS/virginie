@@ -9,6 +9,10 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
+// Les balises SEO pré-rendues (generate-pages.js) servent aux crawlers sans JS ;
+// une fois React chargé, react-helmet-async prend le relais → on les retire pour éviter les doublons.
+document.querySelectorAll('[data-prerender]').forEach((el) => el.remove());
+
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>

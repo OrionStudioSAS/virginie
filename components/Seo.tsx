@@ -43,7 +43,9 @@ const Seo: React.FC<SeoProps> = ({
     : `${title} | Virginie Lelong Diététicienne`;
 
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
-  const image = ogImage || DEFAULT_IMAGE;
+  const image = !ogImage
+    ? DEFAULT_IMAGE
+    : ogImage.startsWith('http') ? ogImage : `${BASE_URL}${ogImage}`;
   const ogLocale = OG_LOCALE[lang] || 'fr_FR';
 
   const availableLangs = hreflang ? getAvailableLangs() : [];

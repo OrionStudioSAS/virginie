@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Routes, Route, Navigate, useParams } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './lib/LanguageContext';
 import { getAvailableLangs, t } from './lib/i18n';
 import { Navbar } from './components/Navbar';
@@ -18,6 +18,7 @@ import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import NewsPost from './pages/NewsPost';
 import Admin from './pages/Admin';
+import NotFound from './pages/NotFound';
 import Seo from './components/Seo';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -54,7 +55,7 @@ const LangRoute: React.FC<{ onOpenReview: () => void }> = ({ onOpenReview }) => 
   const { lang } = useParams<{ lang: string }>();
   const validLangs = getAvailableLangs().filter(l => l !== 'fr');
   if (!lang || !validLangs.includes(lang)) {
-    return <Navigate to="/" replace />;
+    return <NotFound />;
   }
   return <HomePage onOpenReview={onOpenReview} />;
 };
@@ -72,6 +73,7 @@ const App: React.FC = () => {
         <Route path="/actualites/:slug" element={<NewsPost />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/:lang" element={<LangRoute onOpenReview={() => setOpenReviewModal(true)} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ReviewModal open={openReviewModal} onClose={() => setOpenReviewModal(false)} />
     </LanguageProvider>
