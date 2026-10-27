@@ -6,8 +6,6 @@ excerpt: "Pas le temps le matin ? Découvrez 5 idées de petits-déjeuners rapid
 image: "/assets/blog/1790761344944-5kdadki-qyb1bj0_uhdo7lcwkcsrsauaroumtq2wttzq-colj8-nxnoalw1fyulkmoabsjbcbhis3srdhb04yp88dl6a_s9y53iz7mkyvzkvvhdatuofvfwo9liueozyuta-ae9sm-4ofsz4tcrkrbiq8vmxoe-7qn-8beratooxfeelj0aezwr4kxccivhq.jpeg"
 ---
 
-# 5 petits-déjeuners rapides, sains et faciles pour les matins pressés
-
 Le matin, le temps manque souvent. Entre le réveil, les enfants à préparer et le départ au travail ou à l’école, le petit-déjeuner peut vite être pris sur le pouce… ou parfois complètement oublié.
 
 Pourtant, **préparer un petit-déjeuner équilibré ne nécessite pas forcément beaucoup de temps**.

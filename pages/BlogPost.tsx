@@ -6,7 +6,7 @@ import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import AuthorBox from '../components/AuthorBox';
 import { Calendar, ArrowLeft } from 'lucide-react';
-import { marked } from 'marked';
+import { renderMarkdown } from '../lib/seo';
 
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,8 +18,7 @@ const BlogPost: React.FC = () => {
     const found = getPostBySlug(slug);
     setPost(found);
     if (found) {
-      const result = marked.parse(found.content);
-      setHtml(typeof result === 'string' ? result : '');
+      setHtml(renderMarkdown(found.content));
     }
   }, [slug]);
 

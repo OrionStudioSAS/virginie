@@ -9,7 +9,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { marked } from 'marked';
+import { seoTitle, renderMarkdown } from '../lib/seo.js';
 import { loadConstants, homepageJsonLd, articleJsonLd, llmsTxt } from './site-data.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -57,7 +57,7 @@ const AUTHOR_BOX = `
       </aside>`;
 
 function injectSeo(template, { title, description, canonical, ogImage, ogType = 'website', h1, excerpt, body, noIndex = false, jsonLd, authorBox = false }) {
-  const fullTitle = escHtml(`${title} | Virginie Lelong Diététicienne`);
+  const fullTitle = escHtml(seoTitle(title));
   const desc      = escHtml(description || '');
   const url       = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
   const img       = absUrl(ogImage) || DEFAULT_OG;
@@ -138,7 +138,7 @@ writePage(path.join(DIST, 'index.html'), {
   ogType:      'website',
   h1:          `${constants.APROPOS_NOM} — Diététicienne Nutritionniste`,
   excerpt:     constants.SEO_DESCRIPTION,
-  body:        marked.parse(llms.replace(/^# .*\n/, '')),
+  body:        renderMarkdown(llms.replace(/^# .*\n/, '')),
   jsonLd:      homepageJsonLd(constants),
 });
 console.log('✅  /  (homepage)');
@@ -151,7 +151,7 @@ writePage(path.join(DIST, 'blog-et-actualites', 'index.html'), {
   ogType:      'website',
   h1:          'Blog & Actualités',
   excerpt:     'Conseils nutrition, recettes et actualités du cabinet diététique.',
-  body:        marked.parse([...posts, ...news]
+  body:        renderMarkdown([...posts, ...news]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .map((e) => `- [${e.title}](${e.path}) — ${e.excerpt}`)
     .join('\n')),
@@ -169,7 +169,7 @@ for (const entry of [...posts, ...news]) {
     ogType:      'article',
     h1:          entry.title   || '',
     excerpt:     entry.excerpt || '',
-    body:        marked.parse(entry.content || ''),
+    body:        renderMarkdown(entry.content || ''),
     jsonLd:      articleJsonLd({ ...entry, image }),
     authorBox:   true,
   });

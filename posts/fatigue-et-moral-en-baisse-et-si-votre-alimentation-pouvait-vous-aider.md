@@ -6,8 +6,6 @@ excerpt: "Fatigue, baisse de moral, envies de sucre ? Découvrez comment une ali
 image: "/assets/blog/1793024586087-plats-d-automne.jpg"
 ---
 
-# 🍂 Fatigue et moral en baisse : et si votre alimentation pouvait vous aider ?
-
 Avec l'arrivée de l'automne et de l'hiver, les journées raccourcissent, la luminosité diminue et la fatigue peut se faire davantage ressentir. Baisse de moral, manque d'énergie, envies de sucre… Ces changements sont fréquents à cette période de l'année.
 
 **Et si votre alimentation pouvait vous aider à mieux traverser cette saison ?**

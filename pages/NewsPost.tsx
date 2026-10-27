@@ -6,7 +6,7 @@ import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
 import AuthorBox from '../components/AuthorBox';
 import { Calendar, ArrowLeft } from 'lucide-react';
-import { marked } from 'marked';
+import { renderMarkdown } from '../lib/seo';
 
 const NewsPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,8 +18,7 @@ const NewsPost: React.FC = () => {
     const found = getNewsBySlug(slug);
     setItem(found);
     if (found) {
-      const result = marked.parse(found.content);
-      setHtml(typeof result === 'string' ? result : '');
+      setHtml(renderMarkdown(found.content));
     }
   }, [slug]);
 

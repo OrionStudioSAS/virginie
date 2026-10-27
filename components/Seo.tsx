@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { getAvailableLangs, LANG_META } from '../lib/i18n';
+import { seoTitle } from '../lib/seo';
 
 interface SeoProps {
   title: string;
@@ -38,9 +39,7 @@ const Seo: React.FC<SeoProps> = ({
   lang = 'fr',
   hreflang = false,
 }) => {
-  const fullTitle = title.endsWith('Virginie Lelong')
-    ? title
-    : `${title} | Virginie Lelong Diététicienne`;
+  const fullTitle = seoTitle(title);
 
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const image = !ogImage
