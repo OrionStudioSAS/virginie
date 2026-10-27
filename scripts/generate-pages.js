@@ -10,6 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { marked } from 'marked';
+import { loadConstants, homepageJsonLd, articleJsonLd, llmsTxt } from './site-data.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST  = path.join(__dirname, '../dist');
@@ -44,7 +45,18 @@ function absUrl(url) {
   return /^https?:\/\//.test(url) ? url : `${BASE_URL}${url}`;
 }
 
-function injectSeo(template, { title, description, canonical, ogImage, ogType = 'website', h1, excerpt, body, noIndex = false }) {
+function jsonLdScript(data) {
+  // JSON-LD laissé en place côté client (react-helmet-async n'en génère pas)
+  return `\n  <script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+const AUTHOR_BOX = `
+      <aside class="mt-10 p-6 bg-white rounded-2xl border border-slate-100">
+        <p><strong>Écrit par Virginie Lelong - Mazaud</strong>, diététicienne-nutritionniste diplômée d'État à Melun et Corbeil-Essonnes.</p>
+        <p><a href="/">Découvrir le cabinet</a> · <a href="https://www.doctolib.fr/dieteticien/corbeil-essonnes/virginie-lelong-mazaud">Prendre rendez-vous sur Doctolib</a></p>
+      </aside>`;
+
+function injectSeo(template, { title, description, canonical, ogImage, ogType = 'website', h1, excerpt, body, noIndex = false, jsonLd, authorBox = false }) {
   const fullTitle = escHtml(`${title} | Virginie Lelong Diététicienne`);
   const desc      = escHtml(description || '');
   const url       = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
@@ -68,14 +80,14 @@ function injectSeo(template, { title, description, canonical, ogImage, ogType = 
   <meta data-prerender property="og:url" content="${url}">
   <meta data-prerender property="og:image" content="${escHtml(img)}">
   <meta data-prerender property="og:locale" content="fr_FR">
-  <!-- fin SEO statique -->`;
+  <!-- fin SEO statique -->${jsonLd ? jsonLdScript(jsonLd) : ''}`;
 
   // Contenu lisible sans JS (Bing, réseaux sociaux, IA…) ; React le remplace au montage
   const prerendered = `
     <article class="container mx-auto px-6 max-w-3xl pt-32 pb-24">
       <h1 class="text-3xl md:text-5xl font-serif font-bold text-slate-800 mb-6 leading-tight">${h1safe}</h1>
       ${excSafe ? `<p class="text-lg text-slate-500 mb-10 font-light leading-relaxed">${excSafe}</p>` : ''}
-      ${body ? `<div class="article-content">${body}</div>` : ''}
+      ${body ? `<div class="article-content">${body}</div>` : ''}${authorBox ? AUTHOR_BOX : ''}
     </article>`;
 
   return template
@@ -99,67 +111,74 @@ function mdFiles(dir) {
 
 // ─── routes ──────────────────────────────────────────────────────────────────
 
+const constants = await loadConstants();
+
+function readEntries(dir, urlPrefix, section) {
+  return mdFiles(dir)
+    .map((file) => parseFrontmatter(fs.readFileSync(path.join(dir, file), 'utf-8')))
+    .filter((data) => data.slug)
+    .map((data) => ({
+      ...data,
+      section,
+      path: `${urlPrefix}/${data.slug}`,
+      url:  `${BASE_URL}${urlPrefix}/${data.slug}`,
+    }))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+const posts = readEntries(POSTS, '/blog', 'Blog');
+const news  = readEntries(NEWS, '/actualites', 'Actualités');
+const llms  = llmsTxt(constants, posts, news);
+
 // 1. Homepage (mise à jour in-place)
 writePage(path.join(DIST, 'index.html'), {
-  title:       'Virginie Lelong - Diététicienne Nutritionniste à Melun',
-  description: 'Diététicienne nutritionniste diplômée à Melun et Corbeil-Essonnes. Perte de poids, diabète, chirurgie bariatrique, nutrition du sport.',
+  title:       constants.SEO_TITLE,
+  description: constants.SEO_DESCRIPTION,
   canonical:   '/',
   ogType:      'website',
-  h1:          'Virginie Lelong Mazaud — Diététicienne Nutritionniste',
-  excerpt:     'Cabinet à Melun, Corbeil-Essonnes et Fontainebleau. Bilan personnalisé, impédancemétrie, suivi nutritionnel bienveillant.',
+  h1:          `${constants.APROPOS_NOM} — Diététicienne Nutritionniste`,
+  excerpt:     constants.SEO_DESCRIPTION,
+  body:        marked.parse(llms.replace(/^# .*\n/, '')),
+  jsonLd:      homepageJsonLd(constants),
 });
 console.log('✅  /  (homepage)');
 
 // 2. Blog & Actualités
 writePage(path.join(DIST, 'blog-et-actualites', 'index.html'), {
-  title:       'Blog & Actualités – Nutrition et Diététique',
-  description: 'Articles de nutrition, conseils diététiques et actualités du cabinet de Virginie Lelong Mazaud, diététicienne nutritionniste.',
+  title:       constants.SEO_BLOG_TITLE,
+  description: constants.SEO_BLOG_DESCRIPTION,
   canonical:   '/blog-et-actualites',
   ogType:      'website',
   h1:          'Blog & Actualités',
   excerpt:     'Conseils nutrition, recettes et actualités du cabinet diététique.',
+  body:        marked.parse([...posts, ...news]
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .map((e) => `- [${e.title}](${e.path}) — ${e.excerpt}`)
+    .join('\n')),
 });
 console.log('✅  /blog-et-actualites');
 
-// 3. Articles de blog
-let blogCount = 0;
-for (const file of mdFiles(POSTS)) {
-  const raw  = fs.readFileSync(path.join(POSTS, file), 'utf-8');
-  const data = parseFrontmatter(raw);
-  if (!data.slug) continue;
-  writePage(path.join(DIST, 'blog', data.slug, 'index.html'), {
-    title:       data.title   || '',
-    description: data.excerpt || '',
-    canonical:   `/blog/${data.slug}`,
-    ogImage:     data.image,
+// 3. Articles de blog et actualités
+for (const entry of [...posts, ...news]) {
+  const image = absUrl(entry.image);
+  writePage(path.join(DIST, entry.path, 'index.html'), {
+    title:       entry.title   || '',
+    description: entry.excerpt || '',
+    canonical:   entry.path,
+    ogImage:     image,
     ogType:      'article',
-    h1:          data.title   || '',
-    excerpt:     data.excerpt || '',
-    body:        marked.parse(data.content || ''),
+    h1:          entry.title   || '',
+    excerpt:     entry.excerpt || '',
+    body:        marked.parse(entry.content || ''),
+    jsonLd:      articleJsonLd({ ...entry, image }),
+    authorBox:   true,
   });
-  blogCount++;
 }
-console.log(`✅  /blog/* (${blogCount} articles)`);
+console.log(`✅  /blog/* (${posts.length} articles), /actualites/* (${news.length} actualités)`);
 
-// 4. Actualités
-let newsCount = 0;
-for (const file of mdFiles(NEWS)) {
-  const raw  = fs.readFileSync(path.join(NEWS, file), 'utf-8');
-  const data = parseFrontmatter(raw);
-  if (!data.slug) continue;
-  writePage(path.join(DIST, 'actualites', data.slug, 'index.html'), {
-    title:       data.title   || '',
-    description: data.excerpt || '',
-    canonical:   `/actualites/${data.slug}`,
-    ogImage:     data.image,
-    ogType:      'article',
-    h1:          data.title   || '',
-    excerpt:     data.excerpt || '',
-    body:        marked.parse(data.content || ''),
-  });
-  newsCount++;
-}
-console.log(`✅  /actualites/* (${newsCount} actualités)`);
+// 4. llms.txt (résumé du site pour les assistants IA)
+fs.writeFileSync(path.join(DIST, 'llms.txt'), llms, 'utf-8');
+console.log('✅  /llms.txt');
 
 // 5. Page 404 (servie avec un vrai statut 404 par vercel.json)
 writePage(path.join(DIST, '404.html'), {

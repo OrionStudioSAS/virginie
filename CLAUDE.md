@@ -56,6 +56,7 @@ Dans `.env.local` (et sur Vercel) :
 - `/admin` est en `noindex`
 - `robots.txt` : Disallow /admin
 - `scripts/generate-seo.js` s'exécute au build : sitemap + 2 flux RSS
+- `scripts/generate-pages.js` (post-build) : pages statiques pré-rendues, JSON-LD (Dietitian, FAQPage, BlogPosting) et `llms.txt`, tous dérivés de `constants.tsx` via `scripts/site-data.js` → modifier adresses/horaires/tarifs/FAQ uniquement dans `constants.tsx`
 
 ## Frontmatter des fichiers .md
 ```yaml

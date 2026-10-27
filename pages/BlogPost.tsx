@@ -4,6 +4,7 @@ import { getPostBySlug, Post } from '../lib/blog';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import Seo from '../components/Seo';
+import AuthorBox from '../components/AuthorBox';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import { marked } from 'marked';
 
@@ -86,6 +87,8 @@ const BlogPost: React.FC = () => {
           <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-12">
             <div className="article-content" dangerouslySetInnerHTML={{ __html: html }} />
           </div>
+
+          <AuthorBox />
         </article>
       </main>
       <Footer />
